@@ -3,274 +3,932 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Kuomboka — The official digital home of the Lozi people's most sacred ceremony. History, culture, travel guide, attire, and live updates from Barotseland, Zambia."/>
-  <meta property="og:title" content="Kuomboka — The Journey of a King"/>
-  <meta property="og:description" content="The official digital home of Kuomboka — one of Africa's most extraordinary cultural ceremonies."/>
+  <meta name="description" content="Kuomboka is Zambia's most sacred royal ceremony. The Litunga of Barotseland crosses the Zambezi floodplain aboard the Nalikwanda. History, travel guide, culture and live updates."/>
+  <meta name="keywords" content="Kuomboka, Zambia, Lozi, Barotseland, Nalikwanda, Litunga, ceremony, Western Province, Zambezi, traditional ceremony"/>
+  <meta name="author" content="Kuomboka.com"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Kuomboka — The Journey of a King | Official Site"/>
+  <meta property="og:description" content="Kuomboka is Zambia's most sacred royal ceremony. The Litunga of Barotseland crosses the Zambezi floodplain aboard the Nalikwanda. History, travel guide, culture and live updates."/>
   <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.kuomboka.com/"/>
+  <meta property="og:image" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Kuomboka — The Journey of a King | Official Site"/>
+  <meta name="twitter:description" content="Kuomboka is Zambia's most sacred royal ceremony. The Litunga of Barotseland crosses the Zambezi floodplain aboard the Nalikwanda. History, travel guide, culture and live updates."/>
+  <meta name="twitter:image" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"/>
+  <link rel="canonical" href="https://www.kuomboka.com/"/>
   <title>Kuomboka — The Journey of a King | Official Site</title>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <style>
+    /* ═══════════════════════════════
+       3D CINEMATIC STYLES
+    ═══════════════════════════════ */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --gold:#A57B0A; --gold2:#D4B030; --gold4:#EDD98A;
+      --crimson:#9B1C2E; --crimson2:#C02840;
+      --black:#0A0A0A; --black2:#111;
+      --ivory:#F8F4ED; --ivory2:#F2EAD5; --earth2:#C4A882;
+      --white:#fff;
+    }
+
+    body { background:var(--black); overflow-x:hidden; font-family:'Raleway',sans-serif; }
+
+    /* CUSTOM CURSOR */
+    * { cursor: none !important; }
+    .cursor {
+      position:fixed; width:12px; height:12px;
+      background:var(--gold); border-radius:50%;
+      pointer-events:none; z-index:99999;
+      transform:translate(-50%,-50%);
+      transition:transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+      mix-blend-mode:difference;
+    }
+    .cursor-ring {
+      position:fixed; width:40px; height:40px;
+      border:1px solid rgba(165,123,10,0.5); border-radius:50%;
+      pointer-events:none; z-index:99998;
+      transform:translate(-50%,-50%);
+      transition:transform 0.15s ease-out, width 0.3s, height 0.3s;
+    }
+    .cursor.hover { width:20px; height:20px; }
+    .cursor-ring.hover { width:60px; height:60px; border-color:var(--gold); }
+
+    /* PARTICLES CANVAS */
+    #particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:500;
+      background:rgba(10,10,10,0.85);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(165,123,10,0.15);
+    }
+    .nav-stripe { height:3px; background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 10px,var(--gold) 10px,var(--gold) 20px,#fff 20px,#fff 30px,var(--gold) 30px,var(--gold) 40px,var(--crimson) 40px,var(--crimson) 50px); }
+    .nav-body { display:flex; align-items:center; justify-content:space-between; padding:0 3rem; height:64px; }
+    .nav-logo img { height:48px; width:auto; }
+    .nav-links { display:flex; list-style:none; }
+    .nav-links a { display:block; padding:.4rem 1rem; font-size:.65rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--gold2); }
+    .nav-cta { background:var(--crimson)!important; color:#fff!important; }
+    .nav-cta:hover { background:var(--crimson2)!important; }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      position:relative; height:100vh; min-height:700px;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden; perspective:1000px;
+    }
+
+    /* Layered parallax backgrounds */
+    .hero-layer {
+      position:absolute; inset:0;
+      background-attachment:fixed;
+      will-change:transform;
+    }
+    .hero-layer-1 {
+      background: radial-gradient(ellipse 120% 80% at 50% 60%, rgba(165,123,10,.18) 0%, transparent 65%),
+                  radial-gradient(ellipse 80% 60% at 20% 80%, rgba(155,28,46,.2) 0%, transparent 55%),
+                  radial-gradient(ellipse 60% 60% at 80% 20%, rgba(30,74,140,.15) 0%, transparent 55%),
+                  linear-gradient(160deg, #050505 0%, #0d0d0d 40%, #080808 100%);
+    }
+    .hero-layer-2 {
+      background: repeating-linear-gradient(175deg, rgba(255,255,255,.015) 0, rgba(255,255,255,.015) 1px, transparent 1px, transparent 55px);
+      animation: driftStripes 20s linear infinite;
+    }
+    .hero-layer-3 {
+      background: repeating-linear-gradient(90deg, rgba(165,123,10,.03) 0, rgba(165,123,10,.03) 1px, transparent 1px, transparent 80px);
+    }
+    @keyframes driftStripes { from{transform:translateY(0)} to{transform:translateY(55px)} }
+
+    /* Water at bottom */
+    .hero-water {
+      position:absolute; bottom:0; left:0; right:0; height:35%; z-index:1;
+      background: linear-gradient(to top, rgba(20,50,120,.35) 0%, transparent 100%);
+      overflow:hidden;
+    }
+    .hero-water::before, .hero-water::after {
+      content:'';
+      position:absolute; bottom:0; left:-50%; right:-50%; height:80px;
+      background: rgba(30,74,140,.2);
+      border-radius:50% 50% 0 0 / 20px 20px 0 0;
+    }
+    .hero-water::before { animation: wave1 6s ease-in-out infinite; }
+    .hero-water::after  { animation: wave2 8s ease-in-out infinite; opacity:.6; }
+    @keyframes wave1 { 0%,100%{transform:translateX(0) scaleY(1)} 50%{transform:translateX(3%) scaleY(1.1)} }
+    @keyframes wave2 { 0%,100%{transform:translateX(0) scaleY(1)} 50%{transform:translateX(-3%) scaleY(0.9)} }
+
+    /* 3D floating orbs */
+    .orb {
+      position:absolute; border-radius:50%;
+      filter:blur(80px); opacity:0.08;
+      animation:float3d 12s ease-in-out infinite;
+      will-change:transform;
+    }
+    .orb-1 { width:600px; height:600px; background:var(--gold); top:-200px; left:-100px; animation-delay:0s; }
+    .orb-2 { width:400px; height:400px; background:var(--crimson); bottom:-100px; right:-50px; animation-delay:-4s; }
+    .orb-3 { width:300px; height:300px; background:#1E4A8C; top:40%; left:60%; animation-delay:-8s; opacity:.06; }
+    @keyframes float3d {
+      0%,100% { transform:translate(0,0) scale(1); }
+      33%      { transform:translate(30px,-40px) scale(1.05); }
+      66%      { transform:translate(-20px,20px) scale(0.95); }
+    }
+
+    /* Hero content */
+    .hero-content {
+      position:relative; z-index:10;
+      text-align:center;
+      transform-style:preserve-3d;
+    }
+
+    /* Logo with 3D float */
+    .hero-logo {
+      width:200px; height:auto;
+      margin:0 auto 2rem;
+      display:block;
+      filter:drop-shadow(0 0 60px rgba(165,123,10,.6)) drop-shadow(0 20px 40px rgba(0,0,0,.8));
+      animation:logoFloat 4s ease-in-out infinite, fadeInDown 1.2s ease .2s both;
+    }
+    @keyframes logoFloat {
+      0%,100% { transform:translateY(0) rotateY(0deg); filter:drop-shadow(0 0 60px rgba(165,123,10,.6)) drop-shadow(0 20px 40px rgba(0,0,0,.8)); }
+      50%      { transform:translateY(-12px) rotateY(3deg); filter:drop-shadow(0 0 80px rgba(165,123,10,.8)) drop-shadow(0 30px 50px rgba(0,0,0,.9)); }
+    }
+
+    /* Badge */
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:1rem;
+      margin-bottom:1.5rem;
+      animation:fadeInDown 1s ease .4s both;
+    }
+    .badge-line { height:1px; width:50px; background:var(--gold); opacity:.5; }
+    .badge-text { font-size:.6rem; letter-spacing:.5em; text-transform:uppercase; color:var(--gold2); }
+
+    /* Title with 3D depth */
+    .hero-title {
+      font-family:'Cinzel Decorative',serif;
+      font-size:clamp(3.5rem,9vw,8rem);
+      font-weight:700; color:var(--white);
+      line-height:.9; letter-spacing:.04em;
+      text-shadow:
+        0 1px 0 rgba(165,123,10,.8),
+        0 2px 0 rgba(165,123,10,.6),
+        0 4px 0 rgba(165,123,10,.4),
+        0 8px 0 rgba(165,123,10,.2),
+        0 16px 30px rgba(0,0,0,.9),
+        0 0 100px rgba(165,123,10,.3);
+      animation:fadeInUp 1.2s ease .6s both;
+      transform-style:preserve-3d;
+    }
+
+    /* Glowing rule */
+    .hero-rule {
+      width:150px; height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      margin:2rem auto;
+      box-shadow:0 0 20px rgba(165,123,10,.6);
+      animation:fadeInUp 1s ease .8s both;
+    }
+
+    .hero-sub {
+      font-family:'EB Garamond',serif;
+      font-size:clamp(1.2rem,2.5vw,1.8rem);
+      font-style:italic; color:var(--earth2);
+      margin-bottom:.5rem;
+      animation:fadeInUp 1s ease .9s both;
+    }
+    .hero-trans {
+      font-size:.68rem; letter-spacing:.45em; text-transform:uppercase;
+      color:rgba(255,255,255,.3); margin-bottom:3rem;
+      animation:fadeInUp 1s ease 1s both;
+    }
+
+    /* 3D COUNTDOWN */
+    .countdown-wrap { animation:fadeInUp 1s ease 1.1s both; margin-bottom:3rem; }
+    .cd-label {
+      font-size:.58rem; letter-spacing:.45em; text-transform:uppercase;
+      color:var(--crimson2); margin-bottom:1rem;
+      display:flex; align-items:center; justify-content:center; gap:.8rem;
+    }
+    .cd-label-line { height:1px; width:28px; background:var(--crimson); opacity:.5; }
+    .cd-units {
+      display:inline-flex;
+      border:1px solid rgba(165,123,10,.25);
+      background:rgba(10,10,10,.6);
+      backdrop-filter:blur(10px);
+      box-shadow:0 20px 60px rgba(0,0,0,.8), 0 0 40px rgba(165,123,10,.1), inset 0 1px 0 rgba(165,123,10,.2);
+      transform:perspective(600px) rotateX(5deg);
+      transition:transform .3s;
+    }
+    .cd-units:hover { transform:perspective(600px) rotateX(0deg); }
+    .cd-unit {
+      padding:1rem 2rem; text-align:center;
+      border-right:1px solid rgba(165,123,10,.15);
+      position:relative;
+    }
+    .cd-unit:last-child { border-right:none; }
+    .cd-unit::after {
+      content:''; position:absolute; bottom:0; left:10%; right:10%; height:1px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      opacity:.3;
+    }
+    .cd-n {
+      font-family:'Cinzel',serif; font-size:2.2rem; font-weight:700;
+      color:var(--white); display:block; line-height:1;
+      text-shadow:0 0 20px rgba(165,123,10,.5);
+      min-width:2.5ch;
+    }
+    .cd-l { font-size:.52rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); display:block; margin-top:.4rem; }
+
+    /* Hero CTAs */
+    .hero-ctas {
+      display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;
+      animation:fadeInUp 1s ease 1.3s both;
+    }
+    .btn3d {
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.9rem 2.2rem;
+      font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.2em; text-transform:uppercase;
+      text-decoration:none; border:none;
+      position:relative; overflow:hidden;
+      transition:transform .2s, box-shadow .2s;
+      transform:perspective(500px) translateZ(0);
+    }
+    .btn3d::before {
+      content:''; position:absolute; inset:0;
+      background:rgba(255,255,255,.1);
+      transform:translateX(-100%);
+      transition:transform .3s;
+    }
+    .btn3d:hover::before { transform:translateX(0); }
+    .btn3d:hover { transform:perspective(500px) translateZ(10px) translateY(-3px); }
+    .btn3d-gold { background:var(--gold); color:var(--black); box-shadow:0 8px 30px rgba(165,123,10,.4), 0 2px 0 rgba(165,123,10,.8); }
+    .btn3d-gold:hover { box-shadow:0 14px 40px rgba(165,123,10,.6), 0 2px 0 rgba(165,123,10,.8); }
+    .btn3d-crim { background:var(--crimson); color:#fff; box-shadow:0 8px 30px rgba(155,28,46,.4), 0 2px 0 rgba(155,28,46,.8); }
+    .btn3d-crim:hover { box-shadow:0 14px 40px rgba(155,28,46,.6), 0 2px 0 rgba(155,28,46,.8); }
+    .btn3d-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.2); box-shadow:0 8px 30px rgba(0,0,0,.3); }
+    .btn3d-ghost:hover { border-color:rgba(255,255,255,.6); box-shadow:0 14px 40px rgba(0,0,0,.5); }
+
+    /* Scroll indicator */
+    .scroll-cue {
+      position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      animation:fadeInUp 1s ease 2s both;
+    }
+    .scroll-cue span { font-size:.55rem; letter-spacing:.4em; text-transform:uppercase; color:rgba(255,255,255,.25); }
+    .scroll-arrow {
+      width:1px; height:50px;
+      background:linear-gradient(to bottom,var(--gold),transparent);
+      box-shadow:0 0 8px rgba(165,123,10,.4);
+      animation:scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+      50%  { opacity:1; transform:scaleY(1); }
+      100% { opacity:0; transform:scaleY(0); transform-origin:bottom; }
+    }
+
+    /* ═══ SYMBOL BAR ═══ */
+    .sym-bar {
+      position:relative; background:var(--ivory2);
+      border-top:3px solid var(--gold); border-bottom:3px solid var(--gold);
+      padding:2rem; overflow:hidden;
+    }
+    .sym-bar::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(165,123,10,.05) 0%,transparent 50%,rgba(165,123,10,.05) 100%);
+    }
+    .sym-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(5,1fr); text-align:center; }
+    .sym-item {
+      padding:1rem; border-right:1px solid rgba(165,123,10,.18);
+      display:flex; flex-direction:column; align-items:center; gap:.4rem;
+      transition:transform .3s;
+    }
+    .sym-item:hover { transform:translateY(-4px); }
+    .sym-item:last-child { border-right:none; }
+    .sym-icon { font-size:1.8rem; filter:drop-shadow(0 4px 8px rgba(0,0,0,.3)); }
+    .sym-title { font-family:'Cinzel',serif; font-size:.68rem; font-weight:700; color:var(--black); letter-spacing:.08em; }
+    .sym-sub { font-family:'EB Garamond',serif; font-style:italic; font-size:.82rem; color:#7A5C38; }
+
+    /* ═══ 3D CARDS SECTION ═══ */
+    .cards-section {
+      padding:7rem 2rem; background:var(--black2);
+      position:relative; overflow:hidden;
+    }
+    .cards-section::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 60px);
+    }
+    .cards-inner { max-width:1200px; margin:0 auto; }
+    .section-header { text-align:center; margin-bottom:4rem; }
+    .section-label-3d {
+      display:inline-flex; align-items:center; gap:.8rem;
+      font-size:.6rem; font-weight:700; letter-spacing:.5em; text-transform:uppercase;
+      color:var(--crimson2); margin-bottom:1rem;
+    }
+    .section-label-3d::before,.section-label-3d::after { content:''; width:30px; height:1px; background:var(--crimson); opacity:.5; }
+    .section-h-3d {
+      font-family:'Cinzel',serif; font-size:clamp(1.8rem,4vw,3rem);
+      font-weight:700; color:var(--white); line-height:1.2;
+      text-shadow:0 4px 20px rgba(0,0,0,.8);
+    }
+    .section-body-3d {
+      font-family:'EB Garamond',serif; font-size:1.15rem;
+      line-height:1.9; color:rgba(255,255,255,.45);
+      max-width:600px; margin:.8rem auto 0;
+    }
+
+    /* 3D TILT CARDS */
+    .tilt-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
+    }
+    .tilt-card {
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(165,123,10,.12);
+      padding:2.5rem 2rem;
+      position:relative; overflow:hidden;
+      transition:transform .1s, box-shadow .3s;
+      transform-style:preserve-3d;
+      cursor:none;
+    }
+    .tilt-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(165,123,10,.06) 0%,transparent 50%);
+      opacity:0; transition:opacity .3s;
+    }
+    .tilt-card:hover::before { opacity:1; }
+    .tilt-card::after {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      transform:scaleX(0); transition:transform .4s;
+    }
+    .tilt-card:hover::after { transform:scaleX(1); }
+    .tilt-card:hover {
+      box-shadow:0 20px 60px rgba(0,0,0,.6), 0 0 30px rgba(165,123,10,.1);
+    }
+    .card-icon-3d {
+      font-size:2.2rem; margin-bottom:1.2rem; display:block;
+      filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));
+      transform:translateZ(20px);
+      transition:transform .3s;
+    }
+    .tilt-card:hover .card-icon-3d { transform:translateZ(30px) scale(1.1); }
+    .card-title-3d {
+      font-family:'Cinzel',serif; font-size:.85rem; font-weight:700;
+      color:var(--gold2); margin-bottom:.8rem; letter-spacing:.06em;
+    }
+    .card-body-3d { font-size:.88rem; line-height:1.75; color:rgba(255,255,255,.45); }
+    .card-link-3d {
+      display:inline-flex; align-items:center; gap:.4rem;
+      margin-top:1.2rem; font-size:.68rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase;
+      color:var(--gold); text-decoration:none;
+      transition:gap .2s, color .2s;
+    }
+    .card-link-3d:hover { gap:.8rem; color:var(--gold2); }
+
+    /* ═══ GALLERY SECTION ═══ */
+    .gallery-section { padding:7rem 2rem; background:var(--ivory2); }
+    .gal-inner { max-width:1200px; margin:0 auto; }
+    .gal-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem; }
+    .gal-grid {
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      gap:4px; margin-bottom:4px;
+    }
+    .gal-grid-2 {
+      display:grid; grid-template-columns:1fr 1.4fr;
+      gap:4px; margin-bottom:3rem;
+    }
+    .gal-photo {
+      position:relative; overflow:hidden;
+      height:420px;
+    }
+    .gal-photo img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition:transform .6s ease;
+      filter:brightness(.9) saturate(1.1);
+    }
+    .gal-photo:hover img { transform:scale(1.06); filter:brightness(1.05) saturate(1.2); }
+    .gal-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%);
+      transition:opacity .3s;
+    }
+    .gal-photo:hover .gal-overlay { opacity:.7; }
+    .gal-info { position:absolute; bottom:0; left:0; right:0; padding:1.5rem; transform:translateY(4px); transition:transform .3s; }
+    .gal-photo:hover .gal-info { transform:translateY(0); }
+    .gal-title { font-family:'Cinzel',serif; font-size:.82rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; margin-bottom:.3rem; }
+    .gal-credit { font-family:'EB Garamond',serif; font-size:.88rem; font-style:italic; color:rgba(255,255,255,.6); }
+
+    /* ═══ CEREMONY DARK SECTION ═══ */
+    .ceremony-section {
+      padding:7rem 2rem; background:var(--black);
+      position:relative; overflow:hidden;
+    }
+    .ceremony-section::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(90deg,rgba(255,255,255,.01) 0,rgba(255,255,255,.01) 1px,transparent 1px,transparent 44px);
+    }
+    .cer-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; position:relative; }
+    .timeline-3d { border-left:2px solid var(--gold); margin-left:4.5rem; margin-top:2.5rem; box-shadow:-1px 0 20px rgba(165,123,10,.2); }
+    .tl-item { padding:1.4rem 0 1.4rem 2.5rem; border-bottom:1px solid rgba(255,255,255,.05); position:relative; }
+    .tl-dot { position:absolute; left:-6px; top:1.6rem; width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow:0 0 15px rgba(165,123,10,.8); }
+    .tl-dot.red { background:var(--crimson2); box-shadow:0 0 15px rgba(192,40,64,.8); }
+    .tl-time { position:absolute; left:-5.5rem; top:1.55rem; font-family:'Cinzel',serif; font-size:.58rem; font-weight:700; color:var(--gold); letter-spacing:.1em; white-space:nowrap; }
+    .tl-title { font-family:'Cinzel',serif; font-size:.85rem; font-weight:700; color:var(--white); margin-bottom:.3rem; }
+    .tl-desc { font-size:.84rem; color:rgba(255,255,255,.45); line-height:1.65; }
+
+    /* Attire cards */
+    .at-card { border:1px solid rgba(165,123,10,.2); overflow:hidden; margin-bottom:1rem; transition:transform .3s, box-shadow .3s; }
+    .at-card:hover { transform:translateX(4px); box-shadow:-4px 0 20px rgba(165,123,10,.2); }
+    .at-head { padding:.8rem 1.5rem; display:flex; align-items:center; gap:.8rem; }
+    .at-head h3 { font-family:'Cinzel',serif; font-size:.78rem; font-weight:700; letter-spacing:.08em; }
+    .at-body { padding:1.3rem 1.5rem; background:rgba(255,255,255,.03); }
+    .at-body p { font-size:.86rem; color:rgba(255,255,255,.5); line-height:1.7; }
+    .at-list { list-style:none; margin-top:.8rem; }
+    .at-list li { font-size:.8rem; color:rgba(255,255,255,.4); padding-left:1rem; position:relative; margin-bottom:.3rem; }
+    .at-list li::before { content:'—'; position:absolute; left:0; color:var(--gold); opacity:.5; }
+    .royal-q { border-left:4px solid var(--crimson); padding:1.4rem 1.8rem; background:rgba(155,28,46,.07); margin-top:1rem; }
+    .royal-q p { font-family:'EB Garamond',serif; font-size:1.15rem; font-style:italic; color:var(--ivory2); line-height:1.7; }
+    .royal-q cite { display:block; margin-top:.8rem; font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:var(--crimson2); font-style:normal; }
+
+    /* ═══ NEWSLETTER ═══ */
+    .nl-section {
+      padding:6rem 2rem; background:var(--crimson);
+      position:relative; overflow:hidden;
+    }
+    .nl-section::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 1px,transparent 28px);
+    }
+    .nl-inner { max-width:700px; margin:0 auto; text-align:center; position:relative; }
+    .nl-h { font-family:'Cinzel',serif; font-size:clamp(1.5rem,3vw,2.5rem); color:#fff; line-height:1.2; margin-bottom:1rem; }
+    .nl-sub { font-family:'EB Garamond',serif; font-size:1.1rem; font-style:italic; color:rgba(255,255,255,.65); margin-bottom:2rem; }
+    .nl-form { display:flex; max-width:500px; margin:0 auto; }
+    .nl-input { flex:1; padding:1rem 1.2rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-right:none; color:#fff; font-family:'Raleway',sans-serif; font-size:.85rem; outline:none; }
+    .nl-input::placeholder { color:rgba(255,255,255,.4); }
+
+    /* ═══ FOOTER ═══ */
+    .site-footer { background:var(--black); padding:4rem 2rem 0; border-top:3px solid var(--gold); }
+    .ft-inner { max-width:1200px; margin:0 auto; }
+    .ft-top { display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-brand { font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:#fff; letter-spacing:.15em; margin-bottom:.9rem; }
+    .ft-tagline { font-family:'EB Garamond',serif; font-style:italic; font-size:.95rem; color:rgba(255,255,255,.3); line-height:1.7; margin-bottom:1.4rem; }
+    .ft-socials { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .ft-soc { padding:.35rem .85rem; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.35); font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:all .2s; }
+    .ft-soc:hover { border-color:var(--gold); color:var(--gold); }
+    .ft-col-h { font-family:'Cinzel',serif; font-size:.62rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.3rem; padding-bottom:.7rem; border-bottom:1px solid rgba(165,123,10,.18); }
+    .ft-links { list-style:none; display:flex; flex-direction:column; gap:.65rem; }
+    .ft-links a { font-size:.82rem; color:rgba(255,255,255,.3); text-decoration:none; transition:color .2s; }
+    .ft-links a:hover { color:rgba(255,255,255,.75); }
+    .ft-bot { display:flex; justify-content:space-between; align-items:center; padding:1.4rem 0; flex-wrap:wrap; gap:.5rem; }
+    .ft-copy { font-size:.7rem; color:rgba(255,255,255,.16); letter-spacing:.08em; }
+    .ft-silozi { font-family:'EB Garamond',serif; font-style:italic; font-size:.9rem; color:rgba(165,123,10,.3); }
+
+    /* Stripe dividers */
+    .s-bw { height:10px; background:repeating-linear-gradient(90deg,#0a0a0a 0,#0a0a0a 22px,#fff 22px,#fff 44px); }
+    .s-bw-sm { height:5px; background:repeating-linear-gradient(90deg,#0a0a0a 0,#0a0a0a 16px,#fff 16px,#fff 32px); }
+    .s-gold { height:6px; background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 18px,var(--ivory2) 18px,var(--ivory2) 36px); }
+    .s-tri { height:8px; background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px); }
+
+    /* Animations */
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:translateY(0)} }
+
+    /* Scroll Reveal */
+    .sr { opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s ease; }
+    .sr.in { opacity:1; transform:translateY(0); }
+    .sr-left { opacity:0; transform:translateX(-40px); transition:opacity .8s ease, transform .8s ease; }
+    .sr-left.in { opacity:1; transform:translateX(0); }
+    .sr-right { opacity:0; transform:translateX(40px); transition:opacity .8s ease, transform .8s ease; }
+    .sr-right.in { opacity:1; transform:translateX(0); }
+    .sr-scale { opacity:0; transform:scale(.9); transition:opacity .8s ease, transform .8s ease; }
+    .sr-scale.in { opacity:1; transform:scale(1); }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .nav-links { display:none; }
+      .tilt-grid { grid-template-columns:1fr; }
+      .cer-inner { grid-template-columns:1fr; gap:2.5rem; }
+      .gal-grid,.gal-grid-2 { grid-template-columns:1fr; }
+      .gal-photo { height:300px; }
+      .ft-top { grid-template-columns:1fr 1fr; gap:2rem; }
+      .sym-inner { grid-template-columns:repeat(3,1fr); }
+    }
+    @media(max-width:600px) {
+      .sym-inner { grid-template-columns:1fr 1fr; }
+      .ft-top { grid-template-columns:1fr; }
+      .nl-form { flex-direction:column; }
+      .nl-input { border-right:1px solid rgba(255,255,255,.25); border-bottom:none; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 </head>
 <body data-page="home">
 
-<div id="site-nav"></div>
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<div class="page-wrap">
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
 
-  <!-- ══ HERO ══ -->
-  <section class="hero" style="min-height:calc(100vh - 66px);background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem 6rem;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 38%,rgba(165,123,10,.13) 0,transparent 70%),radial-gradient(ellipse 100% 55% at 0% 100%,rgba(155,28,46,.14) 0,transparent 60%),linear-gradient(180deg,#0a0a0a 0%,#121212 100%);"></div>
-    <div style="position:absolute;inset:0;background:repeating-linear-gradient(175deg,rgba(255,255,255,.014) 0,rgba(255,255,255,.014) 1px,transparent 1px,transparent 55px);"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:28%;background:linear-gradient(to top,rgba(30,74,140,.22),transparent);"></div>
+<!-- NAV -->
+<nav>
+  <div class="nav-stripe"></div>
+  <div class="nav-body">
+    <a href="index.html" class="nav-logo">
+      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="history.html">History</a></li>
+      <li><a href="lozi.html">Lozi People</a></li>
+      <li><a href="attire.html">Attire</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="nav-cta">Plan Visit</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <div style="position:relative;z-index:2;">
-      <!-- Real Logo -->
-      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" class="fiu-1" style="width:180px;height:auto;margin:0 auto 1.8rem;display:block;filter:drop-shadow(0 0 30px rgba(165,123,10,0.4));"/>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-layer hero-layer-1"></div>
+  <div class="hero-layer hero-layer-2"></div>
+  <div class="hero-layer hero-layer-3"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-water"></div>
 
-      <div style="display:inline-flex;align-items:center;gap:.9rem;margin-bottom:2rem;" class="fiu-1">
-        <span style="height:1px;width:44px;background:var(--gold);opacity:.55;display:block;"></span>
-        <span style="font-size:.6rem;letter-spacing:.48em;text-transform:uppercase;color:var(--gold3);">Western Province · Zambia · Since the First Flood</span>
-        <span style="height:1px;width:44px;background:var(--gold);opacity:.55;display:block;"></span>
+  <div class="hero-content" id="heroContent">
+    <img class="hero-logo"
+      src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"
+      alt="Kuomboka"/>
+
+    <div class="hero-badge">
+      <span class="badge-line"></span>
+      <span class="badge-text">Western Province · Zambia · Since the First Flood</span>
+      <span class="badge-line"></span>
+    </div>
+
+    <h1 class="hero-title" id="heroTitle">KUOMBOKA</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">The Journey of a King. The Pride of a People.</p>
+    <p class="hero-trans">Silozi · "To Get Out of the Water"</p>
+
+    <div class="countdown-wrap">
+      <div class="cd-label">
+        <span class="cd-label-line"></span>
+        <span>Next Royal Ceremony · March / April 2026</span>
+        <span class="cd-label-line"></span>
       </div>
-
-      <h1 style="font-family:'Cinzel Decorative',serif;font-size:clamp(3rem,9vw,7.5rem);font-weight:700;color:var(--white);line-height:.95;letter-spacing:.04em;text-shadow:0 0 100px rgba(165,123,10,.35),0 4px 40px rgba(0,0,0,.9);" class="fiu-2">KUOMBOKA</h1>
-
-      <div style="width:110px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.8rem auto;" class="fiu-3"></div>
-
-      <p style="font-family:'EB Garamond',serif;font-size:clamp(1.15rem,2.5vw,1.75rem);font-style:italic;color:var(--earth2);letter-spacing:.04em;" class="fiu-3">The Journey of a King. The Pride of a People.</p>
-      <p style="font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.28);margin:.6rem 0 3rem;" class="fiu-4">Silozi · "To Get Out of the Water"</p>
-
-      <!-- Countdown -->
-      <div style="margin-bottom:3rem;" class="fiu-4">
-        <div style="font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:1.2rem;">
-          <span style="height:1px;width:28px;background:var(--crimson);opacity:.5;display:block;"></span>
-          <span style="color:var(--crimson2);">Next Royal Ceremony · March / April 2026</span>
-          <span style="height:1px;width:28px;background:var(--crimson);opacity:.5;display:block;"></span>
-        </div>
-        <div style="display:flex;border:1px solid rgba(165,123,10,.22);display:inline-flex;">
-          <div style="padding:.9rem 1.7rem;text-align:center;border-right:1px solid rgba(165,123,10,.13);background:rgba(255,255,255,.025);">
-            <span id="cd-days" style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--white);display:block;line-height:1;min-width:2.2ch;">--</span>
-            <span style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.35rem;">Days</span>
-          </div>
-          <div style="padding:.9rem 1.7rem;text-align:center;border-right:1px solid rgba(165,123,10,.13);background:rgba(255,255,255,.025);">
-            <span id="cd-hours" style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--white);display:block;line-height:1;min-width:2.2ch;">--</span>
-            <span style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.35rem;">Hours</span>
-          </div>
-          <div style="padding:.9rem 1.7rem;text-align:center;border-right:1px solid rgba(165,123,10,.13);background:rgba(255,255,255,.025);">
-            <span id="cd-mins" style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--white);display:block;line-height:1;min-width:2.2ch;">--</span>
-            <span style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.35rem;">Mins</span>
-          </div>
-          <div style="padding:.9rem 1.7rem;text-align:center;background:rgba(255,255,255,.025);">
-            <span id="cd-secs" style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--white);display:block;line-height:1;min-width:2.2ch;">--</span>
-            <span style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.35rem;">Secs</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;" class="fiu-5">
-        <a href="history.html" class="btn btn-gold">✦ Learn the Meaning</a>
-        <a href="travel.html" class="btn btn-crimson">Plan Your Visit</a>
-        <a href="news.html" class="btn btn-white">▶ Latest News</a>
+      <div class="cd-units">
+        <div class="cd-unit"><span class="cd-n" id="cd-d">--</span><span class="cd-l">Days</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-h">--</span><span class="cd-l">Hours</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-m">--</span><span class="cd-l">Mins</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-s">--</span><span class="cd-l">Secs</span></div>
       </div>
     </div>
 
-    <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;">
-      <span style="font-size:.53rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.22);">Scroll</span>
-      <div style="width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sl 2s ease-in-out infinite;"></div>
-    </div>
-  </section>
-
-  <div class="s-bw"></div>
-
-  <!-- ══ SYMBOLS ══ -->
-  <div class="sym-bar">
-    <div class="sym-inner">
-      <div class="sym-item"><span class="sym-icon">🐘</span><span class="sym-title">The Elephant</span><span class="sym-sub">Symbol of Royal Power</span></div>
-      <div class="sym-item"><span class="sym-icon">🛶</span><span class="sym-title">Nalikwanda</span><span class="sym-sub">The Royal Barge</span></div>
-      <div class="sym-item"><span class="sym-icon">🥁</span><span class="sym-title">Maoma Drums</span><span class="sym-sub">Voice of the King</span></div>
-      <div class="sym-item"><span class="sym-icon">🔥</span><span class="sym-title">Royal Fire</span><span class="sym-sub">The King is Well</span></div>
-      <div class="sym-item"><span class="sym-icon">🦢</span><span class="sym-title">Cattle Egret</span><span class="sym-sub">Queen's Barge Totem</span></div>
+    <div class="hero-ctas">
+      <a href="history.html" class="btn3d btn3d-gold">✦ Learn the Meaning</a>
+      <a href="travel.html"  class="btn3d btn3d-crim">Plan Your Visit</a>
+      <a href="gallery.html" class="btn3d btn3d-ghost">▶ View Gallery</a>
     </div>
   </div>
 
-  <div class="s-gold"></div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
 
-  <!-- ══ INTRO ══ -->
-  <section class="section">
-    <div class="section-inner two-col center-v">
-      <div class="rev">
-        <span class="section-label">The Ceremony</span>
-        <h2 class="sec-h">A Ceremony Born From Water, Myth &amp; Majesty</h2>
-        <p class="sec-body">When the Zambezi floods the Barotse Plains, the Litunga — King of Barotseland — boards the royal barge Nalikwanda and begins a sacred journey to higher ground. This is no mere migration. It is a living covenant between a king and his people — one of Africa's most extraordinary cultural spectacles.</p>
-        <div class="data-table rev">
-          <div class="dt-row"><div class="dt-k">Meaning</div><div class="dt-v">"To get out of the water" — Silozi</div></div>
-          <div class="dt-row"><div class="dt-k">Litunga</div><div class="dt-v">Keeper of the Earth — Paramount King of Barotseland</div></div>
-          <div class="dt-row"><div class="dt-k">Route</div><div class="dt-v">Lealui Palace → Limulunga Palace (≈17 km)</div></div>
-          <div class="dt-row"><div class="dt-k">Season</div><div class="dt-v">March / April — end of Zambezi flood season</div></div>
-          <div class="dt-row"><div class="dt-k">Duration</div><div class="dt-v">6–8 hours on the water</div></div>
-          <div class="dt-row"><div class="dt-k">Paddlers</div><div class="dt-v">Up to 200 — selection is a lifelong honour</div></div>
-        </div>
-        <div style="margin-top:2rem;">
-          <a href="history.html" class="btn btn-black">Read Full History →</a>
-        </div>
+<div class="s-bw"></div>
+
+<!-- SYMBOLS -->
+<div class="sym-bar">
+  <div class="sym-inner">
+    <div class="sym-item sr"><span class="sym-icon">🐘</span><span class="sym-title">The Elephant</span><span class="sym-sub">Symbol of Royal Power</span></div>
+    <div class="sym-item sr"><span class="sym-icon">🛶</span><span class="sym-title">Nalikwanda</span><span class="sym-sub">The Royal Barge</span></div>
+    <div class="sym-item sr"><span class="sym-icon">🥁</span><span class="sym-title">Maoma Drums</span><span class="sym-sub">Voice of the King</span></div>
+    <div class="sym-item sr"><span class="sym-icon">🔥</span><span class="sym-title">Royal Fire</span><span class="sym-sub">The King is Well</span></div>
+    <div class="sym-item sr"><span class="sym-icon">🦢</span><span class="sym-title">Cattle Egret</span><span class="sym-sub">Queen's Barge Totem</span></div>
+  </div>
+</div>
+
+<div class="s-gold"></div>
+
+<!-- 3D CARDS -->
+<section class="cards-section">
+  <div class="cards-inner">
+    <div class="section-header sr">
+      <div class="section-label-3d">Explore Kuomboka</div>
+      <h2 class="section-h-3d">Everything You Need to Know</h2>
+      <p class="section-body-3d">From the myth of Nyambe to the living ceremony on the water — the complete story of Barotseland's royal tradition.</p>
+    </div>
+    <div class="tilt-grid">
+      <a href="history.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">📜</span>
+        <div class="card-title-3d">History of Kuomboka</div>
+        <p class="card-body-3d">From the myth of Nyambe and the first flood, to the 1902 Admiral's uniform — the complete story of Barotseland's sacred tradition.</p>
+        <span class="card-link-3d">Explore History →</span>
+      </a>
+      <a href="lozi.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">👑</span>
+        <div class="card-title-3d">The Lozi People</div>
+        <p class="card-body-3d">3.5 million people united by the Zambezi, Silozi, and centuries of royal tradition. Language, governance, music, arts and spirituality.</p>
+        <span class="card-link-3d">Meet the Lozi →</span>
+      </a>
+      <a href="attire.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">👗</span>
+        <div class="card-title-3d">Traditional Attire</div>
+        <p class="card-body-3d">The Siziba, the Musisi, the royal regalia — garments that tell the story of a kingdom. Includes a Silozi phrase guide.</p>
+        <span class="card-link-3d">View Attire →</span>
+      </a>
+      <a href="travel.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">✈️</span>
+        <div class="card-title-3d">Travel Guide</div>
+        <p class="card-body-3d">How to get to Mongu, where to stay, what to wear, ceremony day logistics, health tips, and what not to miss.</p>
+        <span class="card-link-3d">Plan Your Visit →</span>
+      </a>
+      <a href="news.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">📰</span>
+        <div class="card-title-3d">News &amp; Updates</div>
+        <p class="card-body-3d">Ceremony date announcements, flood level updates, travel alerts, cultural stories from Barotseland.</p>
+        <span class="card-link-3d">Read News →</span>
+      </a>
+      <a href="contact.html" class="tilt-card" style="text-decoration:none;" data-tilt>
+        <span class="card-icon-3d">🤝</span>
+        <div class="card-title-3d">Partnerships</div>
+        <p class="card-body-3d">Tourism boards, media houses, sponsors, and cultural organisations — we welcome all meaningful partnerships.</p>
+        <span class="card-link-3d">Get In Touch →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="s-bw"></div>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gal-inner">
+    <div class="gal-head sr">
+      <div>
+        <div class="section-label-3d" style="color:var(--crimson2);"><span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span>Gallery &amp; Media<span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span></div>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--black);">Moments Across the Water</h2>
       </div>
-      <div class="rev barge-wrap">
-        <p class="barge-caption">The Nalikwanda — Royal Barge of the Litunga</p>
-        <div style="position:relative;overflow:hidden;border:2px solid var(--black);">
-          <img
-            src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_3__2026__11_50_55_PM.png.png"
-            alt="The Nalikwanda royal barge with paddlers in scarlet berets"
-            style="width:100%;display:block;max-height:420px;object-fit:cover;"
-          />
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);">
-            <div style="font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#fff;">The Nalikwanda · Barotse Floodplain</div>
-          </div>
-        </div>
-        <div class="barge-legend">
-          <div class="leg-item"><div class="leg-dot" style="background:#111;border:1.5px solid #fff;"></div><div class="leg-txt"><strong>Black &amp; White Stripes</strong>Unity of Lozi people — all skin tones. Also mirrors Zambia's coat of arms.</div></div>
-          <div class="leg-item"><div class="leg-dot" style="background:#A57B0A;"></div><div class="leg-txt"><strong>Elephant Figurehead</strong>Royal symbol of the Litunga's power. Has movable ears operated from inside.</div></div>
-          <div class="leg-item"><div class="leg-dot" style="background:#C02840;"></div><div class="leg-txt"><strong>Scarlet Berets</strong>Each paddler wears a red beret with a lion's mane — a lifelong honour.</div></div>
-          <div class="leg-item"><div class="leg-dot" style="background:orange;"></div><div class="leg-txt"><strong>Royal Fire &amp; Smoke</strong>Signals across the plains: the Litunga is alive and well throughout the journey.</div></div>
-        </div></div>
+      <a href="gallery.html" class="btn3d btn3d-crim">Full Gallery →</a>
+    </div>
+    <div class="gal-grid sr">
+      <div class="gal-photo">
+        <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_3__2026__11_50_55_PM.png.png" alt="The Nalikwanda"/>
+        <div class="gal-overlay"></div>
+        <div class="gal-info"><div class="gal-title">The Nalikwanda</div><div class="gal-credit">Royal Barge · © Chellah Tukuta</div></div>
+      </div>
+      <div class="gal-photo">
+        <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/12CAFD72-9873-4B60-9824-D9D13C795301.PNG" alt="Maoma Drums"/>
+        <div class="gal-overlay"></div>
+        <div class="gal-info"><div class="gal-title">The Maoma Drums</div><div class="gal-credit">Sacred Royal Drums · © Chellah Tukuta</div></div>
       </div>
     </div>
-  </section>
-
-  <div class="s-bw"></div>
-
-  <!-- ══ CEREMONY ══ -->
-  <section class="section section-dark" style="position:relative;">
-    <div class="section-inner two-col">
-      <div class="rev">
-        <span class="section-label gold">Day of Ceremony</span>
-        <h2 class="sec-h white">A Day Unlike Any Other on Earth</h2>
-        <p class="sec-body white">The ceremony begins before dawn with the Maoma drums at Lealui, summoning all paddlers. What follows is a 6–8 hour royal procession across flooded plains — witnessed by thousands.</p>
-        <div class="timeline">
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:00</div><div class="tl-title">Maoma Drums Beat</div><div class="tl-desc">The night before — drums summon all paddlers to Lealui. Sound carries miles across the floodplain.</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">DAWN</div><div class="tl-title">Scout Canoes Depart</div><div class="tl-desc">Natamikwa &amp; Mundende test the water depth and check for hazards before the King moves.</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MORN</div><div class="tl-title">Ifulwa Drums — Nalikwanda Sets Off</div><div class="tl-desc">The Litunga boards in traditional Lozi regalia. Paddlers sing praise songs of the Nalikwanda.</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MID</div><div class="tl-title">Rest at Namutikitela</div><div class="tl-desc">Paddlers rest and eat Ilya — thick maize porridge with sour milk and meat.</div></div>
-          <div class="tl-item"><div class="tl-dot red"></div><div class="tl-time">MID</div><div class="tl-title">The Litunga Changes Attire</div><div class="tl-desc">King changes into the full British Admiral's uniform — presented by King Edward VII in 1902.</div></div>
-          <div class="tl-item"><div class="tl-dot red"></div><div class="tl-time">16:00</div><div class="tl-title">Arrival at Limulunga</div><div class="tl-desc">Men perform Kushowelela. Women sing Limeka and Liimba. The winter capital begins.</div></div>
-        </div>
+    <div class="gal-grid-2 sr">
+      <div class="gal-photo" style="height:320px;">
+        <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_49_32%20PM.png" alt="Royal Attire"/>
+        <div class="gal-overlay"></div>
+        <div class="gal-info"><div class="gal-title">Royal Attire</div><div class="gal-credit">Siziba &amp; Musisi · © Enerin</div></div>
       </div>
-      <div class="rev">
-        <div class="at-card"><div class="at-head" style="background:var(--gold);"><span>👑</span><h3 style="color:var(--black);">Traditional Lozi Regalia</h3></div><div class="at-body"><p>The Litunga departs in full royal Lozi dress — a connection to centuries of Barotse tradition.</p><ul class="at-list"><li>Gold beaded royal skirt (inherited from Lewanika I)</li><li>Ceremonial royal shirt and round hat</li><li>Animal skin regalia and royal insignia</li></ul></div></div>
-        <div class="at-card"><div class="at-head" style="background:var(--crimson);"><span>⚓</span><h3 style="color:#fff;">British Admiral's Uniform</h3></div><div class="at-body"><p>Mid-journey the King transforms into full British Royal Naval dress — a historic symbol of Lozi diplomacy.</p><ul class="at-list"><li>Presented by King Edward VII, 1902</li><li>Full gold epaulettes &amp; ostrich-plumed hat</li><li>Recognition of Lozi–British treaties</li></ul></div></div>
-        <div class="at-card"><div class="at-head" style="background:var(--black3);border-top:1px solid rgba(165,123,10,.3);"><span>🎽</span><h3 style="color:#fff;">Paddlers — An Honour</h3></div><div class="at-body"><p>Up to 200 selected men bear the marks of their distinction throughout the journey.</p><ul class="at-list"><li>Scarlet beret with piece of lion's mane</li><li>Knee-length skirt of animal skins</li><li>Siziba — traditional Lozi formal wear</li></ul></div></div>
-        <div class="royal-quote"><p>"The boat was decorated with black and white lines to represent the skin colour of the Lozi people, and white for spirituality."</p><cite>— Lozi Cultural History</cite></div>
+      <div class="gal-photo" style="height:320px;">
+        <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_48_07%20PM.png" alt="Admiral's Uniform"/>
+        <div class="gal-overlay"></div>
+        <div class="gal-info"><div class="gal-title">The Admiral's Uniform</div><div class="gal-credit">The Litunga · © Chellah Tukuta</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="s-crimson"></div>
+<div class="s-bw"></div>
 
-  <!-- ══ GALLERY PREVIEW ══ -->
-  <section class="section section-ivory">
-    <div class="section-inner">
-      <div class="flex-between rev">
-        <div><span class="section-label">Gallery &amp; Media</span><h2 class="sec-h">Moments Across the Water</h2></div>
-        <a href="gallery.html" class="btn btn-crimson">Full Gallery →</a>
-      </div>
-      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:4px;margin-bottom:4px;" class="rev">
-        <div style="position:relative;overflow:hidden;height:300px;">
-          <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_55_22%20PM.png" alt="The Nalikwanda" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;">
-            <div style="font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;">The Nalikwanda</div>
-            <div style="font-family:'EB Garamond',serif;font-size:.82rem;font-style:italic;color:rgba(255,255,255,.6);">Royal Barge · © Chellah Tukuta</div>
-          </div>
-        </div>
-        <div style="position:relative;overflow:hidden;height:300px;">
-          <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/12CAFD72-9873-4B60-9824-D9D13C795301.PNG" alt="Maoma Drums" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;">
-            <div style="font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;">Maoma Drums</div>
-            <div style="font-family:'EB Garamond',serif;font-size:.82rem;font-style:italic;color:rgba(255,255,255,.6);">Sacred Royal Drums · © Chellah Tukuta</div>
-          </div>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:4px;" class="rev">
-        <div style="position:relative;overflow:hidden;height:260px;">
-          <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_49_32%20PM.png" alt="Royal Attire" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;">
-            <div style="font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;">Royal Attire</div>
-            <div style="font-family:'EB Garamond',serif;font-size:.82rem;font-style:italic;color:rgba(255,255,255,.6);">Siziba &amp; Musisi · © Enerin</div>
-          </div>
-        </div>
-        <div style="position:relative;overflow:hidden;height:260px;">
-          <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_48_07%20PM.png" alt="Admiral Uniform" style="width:100%;height:100%;object-fit:cover;display:block;"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 55%);"></div>
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;">
-            <div style="font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;">The Admiral's Uniform</div>
-            <div style="font-family:'EB Garamond',serif;font-size:.82rem;font-style:italic;color:rgba(255,255,255,.6);">The Litunga · © Chellah Tukuta</div>
-          </div>
-        </div>
+<!-- CEREMONY TIMELINE -->
+<section class="ceremony-section">
+  <div class="cer-inner">
+    <div class="sr-left">
+      <div class="section-label-3d" style="color:var(--gold2);"><span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>Day of Ceremony</div>
+      <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1.2rem;">A Day Unlike Any Other on Earth</h2>
+      <p style="font-family:'EB Garamond',serif;font-size:1.15rem;line-height:1.9;color:rgba(255,255,255,.45);max-width:500px;">The ceremony begins before dawn with the Maoma drums at Lealui. What follows is a 6–8 hour royal procession across flooded plains — witnessed by thousands.</p>
+      <div class="timeline-3d">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">21:00</div><div class="tl-title">Maoma Drums Beat</div><div class="tl-desc">The night before — drums summon all paddlers to Lealui.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">DAWN</div><div class="tl-title">Scout Canoes Depart</div><div class="tl-desc">Two white scout boats test the water before the King moves.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MORN</div><div class="tl-title">Nalikwanda Sets Off</div><div class="tl-desc">The Litunga boards in traditional Lozi regalia. The great journey begins.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MID</div><div class="tl-title">Rest at Namutikitela</div><div class="tl-desc">Paddlers rest and eat Ilya — traditional thick maize porridge.</div></div>
+        <div class="tl-item"><div class="tl-dot red"></div><div class="tl-time">MID</div><div class="tl-title">The Litunga Changes Attire</div><div class="tl-desc">King changes into the full British Admiral's uniform — 1902.</div></div>
+        <div class="tl-item"><div class="tl-dot red"></div><div class="tl-time">16:00</div><div class="tl-title">Arrival at Limulunga</div><div class="tl-desc">Kushowelela royal salute. Women sing Limeka. The winter capital begins.</div></div>
       </div>
     </div>
-  </section>
+    <div class="sr-right">
+      <div class="at-card"><div class="at-head" style="background:var(--gold);"><span>👑</span><h3 style="color:var(--black);">Traditional Lozi Regalia</h3></div><div class="at-body"><p>The Litunga departs in full royal Lozi dress.</p><ul class="at-list"><li>Gold beaded royal skirt (from Lewanika I)</li><li>Ceremonial royal shirt and round hat</li><li>Animal skin regalia and royal insignia</li></ul></div></div>
+      <div class="at-card"><div class="at-head" style="background:var(--crimson);"><span>⚓</span><h3 style="color:#fff;">British Admiral's Uniform</h3></div><div class="at-body"><p>Mid-journey the King transforms into full British Royal Naval dress.</p><ul class="at-list"><li>Presented by King Edward VII, 1902</li><li>Full gold epaulettes &amp; ostrich-plumed hat</li><li>A historic symbol of Lozi diplomacy</li></ul></div></div>
+      <div class="at-card"><div class="at-head" style="background:var(--black2);border-top:1px solid rgba(165,123,10,.3);"><span>🎽</span><h3 style="color:#fff;">The Paddlers</h3></div><div class="at-body"><p>Up to 200 selected men — each bearing the marks of honour.</p><ul class="at-list"><li>Scarlet beret with piece of lion's mane</li><li>Knee-length skirt of animal skins</li><li>Selection is a lifelong distinction</li></ul></div></div>
+      <div class="royal-q"><p>"The boat was decorated with black and white lines to represent the skin colour of the Lozi people, and white for spirituality."</p><cite>— Lozi Cultural History</cite></div>
+    </div>
+  </div>
+</section>
 
-  <div class="s-bw"></div>
+<!-- NEWSLETTER -->
+<section class="nl-section">
+  <div class="nl-inner sr">
+    <div class="section-label-3d" style="color:var(--gold2);justify-content:center;"><span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>Stay Connected<span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span></div>
+    <h2 class="nl-h">Be the First to Hear the Maoma Drums</h2>
+    <p class="nl-sub">Ceremony dates, flood alerts, cultural stories &amp; travel updates — direct to you.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="Your email address"/>
+      <button class="btn3d btn3d-gold">Subscribe ✦</button>
+    </div>
+    <p style="font-size:.62rem;color:rgba(255,255,255,.25);margin-top:1rem;letter-spacing:.15em;">No spam. Only the sound of the drums when it matters.</p>
+  </div>
+</section>
 
-  <!-- ══ EXPLORE LINKS ══ -->
-  <section class="section">
-    <div class="section-inner">
-      <div style="text-align:center;max-width:600px;margin:0 auto 3rem;" class="rev">
-        <span class="section-label center">Explore the Site</span>
-        <h2 class="sec-h center">Everything You Need to Know</h2>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand">KUOMBOKA</div>
+        <p class="ft-tagline">The official digital home of the Kuomboka ceremony and the Lozi people of Barotseland, Western Province, Zambia.</p>
+        <div class="ft-socials">
+          <a class="ft-soc" href="#">Facebook</a>
+          <a class="ft-soc" href="#">YouTube</a>
+          <a class="ft-soc" href="#">TikTok</a>
+          <a class="ft-soc" href="#">Instagram</a>
+        </div>
       </div>
-      <div class="cards-grid rev">
-        <a href="history.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">📜</span>
-          <div class="card-title">History of Kuomboka</div>
-          <p class="card-body">From the myth of Nyambe and the first flood, to the 1902 Admiral's uniform — the complete story of Barotseland's most sacred tradition.</p>
-        </a>
-        <a href="lozi.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">👑</span>
-          <div class="card-title">The Lozi People</div>
-          <p class="card-body">3.5 million people united by the Zambezi, Silozi, and centuries of royal tradition. Language, governance, music, arts and spirituality.</p>
-        </a>
-        <a href="attire.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">👗</span>
-          <div class="card-title">Traditional Attire</div>
-          <p class="card-body">The Siziba, the Musisi, the royal regalia — garments that tell the story of a kingdom and its people. Includes a Silozi phrase guide.</p>
-        </a>
-        <a href="travel.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">✈️</span>
-          <div class="card-title">Travel Guide</div>
-          <p class="card-body">How to get to Mongu, where to stay, what to wear, ceremony day logistics, health tips, and what not to miss.</p>
-        </a>
-        <a href="news.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">📰</span>
-          <div class="card-title">News &amp; Updates</div>
-          <p class="card-body">Ceremony date announcements, flood level updates, travel alerts, cultural stories, and media coverage from Barotseland.</p>
-        </a>
-        <a href="contact.html" class="card" style="text-decoration:none;">
-          <span class="card-icon">🤝</span>
-          <div class="card-title">Partnerships</div>
-          <p class="card-body">Tourism boards, media houses, sponsors, and cultural organisations — we welcome all meaningful partnerships that honour Lozi heritage.</p>
-        </a>
+      <div>
+        <div class="ft-col-h">Explore</div>
+        <ul class="ft-links">
+          <li><a href="history.html">History of Kuomboka</a></li>
+          <li><a href="lozi.html">The Lozi People</a></li>
+          <li><a href="attire.html">Traditional Attire</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="news.html">News Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Visit</div>
+        <ul class="ft-links">
+          <li><a href="travel.html">Travel Guide</a></li>
+          <li><a href="travel.html">Getting to Mongu</a></li>
+          <li><a href="travel.html">Where to Stay</a></li>
+          <li><a href="news.html">Ceremony Dates</a></li>
+          <li><a href="live.html">Live Stream</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Partners</div>
+        <ul class="ft-links">
+          <li><a href="contact.html">Tourism Boards</a></li>
+          <li><a href="contact.html">Media Enquiries</a></li>
+          <li><a href="contact.html">Sponsorships</a></li>
+          <li><a href="contact.html">Cultural Orgs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
       </div>
     </div>
-  </section>
+    <div class="s-bw-sm" style="margin:0 -2rem;width:calc(100% + 4rem);"></div>
+    <div class="ft-bot">
+      <p class="ft-copy">© 2026 Kuomboka.com · Western Province, Zambia · All Rights Reserved</p>
+      <p class="ft-silozi">Setu Ni Setu — Lozi Heritage Lives</p>
+    </div>
+  </div>
+</footer>
 
-</div><!-- end page-wrap -->
-
-<div id="site-footer"></div>
-
-<style>
-@keyframes sl { 0%{opacity:0;transform:scaleY(0);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} 100%{opacity:0;transform:scaleY(0);transform-origin:bottom} }
-.fiu-1{animation:fiu 1s ease .3s both}
-.fiu-2{animation:fiu 1.1s ease .55s both}
-.fiu-3{animation:fiu 1s ease .7s both}
-.fiu-4{animation:fiu 1s ease .9s both}
-.fiu-5{animation:fiu 1s ease 1.1s both}
-@keyframes fiu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-</style>
-
-<script src="js/components.js"></script>
 <script src="js/supabase.js"></script>
-<script src="js/main.js"></script>
+<script>
+/* ════════════════════════════════════
+   CUSTOM CURSOR
+════════════════════════════════════ */
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+});
+function animRing() {
+  rx += (mx-rx)*.12; ry += (my-ry)*.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a,button,.tilt-card,.sym-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+});
+
+/* ════════════════════════════════════
+   PARTICLES
+════════════════════════════════════ */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+for(let i=0;i<80;i++) {
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*1.5+.3,
+    dx: (Math.random()-.5)*.3,
+    dy: -Math.random()*.4-.1,
+    opacity: Math.random()*.5+.1,
+    color: Math.random()>.6 ? '#A57B0A' : '#ffffff'
+  });
+}
+
+function drawParticles() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.opacity;
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if(p.y < -5) { p.y=canvas.height+5; p.x=Math.random()*canvas.width; }
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+  });
+  ctx.globalAlpha=1;
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+
+/* ════════════════════════════════════
+   PARALLAX HERO
+════════════════════════════════════ */
+const heroContent = document.getElementById('heroContent');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if(heroContent) heroContent.style.transform = `translateY(${y*0.3}px)`;
+}, {passive:true});
+
+/* ════════════════════════════════════
+   3D TILT CARDS
+════════════════════════════════════ */
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    const rotX = (-y/r.height)*12;
+    const rotY = (x/r.width)*12;
+    card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(10px)`;
+    card.style.boxShadow = `${-rotY}px ${rotX}px 40px rgba(0,0,0,.6), 0 0 30px rgba(165,123,10,.15)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
+    card.style.boxShadow = '';
+  });
+});
+
+/* ════════════════════════════════════
+   COUNTDOWN
+════════════════════════════════════ */
+const target = new Date('2026-04-10T06:00:00');
+function tick() {
+  const diff = target - new Date();
+  if(diff<=0) return;
+  const pad = n => String(Math.floor(n)).padStart(2,'0');
+  document.getElementById('cd-d').textContent = pad(diff/86400000);
+  document.getElementById('cd-h').textContent = pad((diff%86400000)/3600000);
+  document.getElementById('cd-m').textContent = pad((diff%3600000)/60000);
+  document.getElementById('cd-s').textContent = pad((diff%60000)/1000);
+}
+tick(); setInterval(tick,1000);
+
+/* ════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('in'), i*80);
+  });
+},{threshold:.08});
+document.querySelectorAll('.sr,.sr-left,.sr-right,.sr-scale').forEach(el=>io.observe(el));
+
+/* Newsletter */
+document.querySelectorAll('.nl-form').forEach(form=>{
+  const btn=form.querySelector('button');
+  const input=form.querySelector('input');
+  if(btn) btn.addEventListener('click',()=>{ if(typeof handleSubscribe==='function') handleSubscribe(form); });
+});
+</script>
 </body>
 </html>
