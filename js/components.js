@@ -7,9 +7,8 @@ const NAV_HTML = `
 <nav class="nav">
   <div class="nav-stripe"></div>
   <div class="nav-body">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-brand-main">Kuomboka</span>
-      <span class="nav-brand-sub">Barotseland · Western Province · Zambia</span>
+    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;gap:.8rem;">
+      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" style="height:42px;width:auto;object-fit:contain;"/>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>
@@ -96,7 +95,7 @@ const FOOTER_HTML = `
     <div class="s-bw-sm" style="margin: 0 -2rem; width: calc(100% + 4rem);"></div>
     <div class="ft-bottom">
       <p class="ft-copy">© 2026 Kuomboka.com · Western Province, Zambia · All Rights Reserved</p>
-      <p class="ft-silozi">Sikulilwe Lozi — Lozi Heritage Lives</p>
+      <p class="ft-silozi">Setu Ni Setu — Lozi Heritage Lives</p>
     </div>
   </div>
 </footer>`;
