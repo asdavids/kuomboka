@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Latest news and updates from Kuomboka — ceremony dates, flood level reports, travel alerts, and cultural stories from Barotseland."/>
+  <title>News &amp; Updates | Kuomboka.com</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐘</text></svg>"/>
+</head>
+<body data-page="news">
+<div id="site-nav"></div>
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <span class="section-label gold center">Latest Updates</span>
+    <h1 class="sec-h white center">News &amp; Announcements</h1>
+    <p class="sec-body white center">Ceremony dates, flood level reports, travel alerts, cultural stories, and dispatches from Barotseland.</p>
+  </div>
+  <div class="s-tri"></div>
+
+  <!-- FEATURED ALERT -->
+  <section style="padding:2rem;background:var(--crimson3);">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+      <span style="font-size:2rem;flex-shrink:0;">📡</span>
+      <div style="flex:1;">
+        <div style="font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3);margin-bottom:.3rem;">Live Status — 2026 Ceremony</div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.6;">The Barotse Royal Establishment is monitoring Zambezi flood levels. The Litunga will announce the exact ceremony date when conditions are favourable. Subscribe below for immediate notification.</p>
+      </div>
+      <a href="#subscribe" class="btn btn-gold" style="flex-shrink:0;">Get Alerts ✦</a>
+    </div>
+  </section>
+
+  <div class="s-bw"></div>
+
+  <!-- NEWS GRID -->
+  <section style="padding:4rem 2rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+
+      <!-- Filter Bar -->
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;align-items:center;" class="rev">
+        <span style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-right:.5rem;">Filter:</span>
+        <button onclick="filterNews('all')" class="btn btn-black" style="padding:.4rem 1rem;font-size:.62rem;">All</button>
+        <button onclick="filterNews('ceremony')" class="btn" style="padding:.4rem 1rem;font-size:.62rem;background:var(--crimson);color:#fff;">Ceremony</button>
+        <button onclick="filterNews('travel')" class="btn btn-gold" style="padding:.4rem 1rem;font-size:.62rem;">Travel</button>
+        <button onclick="filterNews('culture')" class="btn" style="padding:.4rem 1rem;font-size:.62rem;background:var(--earth);color:#fff;">Culture</button>
+        <button onclick="filterNews('flood')" class="btn btn-black" style="padding:.4rem 1rem;font-size:.62rem;border:1px solid rgba(0,0,0,.15);">Flood Updates</button>
+      </div>
+
+      <div class="news-grid" style="margin:0;padding:0;max-width:none;">
+        <div class="news-card rev" data-cat="ceremony">
+          <div class="nc-img" style="background:linear-gradient(135deg,#0a1628,#1a3a6e);">
+            <span style="font-size:3rem;">🥁</span>
+            <span class="nc-cat" style="background:var(--crimson);color:#fff;">Ceremony</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">March 2026</div>
+            <div class="nc-title">2026 Kuomboka Ceremony — Official Update</div>
+            <p>The Barotse Royal Establishment confirms preparations are underway for the 2026 ceremony. The Litunga will announce the exact date in the coming weeks based on Zambezi water levels, food availability, and the lunar phase.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="flood">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a0a04,#1a3a6e);">
+            <span style="font-size:3rem;">🌊</span>
+            <span class="nc-cat" style="background:var(--water);color:#fff;">Flood Update</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">February 2026</div>
+            <div class="nc-title">Barotse Floodplain Water Levels — February Report</div>
+            <p>The upper Zambezi is rising steadily following good rains across the catchment area. Current water levels at Lealui suggest the ceremony conditions are developing well. Full confirmation expected mid-March.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="travel">
+          <div class="nc-img" style="background:linear-gradient(135deg,#0d1a08,#1e3812);">
+            <span style="font-size:3rem;">✈️</span>
+            <span class="nc-cat" style="background:var(--earth);color:#fff;">Travel</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">January 2026</div>
+            <div class="nc-title">Proflight Zambia Announces Ceremony Season Flights</div>
+            <p>Proflight Zambia confirms special charter flights from Lusaka to Mongu Airport will operate during the 2026 Kuomboka season. Flights are expected to sell out quickly. Visit flyzambia.com to book.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="culture">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a0818,#3a1040);">
+            <span style="font-size:3rem;">👗</span>
+            <span class="nc-cat" style="background:var(--gold);color:var(--black);">Culture</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">December 2025</div>
+            <div class="nc-title">The Siziba Goes Global — Zambia's Fashion Diplomacy Moment</div>
+            <p>A social media exchange between Zambia and Ghana sparked worldwide conversation about the Siziba — the traditional Lozi men's attire. The playful debate with Ghana's fugu smock brought Lozi fashion to an international audience for the first time.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="culture">
+          <div class="nc-img" style="background:linear-gradient(135deg,#040c1a,#0a1e3c);">
+            <span style="font-size:3rem;">📖</span>
+            <span class="nc-cat" style="background:var(--gold);color:var(--black);">Heritage</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">November 2025</div>
+            <div class="nc-title">New Oral History Archive — Preserving Lozi Stories for Future Generations</div>
+            <p>A partnership between the Barotse Royal Establishment and cultural organisations is digitally preserving Lozi oral traditions, praise songs, and ceremonial histories. The archive aims to protect Silozi language and culture for generations to come.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="culture">
+          <div class="nc-img" style="background:linear-gradient(135deg,#1a1208,#3a2c0a);">
+            <span style="font-size:3rem;">🎶</span>
+            <span class="nc-cat" style="background:var(--earth);color:#fff;">Music</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">October 2025</div>
+            <div class="nc-title">Limeka Songs — The Women's Ceremony Music That Greets the King</div>
+            <p>The Limeka tradition — ceremonial songs sung by women as the Nalikwanda arrives at Limulunga — is one of the most moving and least documented aspects of Kuomboka. We take a deep dive into its history, meaning, and the women who keep it alive.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="ceremony">
+          <div class="nc-img" style="background:linear-gradient(135deg,#0a1628,#1a3a6e);">
+            <span style="font-size:3rem;">🛶</span>
+            <span class="nc-cat" style="background:var(--crimson);color:#fff;">Ceremony</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">September 2025</div>
+            <div class="nc-title">The 2023 Cancellation — What Happens When the Water Doesn't Rise</div>
+            <p>In 2023, for the first time in years, the Kuomboka was cancelled due to insufficient water levels in the Barotse plains. We explore what it means for the Lozi people when the ceremony cannot take place, and what it says about climate and the Zambezi.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="travel">
+          <div class="nc-img" style="background:linear-gradient(135deg,#0d1a08,#2a4010);">
+            <span style="font-size:3rem;">🏨</span>
+            <span class="nc-cat" style="background:var(--earth);color:#fff;">Travel</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">August 2025</div>
+            <div class="nc-title">Best Places to Stay in Mongu for Kuomboka 2026</div>
+            <p>We review the best accommodation options in and around Mongu — from riverside lodges to budget guesthouses — with booking tips and advice on how far in advance to secure your room during ceremony season.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+        <div class="news-card rev" data-cat="culture">
+          <div class="nc-img" style="background:linear-gradient(135deg,#2a1808,#5a3010);">
+            <span style="font-size:3rem;">🐘</span>
+            <span class="nc-cat" style="background:var(--gold);color:var(--black);">Heritage</span>
+          </div>
+          <div class="nc-body">
+            <div class="nc-date">July 2025</div>
+            <div class="nc-title">The Elephant — Why the Royal Symbol Has Movable Ears</div>
+            <p>The giant elephant figurehead atop the Nalikwanda is one of the most recognisable symbols in African ceremony. We explore the history of how it got there, who introduced it, and the remarkable fact that its ears can be moved from inside the barge.</p>
+            <a href="#" class="nc-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem;" class="rev">
+        <button class="btn btn-black">Load More Articles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section style="padding:4rem 2rem;background:var(--ivory2);" id="subscribe">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div class="rev">
+        <span class="section-label">Never Miss an Update</span>
+        <h2 class="sec-h">Ceremony Alerts Direct to Your Inbox</h2>
+        <p class="sec-body">We send alerts only when it matters — ceremony date announcements, flood level updates, travel advisories, and major cultural news from Barotseland.</p>
+      </div>
+      <div class="rev">
+        <div style="padding:2.5rem;background:var(--white);border:1px solid rgba(165,123,10,.2);">
+          <div style="font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Subscribe for Alerts</div>
+          <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Full name"/></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@email.com"/></div>
+          <div class="form-group">
+            <label class="form-label">I'm Interested In</label>
+            <select class="form-select">
+              <option>All Updates</option>
+              <option>Ceremony Dates Only</option>
+              <option>Travel Alerts</option>
+              <option>Cultural Stories</option>
+            </select>
+          </div>
+          <button class="btn btn-gold btn-full">Subscribe ✦</button>
+          <p style="font-size:.65rem;color:var(--muted);margin-top:.8rem;text-align:center;letter-spacing:.1em;">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+function filterNews(cat) {
+  document.querySelectorAll('.news-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
