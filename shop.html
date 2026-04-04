@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Shop traditional Lozi attire, crafts, jewellery and cultural items from Barotseland, Zambia. Siziba, Musisi, beaded necklaces, drum replicas and more."/>
+  <title>Lozi Cultural Marketplace | Kuomboka.com</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    .shop-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
+    .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center;}
+    .filter-btn{padding:.4rem 1.1rem;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(0,0,0,.15);background:none;cursor:pointer;transition:all .2s;font-family:'Raleway',sans-serif;}
+    .filter-btn:hover,.filter-btn.active{background:var(--black);color:#fff;border-color:var(--black);}
+    .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:4rem;}
+    .shop-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;transition:transform .3s,box-shadow .3s;position:relative;background:var(--white);}
+    .shop-card:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(0,0,0,.12);}
+    .shop-card.featured{border-color:var(--gold);border-width:2px;}
+    .shop-card.premium{border-color:var(--crimson);border-width:2px;}
+    .shop-badge{position:absolute;top:.8rem;right:.8rem;padding:.2rem .7rem;font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;z-index:1;}
+    .badge-featured{background:var(--gold);color:var(--black);}
+    .badge-premium{background:var(--crimson);color:#fff;}
+    .shop-img{height:220px;background:linear-gradient(135deg,#1a1a1a,#2a1a08);display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden;position:relative;}
+    .shop-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .shop-body{padding:1.5rem;}
+    .shop-cat{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+    .shop-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:.5rem;line-height:1.3;}
+    .shop-desc{font-size:.84rem;line-height:1.7;color:var(--charcoal);margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .shop-footer{display:flex;justify-content:space-between;align-items:center;padding-top:.8rem;border-top:1px solid rgba(0,0,0,.08);}
+    .shop-price{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:var(--crimson);}
+    .shop-seller{font-size:.7rem;color:var(--muted);letter-spacing:.05em;}
+    .shop-location{font-size:.68rem;color:var(--muted);}
+    .enquire-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;background:var(--gold);color:var(--black);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;text-decoration:none;margin-top:.8rem;width:100%;justify-content:center;}
+    .enquire-btn:hover{background:var(--gold2);transform:translateY(-1px);}
+
+    /* Pricing section */
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2rem;}
+    .pricing-card{padding:2.5rem 2rem;text-align:center;border:1px solid rgba(0,0,0,.1);position:relative;}
+    .pricing-card.popular{border-color:var(--gold);border-width:2px;}
+    .pricing-popular-tag{position:absolute;top:-1rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:.2rem 1rem;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;}
+    .pricing-name{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;}
+    .pricing-price{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700;color:var(--crimson);margin-bottom:.3rem;}
+    .pricing-period{font-size:.72rem;color:var(--muted);letter-spacing:.1em;margin-bottom:1.5rem;}
+    .pricing-features{list-style:none;text-align:left;margin-bottom:1.8rem;}
+    .pricing-features li{font-size:.84rem;color:var(--charcoal);padding:.4rem 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:.5rem;}
+    .pricing-features li::before{content:'✦';color:var(--gold);font-size:.7rem;flex-shrink:0;margin-top:.1rem;}
+
+    .s-tri{height:8px;background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px);}
+    .s-bw{height:10px;background:repeating-linear-gradient(90deg,#0a0a0a 0,#0a0a0a 22px,#fff 22px,#fff 44px);}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-crimson{background:var(--crimson);color:#fff;}
+    #statusMsg{text-align:center;padding:1rem;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);}
+    @media(max-width:900px){.shop-grid{grid-template-columns:1fr 1fr;}.pricing-grid{grid-template-columns:1fr;}}
+    @media(max-width:600px){.shop-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body data-page="shop">
+<div id="site-nav"></div>
+<div class="page-wrap">
+
+  <div class="shop-hero">
+    <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>Cultural Marketplace<span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span></span>
+    <h1 style="font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;margin-bottom:1rem;">Lozi Crafts &amp; Attire</h1>
+    <p style="font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;">Authentic Siziba, Musisi, handwoven crafts, jewellery and cultural items from artisans in Barotseland, Western Province.</p>
+  </div>
+
+  <div class="s-tri"></div>
+
+  <section style="padding:5rem 2rem;background:var(--ivory2);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="filter-bar">
+        <span style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-right:.5rem;">Filter:</span>
+        <button class="filter-btn active" onclick="filterListings('all',this)">All</button>
+        <button class="filter-btn" onclick="filterListings('Attire',this)">Attire</button>
+        <button class="filter-btn" onclick="filterListings('Crafts',this)">Crafts</button>
+        <button class="filter-btn" onclick="filterListings('Jewellery',this)">Jewellery</button>
+        <button class="filter-btn" onclick="filterListings('Drums',this)">Drums</button>
+      </div>
+      <p id="statusMsg"></p>
+      <div id="shopGrid" class="shop-grid"></div>
+
+      <!-- LIST YOUR ITEM CTA -->
+      <div style="text-align:center;padding:3rem;background:var(--black);margin-top:2rem;">
+        <span style="font-size:2rem;display:block;margin-bottom:1rem;">🛍️</span>
+        <h3 style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.8rem;">Sell Your Crafts Here</h3>
+        <p style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;">Are you a Lozi artisan or seller? List your products and reach thousands of visitors from around the world.</p>
+        <a href="#list-your-item" class="btn btn-gold">List Your Item →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="s-bw"></div>
+
+  <!-- LISTING PACKAGES -->
+  <section id="list-your-item" style="padding:5rem 2rem;background:var(--white);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--crimson);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span>Listing Packages<span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span></span>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--black);margin-bottom:.8rem;">List Your Products</h2>
+        <p style="font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--charcoal);font-style:italic;">Pay once per month. Get listed. Buyers contact you directly.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Basic</div>
+          <div class="pricing-price">$10</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>1 product listing</li>
+            <li>1 photo</li>
+            <li>Product name &amp; price</li>
+            <li>Your WhatsApp for orders</li>
+            <li>Listed in category grid</li>
+          </ul>
+          <a href="#enquire" class="btn btn-crimson" style="width:100%;justify-content:center;">Get Listed</a>
+        </div>
+
+        <div class="pricing-card popular">
+          <div class="pricing-popular-tag">Most Popular</div>
+          <div class="pricing-name" style="color:var(--gold);">Featured</div>
+          <div class="pricing-price">$25</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>Up to 3 product listings</li>
+            <li>3 photos per listing</li>
+            <li>Gold border — stands out</li>
+            <li>Featured badge on listing</li>
+            <li>Priority position in grid</li>
+            <li>Your WhatsApp for orders</li>
+          </ul>
+          <a href="#enquire" class="btn btn-gold" style="width:100%;justify-content:center;">Get Featured</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">Premium</div>
+          <div class="pricing-price">$50</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>Up to 10 product listings</li>
+            <li>5 photos per listing</li>
+            <li>Crimson border — top tier</li>
+            <li>Premium badge on listing</li>
+            <li>Top of page placement</li>
+            <li>Homepage feature (1 week)</li>
+            <li>Mention in newsletter</li>
+          </ul>
+          <a href="#enquire" class="btn btn-crimson" style="width:100%;justify-content:center;">Go Premium</a>
+        </div>
+      </div>
+
+      <!-- ENQUIRE FORM -->
+      <div id="enquire" style="max-width:600px;margin:3rem auto 0;padding:2.5rem;background:var(--ivory2);border:1px solid rgba(165,123,10,.2);">
+        <h3 style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--black);margin-bottom:1.5rem;letter-spacing:.05em;">Apply to List Your Products</h3>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Your Name *</label><input id="mktName" type="text" placeholder="Full name" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">WhatsApp Number *</label><input id="mktWhatsapp" type="tel" placeholder="+260 ..." style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Email Address</label><input id="mktEmail" type="email" placeholder="your@email.com" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">What do you sell? *</label><input id="mktProduct" type="text" placeholder="e.g. Siziba suits, baskets, jewellery..." style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1.5rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Package Interest *</label><select id="mktPlan" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"><option>Basic — $10/month</option><option>Featured — $25/month</option><option>Premium — $50/month</option></select></div>
+        <button id="mktBtn" onclick="submitMarketplaceEnquiry()" class="btn btn-gold" style="width:100%;justify-content:center;">Submit Application ✦</button>
+        <p style="font-size:.65rem;color:var(--muted);margin-top:.8rem;text-align:center;">We'll contact you within 24 hours to confirm your listing.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="s-bw"></div>
+
+  <!-- DISCLAIMER -->
+  <section style="padding:1.5rem 2rem;background:var(--ivory2);">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <p style="font-family:'EB Garamond',serif;font-size:.85rem;color:var(--muted);font-style:italic;line-height:1.8;">
+        <strong style="font-style:normal;color:var(--charcoal);">Disclaimer:</strong> Kuomboka.com is an independent platform. All transactions are conducted directly between buyers and sellers. Kuomboka.com is not responsible for the quality, authenticity, or delivery of listed products. Always verify sellers before making payment.
+      </p>
+    </div>
+  </section>
+
+</div>
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script>
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+const CAT_ICONS = {'Attire':'👔','Crafts':'🧺','Jewellery':'📿','Drums':'🥁','Other':'🎁'};
+const TIER_COLORS = {'featured':'badge-featured','premium':'badge-premium'};
+let allListings = [];
+
+function buildCard(item) {
+  const icon = CAT_ICONS[item.category] || '🎁';
+  const isFeatured = item.listing_tier === 'featured';
+  const isPremium = item.listing_tier === 'premium';
+  const badge = isPremium ? '<span class="shop-badge badge-premium">Premium</span>' : isFeatured ? '<span class="shop-badge badge-featured">Featured</span>' : '';
+  const imgHtml = item.image_url ? `<img src="${item.image_url}" alt="${item.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const tierClass = isPremium ? 'premium' : isFeatured ? 'featured' : '';
+  return `
+  <div class="shop-card ${tierClass}">
+    ${badge}
+    <div class="shop-img">${imgHtml}</div>
+    <div class="shop-body">
+      <div class="shop-cat">${item.category}</div>
+      <div class="shop-title">${item.title}</div>
+      <p class="shop-desc">${item.description || ''}</p>
+      <div class="shop-footer">
+        <span class="shop-price">$${parseFloat(item.price).toFixed(2)}</span>
+        <span class="shop-seller">${item.seller_name}</span>
+      </div>
+      <div class="shop-location" style="margin-top:.4rem;">📍 ${item.seller_location || 'Western Province'}</div>
+      <a href="#enquire" class="enquire-btn">🛍️ Enquire to Order</a>
+    </div>
+  </div>`;
+}
+
+function render(listings) {
+  const grid = document.getElementById('shopGrid');
+  const msg = document.getElementById('statusMsg');
+  msg.textContent = '';
+  if (!listings || listings.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);">No listings found. Check back soon.</div>`;
+    return;
+  }
+  // Sort: premium first, then featured, then basic
+  const sorted = [...listings].sort((a,b) => {
+    const order = {premium:0, featured:1, basic:2};
+    return (order[a.listing_tier]||2) - (order[b.listing_tier]||2);
+  });
+  grid.innerHTML = sorted.map(buildCard).join('');
+}
+
+async function loadListings() {
+  document.getElementById('statusMsg').textContent = 'Loading listings...';
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/marketplace_listings?published=eq.true&order=listing_tier.asc,created_at.desc`, {
+      headers: {'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY}
+    });
+    allListings = await res.json();
+    render(allListings);
+  } catch(e) {
+    document.getElementById('statusMsg').textContent = 'Could not load listings.';
+  }
+}
+
+function filterListings(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render(cat === 'all' ? allListings : allListings.filter(l => l.category === cat));
+}
+
+async function submitMarketplaceEnquiry() {
+  const name = document.getElementById('mktName').value.trim();
+  const whatsapp = document.getElementById('mktWhatsapp').value.trim();
+  const email = document.getElementById('mktEmail').value.trim();
+  const product = document.getElementById('mktProduct').value.trim();
+  const plan = document.getElementById('mktPlan').value;
+  const btn = document.getElementById('mktBtn');
+
+  if (!name || !whatsapp || !product) { btn.textContent = '⚠ Fill in required fields'; btn.style.background='var(--crimson)'; setTimeout(()=>{btn.textContent='Submit Application ✦';btn.style.background='';},2000); return; }
+
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/advertise_enquiries`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
+      body: JSON.stringify({name, email, whatsapp, enquiry_type:'Marketplace Listing', plan_interest: plan, message: product})
+    });
+    if (res.status === 201 || res.status === 200) {
+      btn.textContent = '✓ Application Received!';
+      btn.style.background = '#2a7a2a';
+    } else { btn.textContent = 'Error — try again'; btn.style.background = 'var(--crimson)'; }
+  } catch(e) { btn.textContent = 'Error — try again'; btn.style.background = 'var(--crimson)'; }
+  btn.disabled = false;
+  setTimeout(()=>{btn.textContent='Submit Application ✦';btn.style.background='';},4000);
+}
+
+loadListings();
+</script>
+</body>
+</html>

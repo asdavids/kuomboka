@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Find lodges, guesthouses, tour operators, transport and restaurants in Mongu and Western Province for the Kuomboka ceremony."/>
+  <title>Business Directory — Mongu & Western Province | Kuomboka.com</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    .dir-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
+    .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center;}
+    .filter-btn{padding:.4rem 1.1rem;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(0,0,0,.15);background:none;cursor:pointer;transition:all .2s;font-family:'Raleway',sans-serif;}
+    .filter-btn:hover,.filter-btn.active{background:var(--black);color:#fff;border-color:var(--black);}
+
+    /* Featured sponsored banner */
+    .sponsored-banner{display:grid;grid-template-columns:1fr 2fr;gap:0;margin-bottom:2rem;border:2px solid var(--gold);overflow:hidden;}
+    .sb-img{background:var(--black);display:flex;align-items:center;justify-content:center;font-size:4rem;min-height:180px;position:relative;overflow:hidden;}
+    .sb-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .sb-body{padding:2rem;background:var(--white);position:relative;}
+    .sb-tag{position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--black);padding:.2rem .7rem;font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+    .sb-cat{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+    .sb-title{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;color:var(--black);margin-bottom:.6rem;}
+    .sb-desc{font-size:.9rem;line-height:1.7;color:var(--charcoal);margin-bottom:1rem;}
+    .sb-location{font-size:.72rem;color:var(--muted);margin-bottom:1rem;}
+
+    /* Directory grid */
+    .dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    .dir-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;transition:transform .3s,box-shadow .3s;background:var(--white);position:relative;}
+    .dir-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
+    .dir-card.featured{border-color:var(--gold);}
+    .dir-badge{position:absolute;top:.7rem;right:.7rem;padding:.2rem .6rem;font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+    .badge-featured{background:var(--gold);color:var(--black);}
+    .dir-img{height:160px;background:linear-gradient(135deg,#0a1628,#1a3a6e);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
+    .dir-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .dir-body{padding:1.3rem;}
+    .dir-cat-tag{display:inline-block;padding:.2rem .6rem;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem;}
+    .dir-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--black);margin-bottom:.4rem;}
+    .dir-desc{font-size:.83rem;line-height:1.65;color:var(--charcoal);margin-bottom:.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .dir-location{font-size:.68rem;color:var(--muted);margin-bottom:.8rem;}
+    .dir-contact{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .dir-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .8rem;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s;cursor:pointer;border:none;}
+
+    /* Pricing */
+    .adv-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
+    .adv-card{padding:2rem;border:1px solid rgba(0,0,0,.1);text-align:center;}
+    .adv-card.popular{border:2px solid var(--gold);position:relative;}
+    .adv-popular{position:absolute;top:-.9rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:.2rem 1rem;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;}
+    .adv-name{font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem;}
+    .adv-price{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--crimson);}
+    .adv-period{font-size:.7rem;color:var(--muted);letter-spacing:.1em;margin-bottom:1.2rem;}
+    .adv-features{list-style:none;text-align:left;margin-bottom:1.5rem;}
+    .adv-features li{font-size:.82rem;color:var(--charcoal);padding:.35rem 0;border-bottom:1px solid rgba(0,0,0,.06);display:flex;gap:.5rem;}
+    .adv-features li::before{content:'✦';color:var(--gold);font-size:.65rem;flex-shrink:0;}
+
+    .s-tri{height:8px;background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px);}
+    .s-bw{height:10px;background:repeating-linear-gradient(90deg,#0a0a0a 0,#0a0a0a 22px,#fff 22px,#fff 44px);}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-crimson{background:var(--crimson);color:#fff;}
+    @media(max-width:900px){.dir-grid{grid-template-columns:1fr 1fr;}.sponsored-banner{grid-template-columns:1fr;}.adv-pricing{grid-template-columns:1fr;}}
+    @media(max-width:600px){.dir-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body data-page="directory">
+<div id="site-nav"></div>
+<div class="page-wrap">
+
+  <div class="dir-hero">
+    <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>Mongu &amp; Western Province<span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span></span>
+    <h1 style="font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#fff;margin-bottom:1rem;">Business Directory</h1>
+    <p style="font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;">Lodges, guesthouses, tour operators, transport services and restaurants for visitors attending Kuomboka.</p>
+  </div>
+
+  <div class="s-tri"></div>
+
+  <section style="padding:5rem 2rem;background:var(--ivory2);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="filter-bar">
+        <span style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-right:.5rem;">Filter:</span>
+        <button class="filter-btn active" onclick="filterDir('all',this)">All</button>
+        <button class="filter-btn" onclick="filterDir('Lodge',this)">Lodges</button>
+        <button class="filter-btn" onclick="filterDir('Guesthouse',this)">Guesthouses</button>
+        <button class="filter-btn" onclick="filterDir('Tour Operator',this)">Tour Operators</button>
+        <button class="filter-btn" onclick="filterDir('Transport',this)">Transport</button>
+        <button class="filter-btn" onclick="filterDir('Restaurant',this)">Restaurants</button>
+      </div>
+
+      <!-- Sponsored slot -->
+      <div id="sponsoredSlot"></div>
+
+      <!-- Directory grid -->
+      <div id="dirGrid" class="dir-grid"></div>
+
+      <!-- Advertise CTA -->
+      <div style="text-align:center;padding:3rem;background:var(--black);margin-top:3rem;">
+        <span style="font-size:2rem;display:block;margin-bottom:1rem;">📍</span>
+        <h3 style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.8rem;">List Your Business Here</h3>
+        <p style="font-family:'EB Garamond',serif;font-size:1rem;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;">Reach thousands of Kuomboka visitors planning their trip. Fixed monthly fee — no hidden costs.</p>
+        <a href="#advertise" class="btn btn-gold">Advertise Your Business →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="s-bw"></div>
+
+  <!-- ADVERTISING PACKAGES -->
+  <section id="advertise" style="padding:5rem 2rem;background:var(--white);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--crimson);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span>Advertising Packages<span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span></span>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--black);margin-bottom:.8rem;">Reach Kuomboka Visitors</h2>
+        <p style="font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--charcoal);font-style:italic;">Fixed monthly fee. No commission. No hidden charges.</p>
+      </div>
+
+      <div class="adv-pricing">
+        <div class="adv-card">
+          <div class="adv-name">Basic</div>
+          <div class="adv-price">$20</div>
+          <div class="adv-period">per month</div>
+          <ul class="adv-features">
+            <li>Business name &amp; category</li>
+            <li>Description (100 words)</li>
+            <li>Location listed</li>
+            <li>Phone number displayed</li>
+            <li>Listed in directory grid</li>
+          </ul>
+          <a href="#dir-enquire" class="btn btn-crimson" style="width:100%;justify-content:center;">Get Listed</a>
+        </div>
+
+        <div class="adv-card popular">
+          <div class="adv-popular">Most Popular</div>
+          <div class="adv-name" style="color:var(--gold);">Featured</div>
+          <div class="adv-price">$50</div>
+          <div class="adv-period">per month</div>
+          <ul class="adv-features">
+            <li>Everything in Basic</li>
+            <li>Gold border highlight</li>
+            <li>Featured badge</li>
+            <li>Priority grid placement</li>
+            <li>Photo / logo displayed</li>
+            <li>Website link</li>
+          </ul>
+          <a href="#dir-enquire" class="btn btn-gold" style="width:100%;justify-content:center;">Get Featured</a>
+        </div>
+
+        <div class="adv-card">
+          <div class="adv-name">Sponsored</div>
+          <div class="adv-price">$120</div>
+          <div class="adv-period">per month</div>
+          <ul class="adv-features">
+            <li>Everything in Featured</li>
+            <li>Large banner at top of page</li>
+            <li>Homepage feature spot</li>
+            <li>Travel page placement</li>
+            <li>Mention in newsletter</li>
+            <li>Sponsored article option</li>
+          </ul>
+          <a href="#dir-enquire" class="btn btn-crimson" style="width:100%;justify-content:center;">Go Sponsored</a>
+        </div>
+      </div>
+
+      <!-- Enquiry form -->
+      <div id="dir-enquire" style="max-width:600px;margin:0 auto;padding:2.5rem;background:var(--ivory2);border:1px solid rgba(165,123,10,.2);">
+        <h3 style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--black);margin-bottom:1.5rem;">Advertise Your Business</h3>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Your Name *</label><input id="dirName" type="text" placeholder="Full name" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Business Name *</label><input id="dirBusiness" type="text" placeholder="Your business name" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">WhatsApp / Phone *</label><input id="dirPhone" type="tel" placeholder="+260 ..." style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Email</label><input id="dirEmail" type="email" placeholder="your@email.com" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"/></div>
+        <div style="margin-bottom:1.5rem;"><label style="display:block;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Package *</label><select id="dirPlan" style="width:100%;padding:.85rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;"><option>Basic — $20/month</option><option>Featured — $50/month</option><option>Sponsored — $120/month</option></select></div>
+        <button id="dirBtn" onclick="submitDirEnquiry()" class="btn btn-gold" style="width:100%;justify-content:center;">Submit Enquiry ✦</button>
+        <p style="font-size:.65rem;color:var(--muted);margin-top:.8rem;text-align:center;">We'll be in touch within 24 hours with payment details.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="s-bw"></div>
+
+  <!-- DISCLAIMER -->
+  <section style="padding:1.5rem 2rem;background:var(--ivory2);">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <p style="font-family:'EB Garamond',serif;font-size:.85rem;color:var(--muted);font-style:italic;line-height:1.8;">
+        <strong style="font-style:normal;color:var(--charcoal);">Disclaimer:</strong> Kuomboka.com is an independent website. Business listings are paid advertisements. We do not endorse, verify, or take responsibility for the services of listed businesses. Always conduct your own research before booking or making payment.
+      </p>
+    </div>
+  </section>
+
+</div>
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script>
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+let allListings = [];
+
+const CAT_ICONS = {'Lodge':'🏨','Guesthouse':'🛏️','Tour Operator':'🗺️','Transport':'🚐','Restaurant':'🍽️','Other':'🏢'};
+const CAT_COLORS = {'Lodge':'background:#A57B0A;color:#000;','Guesthouse':'background:#7A5C38;color:#fff;','Tour Operator':'background:#9B1C2E;color:#fff;','Transport':'background:#1E4A8C;color:#fff;','Restaurant':'background:#2a7a2a;color:#fff;','Other':'background:#555;color:#fff;'};
+
+function buildSponsored(b) {
+  const icon = CAT_ICONS[b.category] || '🏢';
+  const imgHtml = b.image_url ? `<img src="${b.image_url}" alt="${b.business_name}"/>` : icon;
+  const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);">📞 Call</a>` : '';
+  const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;">🌐 Website</a>` : '';
+  return `
+  <div class="sponsored-banner">
+    <div class="sb-img">${imgHtml}</div>
+    <div class="sb-body">
+      <span class="sb-tag">⭐ Sponsored</span>
+      <div class="sb-cat">${b.category}</div>
+      <div class="sb-title">${b.business_name}</div>
+      <p class="sb-desc">${b.description || ''}</p>
+      <div class="sb-location">📍 ${b.location || 'Western Province'}</div>
+      <div class="dir-contact">${phone}${web}<a href="#dir-enquire" class="dir-btn" style="background:var(--ivory2);color:var(--black);border:1px solid rgba(0,0,0,.15);">✉ Enquire</a></div>
+    </div>
+  </div>`;
+}
+
+function buildCard(b) {
+  const icon = CAT_ICONS[b.category] || '🏢';
+  const catColor = CAT_COLORS[b.category] || CAT_COLORS['Other'];
+  const isFeatured = b.listing_tier === 'featured';
+  const imgHtml = b.image_url ? `<img src="${b.image_url}" alt="${b.business_name}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const badge = isFeatured ? '<span class="dir-badge badge-featured">Featured</span>' : '';
+  const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);font-size:.6rem;padding:.35rem .7rem;">📞 Call</a>` : '';
+  const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;font-size:.6rem;padding:.35rem .7rem;">🌐 Site</a>` : '';
+  return `
+  <div class="dir-card ${isFeatured?'featured':''}">
+    ${badge}
+    <div class="dir-img">${imgHtml}</div>
+    <div class="dir-body">
+      <span class="dir-cat-tag" style="${catColor}">${b.category}</span>
+      <div class="dir-title">${b.business_name}</div>
+      <p class="dir-desc">${b.description || ''}</p>
+      <div class="dir-location">📍 ${b.location || 'Western Province'}</div>
+      <div class="dir-contact">${phone}${web}</div>
+    </div>
+  </div>`;
+}
+
+function render(listings) {
+  const grid = document.getElementById('dirGrid');
+  const sponsored = document.getElementById('sponsoredSlot');
+  if (!listings || listings.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);">No listings found.</div>`;
+    sponsored.innerHTML = '';
+    return;
+  }
+  const sponsoredItem = listings.find(b => b.listing_tier === 'sponsored');
+  sponsored.innerHTML = sponsoredItem ? buildSponsored(sponsoredItem) : '';
+  const rest = listings.filter(b => b.listing_tier !== 'sponsored');
+  const sorted = [...rest].sort((a,b) => {
+    const order = {featured:0, basic:1};
+    return (order[a.listing_tier]||1) - (order[b.listing_tier]||1);
+  });
+  grid.innerHTML = sorted.map(buildCard).join('');
+}
+
+async function loadDirectory() {
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/business_directory?published=eq.true&order=listing_tier.asc,created_at.desc`, {
+      headers: {'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY}
+    });
+    allListings = await res.json();
+    render(allListings);
+  } catch(e) {
+    document.getElementById('dirGrid').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;font-family:\'EB Garamond\',serif;font-style:italic;color:var(--muted);">Could not load listings.</div>';
+  }
+}
+
+function filterDir(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render(cat === 'all' ? allListings : allListings.filter(l => l.category === cat));
+}
+
+async function submitDirEnquiry() {
+  const name = document.getElementById('dirName').value.trim();
+  const business = document.getElementById('dirBusiness').value.trim();
+  const phone = document.getElementById('dirPhone').value.trim();
+  const email = document.getElementById('dirEmail').value.trim();
+  const plan = document.getElementById('dirPlan').value;
+  const btn = document.getElementById('dirBtn');
+
+  if (!name || !business || !phone) { btn.textContent = '⚠ Fill in required fields'; btn.style.background='var(--crimson)'; setTimeout(()=>{btn.textContent='Submit Enquiry ✦';btn.style.background='';},2000); return; }
+
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/advertise_enquiries`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
+      body: JSON.stringify({name, email, whatsapp: phone, business_name: business, enquiry_type:'Directory Listing', plan_interest: plan})
+    });
+    if (res.status === 201 || res.status === 200) {
+      btn.textContent = '✓ Enquiry Received!';
+      btn.style.background = '#2a7a2a';
+    } else { btn.textContent = 'Error — try again'; btn.style.background = 'var(--crimson)'; }
+  } catch(e) { btn.textContent = 'Error — try again'; btn.style.background = 'var(--crimson)'; }
+  btn.disabled = false;
+  setTimeout(()=>{btn.textContent='Submit Enquiry ✦';btn.style.background='';},4000);
+}
+
+loadDirectory();
+</script>
+</body>
+</html>
