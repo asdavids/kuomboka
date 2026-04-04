@@ -48,7 +48,7 @@
     .nav-body { display:flex; align-items:center; justify-content:space-between; padding:0 3rem; height:64px; }
     .nav-logo img { height:48px; width:auto; }
     .nav-links { display:flex; list-style:none; }
-    .nav-links a { display:block; padding:.4rem 1rem; font-size:.65rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .nav-links a { display:block; padding:.3rem .6rem; font-size:.56rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--gold2); }
     .nav-cta { background:var(--crimson)!important; color:#fff!important; }
     .nav-cta:hover { background:var(--crimson2)!important; }
@@ -473,7 +473,21 @@
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-24px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fadeInUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:translateY(0)} }
 
-    /* Scroll Reveal */
+    /* Sticky CTA Bar */
+    .sticky-cta {
+      position:fixed; bottom:0; left:0; right:0; z-index:400;
+      background:rgba(10,10,10,.95);
+      backdrop-filter:blur(12px);
+      border-top:1px solid rgba(165,123,10,.2);
+      display:flex; align-items:center; justify-content:center; gap:1rem;
+      padding:.7rem 2rem;
+      transform:translateY(100%);
+      transition:transform .4s ease;
+    }
+    .sticky-cta.visible { transform:translateY(0); }
+    .sticky-cta-text { font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-right:.5rem; }
+
+/* Scroll Reveal */
     .sr { opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s ease; }
     .sr.in { opacity:1; transform:translateY(0); }
     .sr-left { opacity:0; transform:translateX(-40px); transition:opacity .8s ease, transform .8s ease; }
@@ -578,6 +592,14 @@
     <div class="scroll-arrow"></div>
   </div>
 </section>
+
+<!-- STICKY CTA BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <span class="sticky-cta-text">Kuomboka 2027</span>
+  <a href="history.html" class="btn3d btn3d-gold" style="padding:.6rem 1.4rem;font-size:.6rem;">✦ Learn the Meaning</a>
+  <a href="travel.html" class="btn3d btn3d-crim" style="padding:.6rem 1.4rem;font-size:.6rem;">Plan Your Visit</a>
+  <a href="gallery.html" class="btn3d btn3d-ghost" style="padding:.6rem 1.4rem;font-size:.6rem;">Gallery</a>
+</div>
 
 <div class="s-bw"></div>
 
@@ -832,6 +854,16 @@ const io = new IntersectionObserver((entries) => {
   });
 },{threshold:.08});
 document.querySelectorAll('.sr,.sr-left,.sr-right,.sr-scale').forEach(el=>io.observe(el));
+
+/* Sticky CTA — show after scrolling past hero */
+const stickyCta = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > window.innerHeight * 0.7) {
+    stickyCta.classList.add('visible');
+  } else {
+    stickyCta.classList.remove('visible');
+  }
+}, {passive:true});
 
 /* Newsletter */
 document.querySelectorAll('.nl-form').forEach(form=>{
