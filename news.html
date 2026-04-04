@@ -6,6 +6,7 @@
   <title>Kuomboka News &amp; Updates 2026 | Ceremony Dates &amp; Cultural Stories</title>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .news-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
     .alert-bar{background:var(--crimson);padding:1.2rem 2rem;}
@@ -17,7 +18,7 @@
     .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
     .news-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;transition:transform .3s,box-shadow .3s;text-decoration:none;color:inherit;display:block;}
     .news-card:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(0,0,0,.12);}
-    .nc-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;background:var(--black);}
+    .nc-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
     .nc-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
     .nc-cat{position:absolute;top:.8rem;left:.8rem;padding:.2rem .7rem;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;z-index:1;}
     .nc-body{padding:1.5rem;}
@@ -27,24 +28,21 @@
     .nc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson);}
     .featured-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:2rem;text-decoration:none;color:inherit;transition:box-shadow .3s;}
     .featured-card:hover{box-shadow:0 16px 50px rgba(0,0,0,.12);}
-    .featured-img{height:360px;background:var(--black);position:relative;overflow:hidden;}
-    .featured-img img{width:100%;height:100%;object-fit:cover;}
+    .featured-img{height:360px;background:var(--black);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+    .featured-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
     .featured-body{padding:3rem 2.5rem;background:var(--white);display:flex;flex-direction:column;justify-content:center;}
     .featured-tag{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:inline-block;padding:.2rem .7rem;}
     .featured-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--black);line-height:1.25;margin-bottom:1rem;}
     .featured-excerpt{font-family:'EB Garamond',serif;font-size:1.1rem;line-height:1.8;color:var(--charcoal);margin-bottom:1.5rem;}
     .featured-meta{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
-    .skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;}
-    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
     .s-tri{height:8px;background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px);}
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s;}
     .btn-gold{background:var(--gold);color:var(--black);}
-    .btn-gold:hover{background:var(--gold2);}
     .btn-crimson{background:var(--crimson);color:#fff;}
+    #statusMsg{text-align:center;padding:1rem;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);display:none;}
     @media(max-width:900px){.news-grid{grid-template-columns:1fr 1fr;}.featured-card{grid-template-columns:1fr;}.featured-img{height:250px;}}
     @media(max-width:600px){.news-grid{grid-template-columns:1fr;}}
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body data-page="news">
 <div id="site-nav"></div>
@@ -76,12 +74,9 @@
         <button class="filter-btn" onclick="filterArticles('Culture',this)">Culture</button>
         <button class="filter-btn" onclick="filterArticles('Heritage',this)">Heritage</button>
       </div>
+      <p id="statusMsg"></p>
       <div id="featuredSlot"></div>
-      <div id="articlesGrid" class="news-grid">
-        <div style="border:1px solid rgba(0,0,0,.08);"><div class="skeleton" style="height:200px;"></div><div style="padding:1.5rem;"><div class="skeleton" style="height:12px;width:40%;margin-bottom:.8rem;"></div><div class="skeleton" style="height:20px;margin-bottom:.5rem;"></div><div class="skeleton" style="height:14px;margin-bottom:.4rem;"></div><div class="skeleton" style="height:14px;width:70%;"></div></div></div>
-        <div style="border:1px solid rgba(0,0,0,.08);"><div class="skeleton" style="height:200px;"></div><div style="padding:1.5rem;"><div class="skeleton" style="height:12px;width:40%;margin-bottom:.8rem;"></div><div class="skeleton" style="height:20px;margin-bottom:.5rem;"></div><div class="skeleton" style="height:14px;margin-bottom:.4rem;"></div><div class="skeleton" style="height:14px;width:70%;"></div></div></div>
-        <div style="border:1px solid rgba(0,0,0,.08);"><div class="skeleton" style="height:200px;"></div><div style="padding:1.5rem;"><div class="skeleton" style="height:12px;width:40%;margin-bottom:.8rem;"></div><div class="skeleton" style="height:20px;margin-bottom:.5rem;"></div><div class="skeleton" style="height:14px;margin-bottom:.4rem;"></div><div class="skeleton" style="height:14px;width:70%;"></div></div></div>
-      </div>
+      <div id="articlesGrid" class="news-grid"></div>
     </div>
   </section>
 
@@ -108,59 +103,146 @@
 <script src="js/components.js"></script>
 <script src="js/supabase.js"></script>
 <script>
-const SB_URL='https://gintajtpcijppyqkojga.supabase.co';
-const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
-let allArticles=[];
-const CC={'Ceremony':'background:var(--crimson);color:#fff;','Travel':'background:var(--earth);color:#fff;','Culture':'background:var(--gold);color:var(--black);','Heritage':'background:var(--gold);color:var(--black);','Flood Update':'background:#1E4A8C;color:#fff;','Music':'background:var(--earth);color:#fff;'};
-const CI={'Ceremony':'🥁','Travel':'✈️','Culture':'📖','Heritage':'🐘','Flood Update':'🌊','Music':'🎶'};
-const BG=['linear-gradient(135deg,#0a1628,#1a3a6e)','linear-gradient(135deg,#1a0806,#4a1a08)','linear-gradient(135deg,#0d1a08,#1e3812)','linear-gradient(135deg,#1a0818,#3a1040)'];
-function fd(iso){return new Date(iso).toLocaleDateString('en-GB',{year:'numeric',month:'long'});}
-function buildFeatured(a){
-  const cat=a.category||'News',icon=CI[cat]||'📰',color=CC[cat]||CC['Culture'];
-  const img=a.image_url?`<img src="${a.image_url}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;"/>`:`<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:5rem;">${icon}</div>`;
-  return `<a href="blog.html?slug=${a.slug}" class="featured-card"><div class="featured-img">${img}</div><div class="featured-body"><span class="featured-tag" style="${color}">${cat}</span><h2 class="featured-title">${a.title}</h2><p class="featured-excerpt">${a.excerpt||''}</p><div class="featured-meta">${fd(a.created_at)} · ${a.read_time||3} min read · ${a.author||'Kuomboka Editorial'}</div><span class="btn btn-crimson" style="margin-top:1.5rem;">Read Article →</span></div></a>`;
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+let allArticles = [];
+
+const CC = {
+  'Ceremony':'background:#9B1C2E;color:#fff;',
+  'Travel':'background:#7A5C38;color:#fff;',
+  'Culture':'background:#A57B0A;color:#000;',
+  'Heritage':'background:#A57B0A;color:#000;',
+  'Flood Update':'background:#1E4A8C;color:#fff;',
+  'Music':'background:#7A5C38;color:#fff;'
+};
+const CI = {'Ceremony':'🥁','Travel':'✈️','Culture':'📖','Heritage':'🐘','Flood Update':'🌊','Music':'🎶'};
+const BGARR = ['linear-gradient(135deg,#0a1628,#1a3a6e)','linear-gradient(135deg,#1a0806,#4a1a08)','linear-gradient(135deg,#0d1a08,#1e3812)','linear-gradient(135deg,#1a0818,#3a1040)'];
+
+function fd(iso) {
+  try { return new Date(iso).toLocaleDateString('en-GB',{year:'numeric',month:'long'}); }
+  catch(e) { return ''; }
 }
-function buildCard(a){
-  const cat=a.category||'News',icon=CI[cat]||'📰',color=CC[cat]||CC['Culture'];
-  const bg=a.image_url?'':`background:${BG[Math.floor(Math.random()*BG.length)]};`;
-  const img=a.image_url?`<img src="${a.image_url}" alt="${a.title}"/>`:`<span style="font-size:3rem;position:relative;z-index:1;">${icon}</span>`;
-  return `<a href="blog.html?slug=${a.slug}" class="news-card"><div class="nc-img" style="${bg}">${img}<span class="nc-cat" style="${color}">${cat}</span></div><div class="nc-body"><div class="nc-date">${fd(a.created_at)} · ${a.read_time||3} min read</div><div class="nc-title">${a.title}</div><p class="nc-excerpt">${a.excerpt||''}</p><span class="nc-more">Read More →</span></div></a>`;
+
+function buildFeatured(a) {
+  const cat = a.category || 'News';
+  const color = CC[cat] || CC['Culture'];
+  const icon = CI[cat] || '📰';
+  const imgHtml = a.image_url
+    ? `<img src="${a.image_url}" alt="${a.title}"/>`
+    : icon;
+  return `
+  <a href="blog.html?slug=${encodeURIComponent(a.slug)}" class="featured-card">
+    <div class="featured-img">${imgHtml}</div>
+    <div class="featured-body">
+      <span class="featured-tag" style="${color}">${cat}</span>
+      <h2 class="featured-title">${a.title}</h2>
+      <p class="featured-excerpt">${a.excerpt || ''}</p>
+      <div class="featured-meta">${fd(a.created_at)} · ${a.read_time||3} min read · ${a.author||'Kuomboka Editorial'}</div>
+      <span class="btn btn-crimson" style="margin-top:1.5rem;">Read Article →</span>
+    </div>
+  </a>`;
 }
-function renderArticles(articles){
-  const grid=document.getElementById('articlesGrid');
-  const feat=document.getElementById('featuredSlot');
-  if(!articles||articles.length===0){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:4rem 0;font-family:EB Garamond,serif;font-size:1.2rem;color:var(--muted);font-style:italic;">No articles found. Check back soon.</div>';feat.innerHTML='';return;}
-  feat.innerHTML=buildFeatured(articles[0]);
-  grid.innerHTML=articles.slice(1).map(a=>buildCard(a)).join('');
+
+function buildCard(a) {
+  const cat = a.category || 'News';
+  const color = CC[cat] || CC['Culture'];
+  const icon = CI[cat] || '📰';
+  const bg = a.image_url ? '' : `background:${BGARR[Math.floor(Math.random()*BGARR.length)]};`;
+  const imgHtml = a.image_url ? `<img src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  return `
+  <a href="blog.html?slug=${encodeURIComponent(a.slug)}" class="news-card">
+    <div class="nc-img" style="${bg}">${imgHtml}<span class="nc-cat" style="${color}">${cat}</span></div>
+    <div class="nc-body">
+      <div class="nc-date">${fd(a.created_at)} · ${a.read_time||3} min read</div>
+      <div class="nc-title">${a.title}</div>
+      <p class="nc-excerpt">${a.excerpt || ''}</p>
+      <span class="nc-more">Read More →</span>
+    </div>
+  </a>`;
 }
-async function loadArticles(){
-  try{
-    const res=await fetch(`${SB_URL}/rest/v1/news_articles?published=eq.true&order=created_at.desc`,{headers:{'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`}});
-    allArticles=await res.json();
-    renderArticles(allArticles);
-  }catch(e){document.getElementById('articlesGrid').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:3rem;">Could not load articles. Please try again later.</div>';}
+
+function render(articles) {
+  const grid = document.getElementById('articlesGrid');
+  const feat = document.getElementById('featuredSlot');
+  const msg  = document.getElementById('statusMsg');
+  msg.style.display = 'none';
+
+  if (!articles || articles.length === 0) {
+    feat.innerHTML = '';
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 0;">
+      <p style="font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--muted);">No articles found. Check back soon.</p>
+    </div>`;
+    return;
+  }
+
+  feat.innerHTML = buildFeatured(articles[0]);
+  grid.innerHTML = articles.slice(1).map(a => buildCard(a)).join('');
 }
-function filterArticles(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+
+function showMsg(text) {
+  const msg = document.getElementById('statusMsg');
+  msg.textContent = text;
+  msg.style.display = 'block';
+}
+
+async function loadArticles() {
+  showMsg('Loading articles...');
+  try {
+    // Use Edge Function — bypasses all RLS and CORS issues
+    const res = await fetch(
+      'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-articles',
+      { method: 'GET', headers: { 'Content-Type': 'application/json' } }
+    );
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    if (!Array.isArray(data)) throw new Error('Unexpected response');
+    allArticles = data;
+    render(allArticles);
+  } catch(err) {
+    console.error('Load error:', err);
+    showMsg('Could not load articles: ' + err.message);
+    document.getElementById('featuredSlot').innerHTML = '';
+    document.getElementById('articlesGrid').innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:3rem;border:1px solid rgba(0,0,0,.1);">
+        <p style="font-family:'Cinzel',serif;font-size:.85rem;margin-bottom:.5rem;">Error loading articles</p>
+        <p style="font-size:.82rem;color:var(--muted);">${err.message}</p>
+        <button onclick="loadArticles()" class="btn btn-crimson" style="margin-top:1rem;">Try Again</button>
+      </div>`;
+  }
+}
+
+function filterArticles(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderArticles(cat==='all'?allArticles:allArticles.filter(a=>a.category===cat));
+  render(cat === 'all' ? allArticles : allArticles.filter(a => a.category === cat));
 }
-async function subscribeNews(){
-  const name=document.getElementById('subName').value.trim();
-  const email=document.getElementById('subEmail').value.trim();
-  const interest=document.getElementById('subInterest').value;
-  const btn=document.getElementById('subBtn');
-  if(!email||!email.includes('@'))return;
-  btn.textContent='Subscribing...';btn.disabled=true;
-  try{
-    const res=await fetch(`${SB_URL}/rest/v1/subscribers`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify({name,email,interest})});
-    btn.textContent=res.status===409?'✓ Already subscribed!':'✓ Subscribed!';
-    btn.style.background=res.status===409?'#2a5a7a':'#2a7a2a';
-    document.getElementById('subName').value='';document.getElementById('subEmail').value='';
-  }catch(e){btn.textContent='Try again';btn.style.background='var(--crimson)';}
-  btn.disabled=false;
-  setTimeout(()=>{btn.textContent='Subscribe ✦';btn.style.background='';},4000);
+
+async function subscribeNews() {
+  const name = document.getElementById('subName').value.trim();
+  const email = document.getElementById('subEmail').value.trim();
+  const interest = document.getElementById('subInterest').value;
+  const btn = document.getElementById('subBtn');
+  if (!email || !email.includes('@')) return;
+  btn.textContent = 'Subscribing...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/subscribers`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
+      body: JSON.stringify({name, email, interest})
+    });
+    btn.textContent = res.status === 409 ? '✓ Already subscribed!' : '✓ Subscribed!';
+    btn.style.background = res.status === 409 ? '#2a5a7a' : '#2a7a2a';
+    document.getElementById('subName').value = '';
+    document.getElementById('subEmail').value = '';
+  } catch(e) {
+    btn.textContent = 'Try again'; btn.style.background = 'var(--crimson)';
+  }
+  btn.disabled = false;
+  setTimeout(() => { btn.textContent = 'Subscribe ✦'; btn.style.background = ''; }, 4000);
 }
+
+// Start loading immediately
 loadArticles();
 </script>
 </body>
