@@ -17,6 +17,8 @@ const NAV_HTML = `
       <li><a href="attire.html" data-page="attire">Attire</a></li>
       <li><a href="travel.html" data-page="travel">Travel</a></li>
       <li><a href="news.html" data-page="news">News</a></li>
+      <li><a href="shop.html" data-page="shop">Shop</a></li>
+      <li><a href="directory.html" data-page="directory">Directory</a></li>
       <li><a href="contact.html" data-page="contact" class="nav-cta">Plan Visit</a></li>
     </ul>
     <div class="nav-hamburger" aria-label="Menu">
@@ -31,6 +33,8 @@ const NAV_HTML = `
   <a href="attire.html" data-page="attire">Traditional Attire</a>
   <a href="travel.html" data-page="travel">Travel Guide</a>
   <a href="news.html" data-page="news">News & Updates</a>
+  <a href="shop.html" data-page="shop">Shop</a>
+  <a href="directory.html" data-page="directory">Directory</a>
   <a href="contact.html" data-page="contact">Plan Your Visit</a>
 </nav>`;
 
@@ -82,12 +86,12 @@ const FOOTER_HTML = `
         </ul>
       </div>
       <div>
-        <div class="ft-col-h">Partners</div>
+        <div class="ft-col-h">Marketplace</div>
         <ul class="ft-links">
-          <li><a href="contact.html">Tourism Boards</a></li>
-          <li><a href="contact.html">Media Enquiries</a></li>
-          <li><a href="contact.html">Sponsorships</a></li>
-          <li><a href="contact.html">Cultural Orgs</a></li>
+          <li><a href="shop.html">Lozi Attire &amp; Crafts</a></li>
+          <li><a href="shop.html#list-your-item">Sell Your Products</a></li>
+          <li><a href="directory.html">Business Directory</a></li>
+          <li><a href="directory.html#advertise">Advertise With Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
