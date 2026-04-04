@@ -497,9 +497,18 @@
     .sr-scale { opacity:0; transform:scale(.9); transition:opacity .8s ease, transform .8s ease; }
     .sr-scale.in { opacity:1; transform:scale(1); }
 
+    /* Hamburger */
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:.5rem; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:rgba(255,255,255,.7); transition:all .3s; }
+    .nav-mobile { display:none; position:fixed; top:67px; left:0; right:0; z-index:499; background:rgba(10,10,10,.98); backdrop-filter:blur(20px); flex-direction:column; padding:1rem 0; border-bottom:1px solid rgba(165,123,10,.2); }
+    .nav-mobile.open { display:flex; }
+    .nav-mobile a { padding:.9rem 2rem; font-size:.7rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.6); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.05); transition:color .2s; }
+    .nav-mobile a:hover { color:var(--gold2); }
+
     /* Responsive */
     @media(max-width:900px) {
       .nav-links { display:none; }
+      .nav-hamburger { display:flex; }
       .tilt-grid { grid-template-columns:1fr; }
       .cer-inner { grid-template-columns:1fr; gap:2.5rem; }
       .gal-grid,.gal-grid-2 { grid-template-columns:1fr; }
@@ -545,7 +554,24 @@
       <li><a href="directory.html">Stay &amp; Travel</a></li>
       <li><a href="contact.html" class="nav-cta">Plan Visit</a></li>
     </ul>
+    <div class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="nav-mobile" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="history.html">History</a>
+  <a href="lozi.html">Lozi People</a>
+  <a href="attire.html">Traditional Attire</a>
+  <a href="travel.html">Travel Guide</a>
+  <a href="news.html">News &amp; Updates</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="shop.html">Shop</a>
+  <a href="directory.html">Stay &amp; Travel</a>
+  <a href="contact.html">Plan Your Visit</a>
 </nav>
 
 <!-- HERO -->
@@ -761,7 +787,7 @@
         <div class="ft-brand">KUOMBOKA</div>
         <p class="ft-tagline">A community site celebrating the Kuomboka ceremony and the Lozi people of Barotseland, Western Province, Zambia.</p>
         <div class="ft-socials">
-          <a class="ft-soc" href="#">Facebook</a>
+          <a class="ft-soc" href="https://www.facebook.com/profile.php?id=61573359297429" target="_blank">Facebook</a>
           <a class="ft-soc" href="#">YouTube</a>
           <a class="ft-soc" href="#">TikTok</a>
           <a class="ft-soc" href="#">Instagram</a>
@@ -788,12 +814,12 @@
         </ul>
       </div>
       <div>
-        <div class="ft-col-h">Partners</div>
+        <div class="ft-col-h">Marketplace</div>
         <ul class="ft-links">
-          <li><a href="contact.html">Tourism Boards</a></li>
-          <li><a href="contact.html">Media Enquiries</a></li>
-          <li><a href="contact.html">Sponsorships</a></li>
-          <li><a href="contact.html">Cultural Orgs</a></li>
+          <li><a href="shop.html">Lozi Attire &amp; Crafts</a></li>
+          <li><a href="shop.html#list-your-item">Sell Your Products</a></li>
+          <li><a href="directory.html">Stay &amp; Travel</a></li>
+          <li><a href="directory.html#advertise">Advertise With Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
@@ -872,6 +898,17 @@ window.addEventListener('scroll', () => {
     stickyCta.classList.remove('visible');
   }
 }, {passive:true});
+
+/* Mobile Nav */
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+// Close mobile nav when a link is clicked
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-mobile a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  });
+});
 
 /* Newsletter */
 document.querySelectorAll('.nl-form').forEach(form=>{
