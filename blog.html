@@ -36,6 +36,22 @@
     gtag('js', new Date());
     gtag('config', 'G-F4TNX0HFS5');
   </script>
+  <script>
+    // Set OG tags from URL slug for social sharing
+    (function() {
+      const slug = new URLSearchParams(window.location.search).get('slug') || '';
+      const canonical = 'https://www.kuomboka.com/blog?slug=' + slug;
+      // Set canonical
+      const link = document.createElement('link');
+      link.rel = 'canonical'; link.href = canonical;
+      document.head.appendChild(link);
+    })();
+  </script>
+  <!-- Default OG tags — updated by JS on load -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Kuomboka.com"/>
+  <meta property="og:image" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 </head>
 <body data-page="news">
 <div id="site-nav"></div>
