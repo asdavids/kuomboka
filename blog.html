@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Kuomboka.com</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <style>
+    .article-hero {
+      background: var(--black); padding: 6rem 2rem 4rem;
+      border-bottom: 3px solid var(--gold);
+    }
+    .article-inner { max-width: 780px; margin: 0 auto; }
+    .article-cat {
+      display: inline-block; padding: .3rem .9rem;
+      font-size: .62rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .article-title {
+      font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; color: var(--white); line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .article-meta {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.4); margin-bottom: 1.5rem;
+    }
+    .article-excerpt {
+      font-family: 'EB Garamond', serif; font-size: 1.25rem;
+      font-style: italic; line-height: 1.8; color: var(--earth2);
+    }
+    .article-body-wrap {
+      max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem;
+    }
+    .article-image {
+      width: 100%; max-height: 500px; object-fit: cover;
+      display: block; margin-bottom: 3rem;
+      border: 2px solid var(--black);
+    }
+    .article-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.2rem; line-height: 2; color: var(--charcoal);
+    }
+    .article-body p { margin-bottom: 1.8rem; }
+    .article-body p:first-child::first-letter {
+      font-family: 'Cinzel', serif; font-size: 4rem; font-weight: 700;
+      float: left; line-height: .8; margin: .05em .1em 0 0;
+      color: var(--gold);
+    }
+    .article-share {
+      margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,.1);
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .share-label {
+      font-family: 'Cinzel', serif; font-size: .7rem;
+      font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .share-btn {
+      padding: .4rem 1.2rem; border: 1px solid rgba(0,0,0,.15);
+      font-size: .7rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--charcoal); transition: all .2s; cursor: pointer; background: none;
+    }
+    .share-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .related-section { background: var(--ivory2); padding: 5rem 2rem; }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .loading-state {
+      text-align: center; padding: 8rem 2rem;
+      font-family: 'EB Garamond', serif; font-size: 1.2rem;
+      font-style: italic; color: var(--muted);
+    }
+    .error-state {
+      text-align: center; padding: 8rem 2rem;
+    }
+    .s-tri { height: 8px; background: repeating-linear-gradient(90deg, var(--crimson) 0, var(--crimson) 12px, var(--gold) 12px, var(--gold) 24px, #fff 24px, #fff 36px, var(--gold) 36px, var(--gold) 48px, var(--crimson) 48px, var(--crimson) 60px); }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 2rem; font-family: 'Raleway', sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all .25s; }
+    .btn-crimson { background: var(--crimson); color: #fff; }
+    .btn-crimson:hover { background: var(--crimson2); transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body data-page="news">
+<div id="site-nav"></div>
+<div class="page-wrap">
+
+  <!-- Loading state -->
+  <div id="loadingState" class="loading-state">
+    <p>Loading article...</p>
+  </div>
+
+  <!-- Article content (hidden until loaded) -->
+  <div id="articleContent" style="display:none;">
+
+    <div class="article-hero">
+      <div class="article-inner">
+        <span id="articleCat" class="article-cat"></span>
+        <h1 id="articleTitle" class="article-title"></h1>
+        <div class="article-meta">
+          <span id="articleAuthor"></span>
+          <span id="articleDate"></span>
+          <span id="articleReadTime"></span>
+        </div>
+        <p id="articleExcerpt" class="article-excerpt"></p>
+      </div>
+    </div>
+
+    <div class="s-tri"></div>
+
+    <div class="article-body-wrap">
+      <img id="articleImage" class="article-image" style="display:none;" alt="Article image"/>
+      <div id="articleBody" class="article-body"></div>
+
+      <div class="article-share">
+        <span class="share-label">Share this story:</span>
+        <button class="share-btn" onclick="shareArticle('facebook')">Facebook</button>
+        <button class="share-btn" onclick="shareArticle('twitter')">Twitter / X</button>
+        <button class="share-btn" onclick="shareArticle('whatsapp')">WhatsApp</button>
+        <button class="share-btn" onclick="copyLink()">Copy Link</button>
+      </div>
+
+      <div style="margin-top:3rem;padding:2rem;background:var(--ivory2);border-left:4px solid var(--gold);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <p style="font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;">Subscribe for Updates</p>
+          <p style="font-family:'EB Garamond',serif;font-size:1rem;color:var(--charcoal);font-style:italic;">Get ceremony dates, flood alerts and cultural stories direct to your inbox.</p>
+        </div>
+        <a href="news.html" class="btn btn-gold">← Back to News</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Error state -->
+  <div id="errorState" class="error-state" style="display:none;">
+    <span style="font-size:3rem;display:block;margin-bottom:1rem;">📰</span>
+    <h2 style="font-family:'Cinzel',serif;margin-bottom:1rem;">Article Not Found</h2>
+    <p style="font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--muted);margin-bottom:2rem;">This article may have been moved or is no longer available.</p>
+    <a href="news.html" class="btn btn-crimson">← Back to News</a>
+  </div>
+
+</div>
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/supabase.js"></script>
+<script>
+const SUPABASE_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+const catColors = {
+  'Ceremony': 'background:var(--crimson);color:#fff;',
+  'Travel': 'background:var(--earth);color:#fff;',
+  'Culture': 'background:var(--gold);color:var(--black);',
+  'Heritage': 'background:var(--gold);color:var(--black);',
+  'Flood Update': 'background:#1E4A8C;color:#fff;',
+  'Music': 'background:var(--earth);color:#fff;'
+};
+
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString('en-GB', { year:'numeric', month:'long', day:'numeric' });
+}
+
+function formatBody(text) {
+  if (!text) return '';
+  return text.split('\n\n').map(p => p.trim()).filter(p => p).map(p => `<p>${p}</p>`).join('');
+}
+
+async function loadArticle() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+
+  if (!slug) {
+    showError(); return;
+  }
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/news_articles?slug=eq.${slug}&published=eq.true`, {
+      headers: { 'apikey': ANON_KEY, 'Authorization': `Bearer ${ANON_KEY}` }
+    });
+    const data = await res.json();
+
+    if (!data || data.length === 0) { showError(); return; }
+
+    const article = data[0];
+
+    // Update page title
+    document.title = `${article.title} | Kuomboka.com`;
+
+    // Fill in content
+    const cat = article.category || 'News';
+    document.getElementById('articleCat').textContent = cat;
+    document.getElementById('articleCat').style.cssText = catColors[cat] || catColors['Culture'];
+    document.getElementById('articleTitle').textContent = article.title;
+    document.getElementById('articleAuthor').textContent = `By ${article.author || 'Kuomboka Editorial'}`;
+    document.getElementById('articleDate').textContent = formatDate(article.created_at);
+    document.getElementById('articleReadTime').textContent = `${article.read_time || 3} min read`;
+    document.getElementById('articleExcerpt').textContent = article.excerpt || '';
+    document.getElementById('articleBody').innerHTML = formatBody(article.body);
+
+    if (article.image_url) {
+      const img = document.getElementById('articleImage');
+      img.src = article.image_url;
+      img.style.display = 'block';
+    }
+
+    // Show article
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('articleContent').style.display = 'block';
+
+  } catch(err) {
+    showError();
+  }
+}
+
+function showError() {
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('errorState').style.display = 'block';
+}
+
+function shareArticle(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.getElementById('articleTitle').textContent);
+  const urls = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+    whatsapp: `https://wa.me/?text=${title}%20${url}`
+  };
+  window.open(urls[platform], '_blank');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    alert('Link copied!');
+  });
+}
+
+loadArticle();
+</script>
+</body>
+</html>
