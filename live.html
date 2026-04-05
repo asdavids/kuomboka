@@ -2,38 +2,365 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Live Stream | Kuomboka.com</title>
+  <meta name="description" content="Watch the Kuomboka 2027 ceremony live online. The Litunga crosses the Barotse Floodplain aboard the Nalikwanda — stream it live on kuomboka.com."/>
+  <meta property="og:title" content="Kuomboka 2027 Live Stream — Watch the Royal Journey"/>
+  <meta property="og:description" content="Stream the 2027 Kuomboka ceremony live. The Nalikwanda crosses the Barotse Floodplain — watch it happen in real time."/>
+  <meta property="og:image" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"/>
+  <title>Live Stream — Kuomboka 2027 | Kuomboka.com</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4TNX0HFS5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-F4TNX0HFS5');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F4TNX0HFS5');</script>
+  <style>
+    :root{--gold:#A57B0A;--gold2:#D4B030;--crimson:#9B1C2E;--crimson2:#C02840;--black:#0A0A0A;--white:#fff;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--black);color:var(--white);font-family:'Raleway',sans-serif;overflow-x:hidden;}
+
+    /* HERO */
+    .live-hero{
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;padding:8rem 2rem 4rem;text-align:center;
+    }
+
+    /* Animated water background */
+    .water-bg{position:absolute;inset:0;z-index:0;}
+    .water-layer{
+      position:absolute;bottom:0;left:-50%;right:-50%;
+      border-radius:50% 50% 0 0 / 30px 30px 0 0;
+      opacity:0.06;
+    }
+    .w1{height:60%;background:linear-gradient(to top,#1E4A8C,transparent);animation:wave1 8s ease-in-out infinite;}
+    .w2{height:50%;background:linear-gradient(to top,#A57B0A,transparent);animation:wave2 10s ease-in-out infinite;}
+    .w3{height:40%;background:linear-gradient(to top,#9B1C2E,transparent);animation:wave3 12s ease-in-out infinite;}
+    @keyframes wave1{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(4%) scaleY(1.1)}}
+    @keyframes wave2{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(-4%) scaleY(0.9)}}
+    @keyframes wave3{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(3%) scaleY(1.05)}}
+
+    /* Grid overlay */
+    .grid-overlay{
+      position:absolute;inset:0;z-index:0;
+      background:repeating-linear-gradient(90deg,rgba(165,123,10,.03) 0,rgba(165,123,10,.03) 1px,transparent 1px,transparent 60px);
+    }
+
+    /* Glowing orbs */
+    .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.07;animation:float 14s ease-in-out infinite;}
+    .o1{width:700px;height:700px;background:var(--gold);top:-200px;left:-200px;animation-delay:0s;}
+    .o2{width:500px;height:500px;background:var(--crimson);bottom:-100px;right:-100px;animation-delay:-5s;}
+    @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-50px)}}
+
+    .live-content{position:relative;z-index:10;max-width:900px;margin:0 auto;}
+
+    /* LIVE badge */
+    .coming-soon-badge{
+      display:inline-flex;align-items:center;gap:.6rem;
+      padding:.4rem 1.2rem;
+      border:1px solid var(--crimson);
+      background:rgba(155,28,46,.1);
+      margin-bottom:2rem;
+      animation:pulse-badge 2s ease-in-out infinite;
+    }
+    .badge-dot{width:8px;height:8px;border-radius:50%;background:var(--crimson);animation:blink 1.2s ease-in-out infinite;}
+    .badge-text{font-size:.6rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--crimson2);}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    @keyframes pulse-badge{0%,100%{box-shadow:0 0 0 0 rgba(155,28,46,.3)}50%{box-shadow:0 0 20px 4px rgba(155,28,46,.2)}}
+
+    /* Main title */
+    .live-title{
+      font-family:'Cinzel Decorative',serif;
+      font-size:clamp(2.5rem,7vw,6rem);
+      font-weight:700;line-height:1;
+      margin-bottom:1rem;
+      background:linear-gradient(135deg,#fff 0%,var(--gold2) 50%,#fff 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      text-shadow:none;
+      animation:shimmer 3s ease-in-out infinite;
+      background-size:200% 200%;
+    }
+    @keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    .live-subtitle{
+      font-family:'Cinzel',serif;font-size:clamp(1rem,2vw,1.4rem);
+      font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:.8rem;
+    }
+    .live-desc{
+      font-family:'EB Garamond',serif;font-size:clamp(1.1rem,2vw,1.4rem);
+      font-style:italic;color:rgba(255,255,255,.55);
+      line-height:1.8;max-width:650px;margin:0 auto 3rem;
+    }
+
+    /* Countdown */
+    .cd-wrap{margin-bottom:3rem;}
+    .cd-label{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--crimson2);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.8rem;}
+    .cd-line{height:1px;width:30px;background:var(--crimson);opacity:.5;}
+    .cd-units{display:inline-flex;border:1px solid rgba(165,123,10,.25);background:rgba(10,10,10,.7);backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,.8),inset 0 1px 0 rgba(165,123,10,.2);}
+    .cd-unit{padding:1.2rem 2rem;text-align:center;border-right:1px solid rgba(165,123,10,.15);position:relative;}
+    .cd-unit:last-child{border-right:none;}
+    .cd-n{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:700;color:#fff;display:block;line-height:1;text-shadow:0 0 30px rgba(165,123,10,.6);min-width:2.5ch;}
+    .cd-l{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.4rem;}
+
+    /* Stream placeholder */
+    .stream-box{
+      width:100%;max-width:800px;margin:0 auto 3rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(165,123,10,.2);
+      aspect-ratio:16/9;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
+    }
+    .stream-box::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at center,rgba(165,123,10,.06) 0%,transparent 70%);
+    }
+
+    /* Animated elephant */
+    .elephant-scene{position:relative;margin-bottom:1.5rem;}
+    .elephant{font-size:5rem;animation:elephant-float 3s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(165,123,10,.4));}
+    @keyframes elephant-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    /* Ripple under elephant */
+    .ripple-wrap{position:relative;height:30px;width:150px;margin:0 auto;}
+    .ripple{position:absolute;left:50%;top:50%;border:2px solid rgba(165,123,10,.4);border-radius:50%;transform:translate(-50%,-50%);animation:ripple-out 2s ease-out infinite;}
+    .ripple:nth-child(2){animation-delay:.6s;}
+    .ripple:nth-child(3){animation-delay:1.2s;}
+    @keyframes ripple-out{0%{width:20px;height:20px;opacity:1}100%{width:120px;height:120px;opacity:0}}
+
+    .stream-label{font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:1rem;position:relative;z-index:1;}
+    .stream-sub{font-family:'EB Garamond',serif;font-size:.95rem;font-style:italic;color:rgba(255,255,255,.2);position:relative;z-index:1;margin-top:.3rem;}
+
+    /* What to expect */
+    .expect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:3rem 0;text-align:left;}
+    .expect-card{padding:1.8rem;border:1px solid rgba(165,123,10,.12);background:rgba(255,255,255,.02);transition:border-color .3s,transform .3s;}
+    .expect-card:hover{border-color:rgba(165,123,10,.4);transform:translateY(-4px);}
+    .expect-icon{font-size:2rem;margin-bottom:.8rem;display:block;}
+    .expect-title{font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:.5rem;letter-spacing:.06em;}
+    .expect-desc{font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.4);}
+
+    /* Subscribe */
+    .subscribe-box{
+      max-width:560px;margin:0 auto;
+      padding:2.5rem;
+      background:rgba(155,28,46,.08);
+      border:1px solid rgba(155,28,46,.3);
+    }
+    .sub-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.5rem;letter-spacing:.08em;}
+    .sub-desc{font-family:'EB Garamond',serif;font-size:1rem;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:1.2rem;}
+    .sub-form{display:flex;gap:.5rem;}
+    .sub-input{flex:1;padding:.85rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;font-family:'Raleway',sans-serif;font-size:.88rem;outline:none;}
+    .sub-input::placeholder{color:rgba(255,255,255,.3);}
+    .sub-btn{padding:.85rem 1.5rem;background:var(--crimson);color:#fff;font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap;}
+    .sub-btn:hover{background:var(--crimson2);}
+
+    /* Stripes */
+    .s-tri{height:8px;background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px);}
+    .s-bw{height:10px;background:repeating-linear-gradient(90deg,#0a0a0a 0,#0a0a0a 22px,#fff 22px,#fff 44px);}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-crimson{background:var(--crimson);color:#fff;}
+
+    @media(max-width:700px){
+      .expect-grid{grid-template-columns:1fr;}
+      .cd-unit{padding:.8rem 1.2rem;}
+      .cd-n{font-size:1.8rem;}
+      .sub-form{flex-direction:column;}
+    }
+  </style>
 </head>
 <body data-page="live">
 <div id="site-nav"></div>
-<div class="page-wrap">
-  <div class="page-hero">
-    <span class="section-label gold center">Live Coverage</span>
-    <h1 class="sec-h white center">Live Stream</h1>
-    <p class="sec-body white center">Watch the Kuomboka ceremony live. Stream goes active when the Maoma drums beat.</p>
+
+<div class="live-hero">
+  <div class="water-bg">
+    <div class="water-layer w1"></div>
+    <div class="water-layer w2"></div>
+    <div class="water-layer w3"></div>
   </div>
-  <div class="s-tri"></div>
-  <section class="section"><div class="section-inner" style="text-align:center;">
-    <div style="padding:4rem;border:2px solid var(--gold);max-width:700px;margin:0 auto;" class="rev">
-      <span style="font-size:4rem;display:block;margin-bottom:1rem;">📡</span>
-      <h2 style="font-family:'Cinzel',serif;margin-bottom:1rem;">Live Stream Coming Soon</h2>
-      <p style="font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:2rem;">Subscribe to receive a notification the moment the stream goes live.</p>
-      <div class="nl-form" style="max-width:400px;margin:0 auto;"><input class="nl-input" type="email" placeholder="Your email" style="border-color:rgba(0,0,0,.2);color:var(--black);background:var(--white);"/><button class="btn btn-gold">Notify Me</button></div>
+  <div class="grid-overlay"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+
+  <div class="live-content">
+
+    <div class="coming-soon-badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text">Coming 2027 · Stream goes live on ceremony day</span>
     </div>
-  </div></section>
+
+    <h1 class="live-title">KUOMBOKA<br/>LIVE</h1>
+    <div class="live-subtitle">The Royal Journey · March 2027</div>
+    <p class="live-desc">
+      Watch the Litunga cross the Barotse Floodplain aboard the Nalikwanda — live, 
+      free, and streamed directly to you from the banks of the Zambezi.
+    </p>
+
+    <!-- Countdown -->
+    <div class="cd-wrap">
+      <div class="cd-label">
+        <span class="cd-line"></span>
+        Stream goes live in
+        <span class="cd-line"></span>
+      </div>
+      <div class="cd-units">
+        <div class="cd-unit"><span class="cd-n" id="cd-d">--</span><span class="cd-l">Days</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-h">--</span><span class="cd-l">Hours</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-m">--</span><span class="cd-l">Mins</span></div>
+        <div class="cd-unit"><span class="cd-n" id="cd-s">--</span><span class="cd-l">Secs</span></div>
+      </div>
+    </div>
+
+    <!-- Stream placeholder -->
+    <div class="stream-box">
+      <div class="elephant-scene">
+        <div class="elephant">🐘</div>
+        <div class="ripple-wrap">
+          <div class="ripple"></div>
+          <div class="ripple"></div>
+          <div class="ripple"></div>
+        </div>
+      </div>
+      <div class="stream-label">Live Stream · Kuomboka 2027</div>
+      <div class="stream-sub">Stream begins on ceremony day · Check back closer to March 2027</div>
+    </div>
+
+    <!-- What to expect -->
+    <div style="text-align:center;margin-bottom:2rem;">
+      <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);">
+        <span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>
+        What You Will See
+        <span style="width:24px;height:1px;background:var(--gold);opacity:.5;display:block;"></span>
+      </span>
+    </div>
+
+    <div class="expect-grid">
+      <div class="expect-card">
+        <span class="expect-icon">🥁</span>
+        <div class="expect-title">Maoma Drums — Night Before</div>
+        <p class="expect-desc">The sacred royal drums beat at Lealui the night before the ceremony, calling paddlers from across Barotseland.</p>
+      </div>
+      <div class="expect-card">
+        <span class="expect-icon">🛶</span>
+        <div class="expect-title">The Nalikwanda Sets Sail</div>
+        <p class="expect-desc">The great royal barge departs from Lealui, paddled by 200 selected men in scarlet berets across the flooded plains.</p>
+      </div>
+      <div class="expect-card">
+        <span class="expect-icon">⚓</span>
+        <div class="expect-title">The Admiral's Uniform</div>
+        <p class="expect-desc">Midway, the Litunga changes into the full British Royal Naval uniform — presented by King Edward VII in 1902.</p>
+      </div>
+      <div class="expect-card">
+        <span class="expect-icon">👑</span>
+        <div class="expect-title">Arrival at Limulunga</div>
+        <p class="expect-desc">The Kushowelela royal salute rings out. Women sing the Limeka songs of praise. The winter capital begins.</p>
+      </div>
+      <div class="expect-card">
+        <span class="expect-icon">🌊</span>
+        <div class="expect-title">The Barotse Floodplain</div>
+        <p class="expect-desc">Filmed live across the vast flooded plains of Western Province — one of the most extraordinary landscapes in Africa.</p>
+      </div>
+    </div>
+
+    <!-- Subscribe -->
+    <div class="subscribe-box">
+      <div class="sub-title">🔔 Get Notified When We Go Live</div>
+      <p class="sub-desc">Enter your email and we'll send you the stream link the moment the Maoma drums sound.</p>
+      <div class="sub-form">
+        <input class="sub-input" type="email" id="liveEmail" placeholder="your@email.com"/>
+        <button class="sub-btn" id="liveBtn" onclick="subscribeLive()">Notify Me ✦</button>
+      </div>
+      <p style="font-size:.65rem;color:rgba(255,255,255,.2);margin-top:.8rem;text-align:center;">No spam. One email when the stream goes live.</p>
+    </div>
+
+  </div>
 </div>
+
+<div class="s-tri"></div>
+
+<!-- More info section -->
+<section style="padding:5rem 2rem;background:#0d0d0d;">
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div>
+      <span style="font-size:.6rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--crimson);display:block;margin-bottom:1rem;">About the Stream</span>
+      <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin-bottom:1.2rem;line-height:1.2;">Watch History Happen — From Anywhere in the World</h2>
+      <p style="font-family:'EB Garamond',serif;font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,.45);margin-bottom:1rem;">
+        Kuomboka is one of Africa's oldest surviving royal ceremonies. For the first time, kuomboka.com will bring the full ceremony live to audiences around the world.
+      </p>
+      <p style="font-family:'EB Garamond',serif;font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,.45);">
+        Whether you are in Lusaka, London, Lagos or Los Angeles — you will be able to witness the Litunga cross the Barotse Floodplain in real time.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="padding:1.5rem;background:rgba(165,123,10,.06);border-left:3px solid var(--gold);">
+        <div style="font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;color:var(--gold);margin-bottom:.4rem;">📅 When</div>
+        <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.6;">March 2027 — exact date set by the Litunga based on Zambezi flood levels. Subscribe for the announcement.</div>
+      </div>
+      <div style="padding:1.5rem;background:rgba(165,123,10,.06);border-left:3px solid var(--gold);">
+        <div style="font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;color:var(--gold);margin-bottom:.4rem;">📍 Where</div>
+        <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.6;">Streamed live from Lealui to Limulunga, Western Province, Zambia. Watch right here on kuomboka.com — free.</div>
+      </div>
+      <div style="padding:1.5rem;background:rgba(165,123,10,.06);border-left:3px solid var(--gold);">
+        <div style="font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;color:var(--gold);margin-bottom:.4rem;">💰 Cost</div>
+        <div style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.6;">Completely free. No subscription, no paywall. Just subscribe with your email to get the link when we go live.</div>
+      </div>
+      <a href="travel.html" class="btn btn-gold" style="align-self:flex-start;">Plan to Attend in Person →</a>
+    </div>
+  </div>
+</section>
+
+<div class="s-bw"></div>
+
 <div id="site-footer"></div>
 <script src="js/components.js"></script>
 <script src="js/supabase.js"></script>
-<script src="js/main.js"></script>
+<script>
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+// Countdown to ceremony
+const target = new Date('2027-03-20T06:00:00');
+function tick() {
+  const diff = target - new Date();
+  if(diff<=0) return;
+  const pad = n => String(Math.floor(n)).padStart(2,'0');
+  document.getElementById('cd-d').textContent = pad(diff/86400000);
+  document.getElementById('cd-h').textContent = pad((diff%86400000)/3600000);
+  document.getElementById('cd-m').textContent = pad((diff%3600000)/60000);
+  document.getElementById('cd-s').textContent = pad((diff%60000)/1000);
+}
+tick(); setInterval(tick,1000);
+
+async function subscribeLive() {
+  const email = document.getElementById('liveEmail').value.trim();
+  const btn = document.getElementById('liveBtn');
+  if (!email || !email.includes('@')) {
+    document.getElementById('liveEmail').style.borderColor = 'var(--crimson)';
+    setTimeout(() => document.getElementById('liveEmail').style.borderColor = '', 2000);
+    return;
+  }
+  btn.textContent = 'Subscribing...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/subscribers`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
+      body: JSON.stringify({email, interest: 'Live Stream 2027'})
+    });
+    if (res.status === 201 || res.status === 200) {
+      btn.textContent = '✓ You\'re on the list!';
+      btn.style.background = '#2a7a2a';
+      document.getElementById('liveEmail').value = '';
+    } else if (res.status === 409) {
+      btn.textContent = '✓ Already subscribed!';
+      btn.style.background = '#2a5a7a';
+    } else {
+      btn.textContent = 'Try again'; btn.style.background = '#444';
+    }
+  } catch(e) {
+    btn.textContent = 'Try again'; btn.style.background = '#444';
+  }
+  btn.disabled = false;
+  setTimeout(() => { btn.textContent = 'Notify Me ✦'; btn.style.background = ''; }, 4000);
+}
+</script>
 </body>
 </html>
