@@ -21,7 +21,6 @@
   ],
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/blog", "destination": "/api/blog" }
+    { "source": "/robots.txt", "destination": "/robots.txt" }
   ]
 }

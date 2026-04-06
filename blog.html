@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog | Kuomboka.com</title>
+  <title>Kuomboka.com — Culture, History &amp; Stories from Barotseland</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png" type="image/png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .article-hero{background:var(--black);padding:6rem 2rem 4rem;border-bottom:3px solid var(--gold);}
@@ -37,17 +40,17 @@
     gtag('config', 'G-F4TNX0HFS5');
   </script>
   <script>
-    // Set OG tags from URL slug for social sharing
+    // For social bots: inject correct OG tags from slug before page renders
     (function() {
       const slug = new URLSearchParams(window.location.search).get('slug') || '';
-      const canonical = 'https://www.kuomboka.com/blog?slug=' + slug;
-      // Set canonical
-      const link = document.createElement('link');
-      link.rel = 'canonical'; link.href = canonical;
-      document.head.appendChild(link);
+      if (!slug) return;
+      const shareUrl = 'https://www.kuomboka.com/api/share?slug=' + encodeURIComponent(slug);
+      // Inject og:url pointing to share endpoint — Facebook will re-scrape this URL
+      document.write('<meta property="og:url" content="' + shareUrl + '"/>');
+      document.write('<link rel="canonical" href="' + shareUrl + '"/>');
     })();
   </script>
-  <!-- Default OG tags — updated by JS on load -->
+  <!-- Default OG tags — article-specific tags injected above by JS -->
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="Kuomboka.com"/>
   <meta property="og:image" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png"/>
@@ -177,12 +180,14 @@ async function loadArticle() {
 }
 
 function shareArticle(platform) {
-  const url = encodeURIComponent(window.location.href);
+  const slug = new URLSearchParams(window.location.search).get('slug') || '';
+  const shareUrl = 'https://www.kuomboka.com/api/share?slug=' + encodeURIComponent(slug);
+  const articleUrl = window.location.href;
   const title = encodeURIComponent(document.getElementById('articleTitle').textContent);
   const links = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-    twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
-    whatsapp: `https://wa.me/?text=${title}%20${url}`
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${title}`,
+    whatsapp: `https://wa.me/?text=${title}%20${encodeURIComponent(shareUrl)}`
   };
   window.open(links[platform], '_blank');
 }
