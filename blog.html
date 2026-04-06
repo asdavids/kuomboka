@@ -181,8 +181,7 @@ async function loadArticle() {
 
 function shareArticle(platform) {
   const slug = new URLSearchParams(window.location.search).get('slug') || '';
-  const shareUrl = 'https://www.kuomboka.com/api/share?slug=' + encodeURIComponent(slug);
-  const articleUrl = window.location.href;
+  const shareUrl = 'https://www.kuomboka.com/articles/' + encodeURIComponent(slug);
   const title = encodeURIComponent(document.getElementById('articleTitle').textContent);
   const links = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
