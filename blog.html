@@ -8,8 +8,21 @@
   <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <!-- Preconnect to speed up Supabase edge function -->
+  <link rel="preconnect" href="https://gintajtpcijppyqkojga.supabase.co"/>
+  <link rel="dns-prefetch" href="https://gintajtpcijppyqkojga.supabase.co"/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    /* Skeleton loader */
+    .skel {
+      background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+      background-size: 200% 100%;
+      animation: skel-shimmer 1.4s ease-in-out infinite;
+    }
+    @keyframes skel-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
     .article-hero{background:var(--black);padding:6rem 2rem 4rem;border-bottom:3px solid var(--gold);}
     .article-inner{max-width:780px;margin:0 auto;}
     .article-cat{display:inline-block;padding:.3rem .9rem;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.2rem;}
@@ -31,6 +44,18 @@
     .btn-crimson{background:var(--crimson);color:#fff;}
     .btn-gold{background:var(--gold);color:var(--black);}
   </style>
+  <!-- Pre-fetch article data as early as possible -->
+  <script>
+    (function(){
+      const slug = new URLSearchParams(window.location.search).get('slug');
+      if (slug) {
+        window.__articlePromise = fetch(
+          'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-article?slug=' + encodeURIComponent(slug),
+          { method: 'GET', headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+    })();
+  </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4TNX0HFS5"></script>
   <script>
@@ -60,7 +85,29 @@
 <div id="site-nav"></div>
 <div class="page-wrap">
 
-  <div id="loadingState" class="state-box">Loading article...</div>
+  <div id="loadingState">
+    <!-- Skeleton hero -->
+    <div style="background:#0A0A0A;padding:6rem 2rem 4rem;border-bottom:3px solid #A57B0A;">
+      <div style="max-width:780px;margin:0 auto;">
+        <div class="skel" style="width:80px;height:22px;margin-bottom:1.2rem;border-radius:2px;"></div>
+        <div class="skel" style="width:90%;height:48px;margin-bottom:.8rem;border-radius:2px;"></div>
+        <div class="skel" style="width:60%;height:48px;margin-bottom:1.5rem;border-radius:2px;"></div>
+        <div class="skel" style="width:200px;height:16px;margin-bottom:1.5rem;border-radius:2px;"></div>
+        <div class="skel" style="width:100%;height:20px;margin-bottom:.6rem;border-radius:2px;"></div>
+        <div class="skel" style="width:80%;height:20px;border-radius:2px;"></div>
+      </div>
+    </div>
+    <!-- Skeleton body -->
+    <div style="max-width:780px;margin:0 auto;padding:4rem 2rem;">
+      <div class="skel" style="width:100%;height:400px;margin-bottom:3rem;border-radius:2px;"></div>
+      <div class="skel" style="width:100%;height:18px;margin-bottom:1rem;border-radius:2px;"></div>
+      <div class="skel" style="width:100%;height:18px;margin-bottom:1rem;border-radius:2px;"></div>
+      <div class="skel" style="width:85%;height:18px;margin-bottom:2rem;border-radius:2px;"></div>
+      <div class="skel" style="width:100%;height:18px;margin-bottom:1rem;border-radius:2px;"></div>
+      <div class="skel" style="width:100%;height:18px;margin-bottom:1rem;border-radius:2px;"></div>
+      <div class="skel" style="width:70%;height:18px;border-radius:2px;"></div>
+    </div>
+  </div>
 
   <div id="articleContent" style="display:none;">
     <div class="article-hero">
@@ -140,10 +187,11 @@ async function loadArticle() {
   if (!slug) { showError('No article specified.'); return; }
 
   try {
-    const res = await fetch(`${EDGE}?slug=${encodeURIComponent(slug)}`, {
+    // Use pre-fetched promise if available (started in <head> for speed)
+    const res = await (window.__articlePromise || fetch(`${EDGE}?slug=${encodeURIComponent(slug)}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
-    });
+    }));
 
     const data = await res.json();
 
