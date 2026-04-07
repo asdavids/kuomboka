@@ -7,8 +7,8 @@ const NAV_HTML = `
 <nav class="nav">
   <div class="nav-stripe"></div>
   <div class="nav-body">
-    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;">
-      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" style="height:50px;width:auto;object-fit:contain;"/>
+    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;flex-shrink:0;min-width:60px;">
+      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" fetchpriority="high" style="height:48px;width:auto;object-fit:contain;display:block;"/>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>
@@ -61,7 +61,7 @@ const FOOTER_HTML = `
         <div class="ft-brand">KUOMBOKA</div>
         <p class="ft-tagline">A community site celebrating the Kuomboka ceremony and the Lozi people of Barotseland, Western Province, Zambia.</p>
         <div class="ft-socials">
-          <a class="ft-social-link" href="#">Facebook</a>
+          <a class="ft-social-link" href="https://www.facebook.com/profile.php?id=61573359297429" target="_blank">Facebook</a>
           <a class="ft-social-link" href="#">YouTube</a>
           <a class="ft-social-link" href="#">TikTok</a>
           <a class="ft-social-link" href="#">Instagram</a>
