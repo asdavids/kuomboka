@@ -10,7 +10,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <style>
-    .photo { position:relative; overflow:hidden; }
+    .photo { position:relative; overflow:hidden; break-inside:avoid; margin-bottom:4px; }
+    #galleryGrid { columns:2; gap:4px; }
+    @media(max-width:600px) { #galleryGrid { columns:1; } }
     .photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
     .photo:hover img { transform:scale(1.04); }
     .photo-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.78) 0%,transparent 55%); }
@@ -46,75 +48,20 @@
   <section class="section section-ivory">
     <div class="section-inner">
 
-      <div style="margin-bottom:2rem;padding:1rem 1.5rem;background:var(--ivory3);border-left:4px solid var(--gold);display:flex;align-items:center;gap:1rem;">
-        <span style="font-size:1.5rem;">📸</span>
+      <!-- Credits bar -->
+      <div style="margin-bottom:2rem;padding:1rem 1.5rem;background:var(--ivory3);border-left:4px solid var(--gold);">
         <p style="font-family:'EB Garamond',serif;font-size:1rem;color:var(--charcoal);font-style:italic;">
-          Photos by <strong style="font-style:normal;">Chellah Tukuta</strong> &amp; <strong style="font-style:normal;">Enerin</strong> — All rights reserved.
+          Photography by <strong style="font-style:normal;">Chellah Tukuta</strong>, <strong style="font-style:normal;">Enerin</strong> and <strong style="font-style:normal;">Wode Maya</strong> — All rights reserved.
         </p>
       </div>
 
-      <!-- ROW 1 -->
-      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:4px;margin-bottom:4px;">
-        <div class="photo" style="height:460px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_55_22%20PM.png" alt="The Nalikwanda"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">The Nalikwanda</div>
-            <div class="photo-credit">Royal Barge · Barotse Floodplain · © Chellah Tukuta</div>
-          </div>
-        </div>
-        <div class="photo" style="height:460px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/12CAFD72-9873-4B60-9824-D9D13C795301.PNG" alt="The Maoma Drums"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">The Maoma Drums</div>
-            <div class="photo-credit">Sacred Royal Drums · Zambezi River · © Chellah Tukuta</div>
-          </div>
-        </div>
-      </div>
+      <!-- Loading state -->
+      <p id="galleryStatus" style="text-align:center;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);padding:2rem;">Loading gallery...</p>
 
-      <!-- ROW 2 -->
-      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:4px;margin-bottom:4px;">
-        <div class="photo" style="height:460px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_49_32%20PM.png" alt="Royal Attire"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">Royal Attire — Siziba &amp; Musisi</div>
-            <div class="photo-credit">Traditional Lozi Ceremonial Dress · © Enerin</div>
-          </div>
-        </div>
-        <div class="photo" style="height:460px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT%20Image%20Apr%203%2C%202026%2C%2010_48_07%20PM.png" alt="The Admiral's Uniform"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">The Admiral's Uniform</div>
-            <div class="photo-credit">The Litunga · Presented by King Edward VII, 1902 · © Chellah Tukuta</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ROW 3 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:3rem;">
-        <div class="photo" style="height:320px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/imgi_98_659088819_1499564994871625_7244460029827478859_n.jpg" alt="Paddlers"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">The Paddlers of the Nalikwanda</div>
-            <div class="photo-credit">Royal paddlers in scarlet berets · © Chellah Tukuta</div>
-          </div>
-        </div>
-        <div class="photo" style="height:320px;">
-          <img loading="lazy" src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/imgi_99_660193786_1499564998204958_4254521191347126465_n.jpg" alt="Nalikwanda on the Water"/>
-          <div class="photo-overlay"></div>
-          <div class="photo-label">
-            <div class="photo-title">The Nalikwanda on the Water</div>
-            <div class="photo-credit">The royal barge · Zambezi Floodplain · © Chellah Tukuta</div>
-          </div>
-        </div>
-      </div>
+      <!-- Dynamic photo grid -->
+      <div id="galleryGrid" style="columns:2;gap:4px;margin-bottom:3rem;"></div>
 
       <div style="text-align:center;padding:2.5rem;background:var(--white);border:1px solid rgba(165,123,10,.2);">
-        <span style="font-size:2rem;display:block;margin-bottom:1rem;">📷</span>
         <h3 style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;margin-bottom:.8rem;">Have Kuomboka Photos?</h3>
         <p style="font-family:'EB Garamond',serif;font-size:1.05rem;color:var(--charcoal);font-style:italic;margin-bottom:1.5rem;">Contribute to the living archive of Lozi heritage. Send us your photos and we'll add them with full credit.</p>
         <a href="contact.html" class="btn btn-crimson">Submit Your Photos</a>
@@ -126,5 +73,42 @@
 <div id="site-footer"></div>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
+<script>
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+async function loadGallery() {
+  try {
+    const res = await fetch(
+      `${SB_URL}/rest/v1/gallery_photos?published=eq.true&order=created_at.desc`,
+      { headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY } }
+    );
+    const photos = await res.json();
+    const grid = document.getElementById('galleryGrid');
+    const status = document.getElementById('galleryStatus');
+
+    if (!photos || photos.length === 0) {
+      status.textContent = 'No photos yet.';
+      return;
+    }
+
+    status.style.display = 'none';
+    grid.innerHTML = photos.map(p => `
+      <div class="photo">
+        <img loading="lazy" src="${p.image_url}" alt="${p.title}" style="width:100%;display:block;"/>
+        <div class="photo-overlay"></div>
+        <div class="photo-label">
+          <div class="photo-title">${p.title}</div>
+          <div class="photo-credit">${p.caption || ''}</div>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    document.getElementById('galleryStatus').textContent = 'Could not load gallery.';
+  }
+}
+
+loadGallery();
+</script>
 </body>
 </html>
