@@ -68,7 +68,7 @@
 
   <div class="alert-bar">
     <div class="alert-inner">
-      <span style="font-size:1.5rem;flex-shrink:0;">📡</span>
+      
       <p><strong style="color:#fff;">2027 Ceremony:</strong> The 2026 Kuomboka has taken place. The BRE will announce the 2027 ceremony date when Zambezi flood levels are assessed. Subscribe below to be the first to know.</p>
       <a href="#subscribe" class="btn btn-gold" style="flex-shrink:0;white-space:nowrap;">Get Alerts ✦</a>
     </div>
@@ -128,7 +128,7 @@ const CC = {
   'Flood Update':'background:#1E4A8C;color:#fff;',
   'Music':'background:#7A5C38;color:#fff;'
 };
-const CI = {'Ceremony':'🥁','Travel':'✈️','Culture':'📖','Heritage':'🐘','Flood Update':'🌊','Music':'🎶'};
+
 const BGARR = ['linear-gradient(135deg,#0a1628,#1a3a6e)','linear-gradient(135deg,#1a0806,#4a1a08)','linear-gradient(135deg,#0d1a08,#1e3812)','linear-gradient(135deg,#1a0818,#3a1040)'];
 
 function fd(iso) {
@@ -139,7 +139,7 @@ function fd(iso) {
 function buildFeatured(a) {
   const cat = a.category || 'News';
   const color = CC[cat] || CC['Culture'];
-  const icon = CI[cat] || '📰';
+  const icon = '';
   const imgHtml = a.image_url
     ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>`
     : icon;
@@ -159,9 +159,9 @@ function buildFeatured(a) {
 function buildCard(a) {
   const cat = a.category || 'News';
   const color = CC[cat] || CC['Culture'];
-  const icon = CI[cat] || '📰';
+  const icon = '';
   const bg = a.image_url ? '' : `background:${BGARR[Math.floor(Math.random()*BGARR.length)]};`;
-  const imgHtml = a.image_url ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = a.image_url ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;"></span>`;
   return `
   <a href="articles/${encodeURIComponent(a.slug)}" class="news-card">
     <div class="nc-img" style="${bg}">${imgHtml}<span class="nc-cat" style="${color}">${cat}</span></div>

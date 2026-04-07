@@ -197,12 +197,12 @@
 const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
 
-const CAT_ICONS = {'Attire':'👔','Crafts':'🧺','Jewellery':'📿','Drums':'🥁','Other':'🎁'};
+const CAT_ICONS = {};
 const TIER_COLORS = {'featured':'badge-featured','premium':'badge-premium'};
 let allListings = [];
 
 function buildCard(item) {
-  const icon = CAT_ICONS[item.category] || '🎁';
+  const icon = '';
   const isFeatured = item.listing_tier === 'featured';
   const isPremium = item.listing_tier === 'premium';
   const badge = isPremium ? '<span class="shop-badge badge-premium">Premium</span>' : isFeatured ? '<span class="shop-badge badge-featured">Featured</span>' : '';
@@ -221,7 +221,7 @@ function buildCard(item) {
         <span class="shop-seller">${item.seller_name}</span>
       </div>
       <div class="shop-location" style="margin-top:.4rem;">📍 ${item.seller_location || 'Western Province'}</div>
-      <a href="#enquire" class="enquire-btn">🛍️ Enquire to Order</a>
+      <a href="#enquire" class="enquire-btn">Enquire to Order</a>
     </div>
   </div>`;
 }
