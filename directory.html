@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="theme-color" content="#0A0A0A"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Find lodges, guesthouses, tour operators, transport and restaurants in Mongu and Western Province for the Kuomboka ceremony."/>
   <title>Stay &amp; Travel — Lodges, Tours &amp; Transport | Kuomboka.com</title>
   <link rel="stylesheet" href="css/style.css"/>
@@ -9,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <style>
     .dir-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
     .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center;}
@@ -213,7 +214,7 @@ const CAT_COLORS = {'Lodge':'background:#A57B0A;color:#000;','Guesthouse':'backg
 
 function buildSponsored(b) {
   const icon = CAT_ICONS[b.category] || '🏢';
-  const imgHtml = b.image_url ? `<img src="${b.image_url}" alt="${b.business_name}"/>` : icon;
+  const imgHtml = b.image_url ? `<img loading="lazy" src="${b.image_url}" alt="${b.business_name}"/>` : icon;
   const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);">📞 Call</a>` : '';
   const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;">🌐 Website</a>` : '';
   return `
@@ -234,7 +235,7 @@ function buildCard(b) {
   const icon = CAT_ICONS[b.category] || '🏢';
   const catColor = CAT_COLORS[b.category] || CAT_COLORS['Other'];
   const isFeatured = b.listing_tier === 'featured';
-  const imgHtml = b.image_url ? `<img src="${b.image_url}" alt="${b.business_name}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = b.image_url ? `<img loading="lazy" src="${b.image_url}" alt="${b.business_name}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
   const badge = isFeatured ? '<span class="dir-badge badge-featured">Featured</span>' : '';
   const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);font-size:.6rem;padding:.35rem .7rem;">📞 Call</a>` : '';
   const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;font-size:.6rem;padding:.35rem .7rem;">🌐 Site</a>` : '';

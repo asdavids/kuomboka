@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="theme-color" content="#0A0A0A"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Shop traditional Lozi attire, crafts, jewellery and cultural items from Barotseland, Zambia. Siziba, Musisi, beaded necklaces, drum replicas and more."/>
   <title>Lozi Cultural Marketplace | Kuomboka.com</title>
   <link rel="stylesheet" href="css/style.css"/>
@@ -9,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <style>
     .shop-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
     .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center;}
@@ -205,7 +206,7 @@ function buildCard(item) {
   const isFeatured = item.listing_tier === 'featured';
   const isPremium = item.listing_tier === 'premium';
   const badge = isPremium ? '<span class="shop-badge badge-premium">Premium</span>' : isFeatured ? '<span class="shop-badge badge-featured">Featured</span>' : '';
-  const imgHtml = item.image_url ? `<img src="${item.image_url}" alt="${item.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = item.image_url ? `<img loading="lazy" src="${item.image_url}" alt="${item.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
   const tierClass = isPremium ? 'premium' : isFeatured ? 'featured' : '';
   return `
   <div class="shop-card ${tierClass}">

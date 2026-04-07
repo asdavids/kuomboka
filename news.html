@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="theme-color" content="#0A0A0A"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Latest news from Barotseland — 2026 Kuomboka ceremony date announcements, Zambezi flood level updates, travel alerts and cultural stories."/>
   <title>Kuomboka News &amp; Updates | Ceremony Dates &amp; Cultural Stories</title>
   <link rel="stylesheet" href="css/style.css"/>
@@ -9,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
   <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <style>
     .news-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
     .alert-bar{background:var(--crimson);padding:1.2rem 2rem;}
@@ -140,7 +141,7 @@ function buildFeatured(a) {
   const color = CC[cat] || CC['Culture'];
   const icon = CI[cat] || '📰';
   const imgHtml = a.image_url
-    ? `<img src="${a.image_url}" alt="${a.title}"/>`
+    ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>`
     : icon;
   return `
   <a href="articles/${encodeURIComponent(a.slug)}" class="featured-card">
@@ -160,7 +161,7 @@ function buildCard(a) {
   const color = CC[cat] || CC['Culture'];
   const icon = CI[cat] || '📰';
   const bg = a.image_url ? '' : `background:${BGARR[Math.floor(Math.random()*BGARR.length)]};`;
-  const imgHtml = a.image_url ? `<img src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = a.image_url ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
   return `
   <a href="articles/${encodeURIComponent(a.slug)}" class="news-card">
     <div class="nc-img" style="${bg}">${imgHtml}<span class="nc-cat" style="${color}">${cat}</span></div>
