@@ -74,20 +74,17 @@
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script>
-const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
-
 async function loadGallery() {
   try {
     const res = await fetch(
-      `${SB_URL}/rest/v1/gallery_photos?published=eq.true&order=created_at.desc`,
-      { headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY } }
+      'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-gallery',
+      { method: 'GET', headers: { 'Content-Type': 'application/json' } }
     );
     const photos = await res.json();
     const grid = document.getElementById('galleryGrid');
     const status = document.getElementById('galleryStatus');
 
-    if (!photos || photos.length === 0) {
+    if (!photos || photos.error || photos.length === 0) {
       status.textContent = 'No photos yet.';
       return;
     }
@@ -104,7 +101,7 @@ async function loadGallery() {
       </div>
     `).join('');
   } catch(e) {
-    document.getElementById('galleryStatus').textContent = 'Could not load gallery.';
+    document.getElementById('galleryStatus').textContent = 'Could not load gallery: ' + e.message;
   }
 }
 
