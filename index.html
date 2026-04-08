@@ -55,6 +55,60 @@
     .nav-links a { display:block; padding:.3rem .6rem; font-size:.56rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--gold2); }
     .nav-cta { background:var(--crimson)!important; color:#fff!important; }
+
+    /* ── LANGUAGE PICKER ── */
+    .lang-picker { position:relative; flex-shrink:0; margin-left:.5rem; }
+    .lang-globe {
+      display:flex; align-items:center; gap:.4rem;
+      background:rgba(255,255,255,.06); border:1px solid rgba(165,123,10,.25);
+      color:rgba(255,255,255,.6); padding:.35rem .7rem;
+      font-family:'Raleway',sans-serif; font-size:.6rem; font-weight:700;
+      letter-spacing:.1em; cursor:pointer; transition:all .2s;
+    }
+    .lang-globe:hover { border-color:var(--gold); color:var(--gold); }
+    .lang-globe svg { opacity:.7; }
+    .lang-menu {
+      position:absolute; top:calc(100% + 8px); right:0;
+      background:#111; border:1px solid rgba(165,123,10,.25);
+      min-width:180px; z-index:600;
+      box-shadow:0 20px 50px rgba(0,0,0,.8);
+      display:none;
+    }
+    .lang-menu.open { display:block; }
+    .lang-menu-header {
+      padding:.6rem 1rem; font-size:.58rem; font-weight:700;
+      letter-spacing:.25em; text-transform:uppercase;
+      color:var(--gold); border-bottom:1px solid rgba(165,123,10,.15);
+    }
+    .lang-option {
+      display:block; width:100%; text-align:left;
+      padding:.6rem 1rem; background:none;
+      border:none; border-bottom:1px solid rgba(255,255,255,.04);
+      color:rgba(255,255,255,.55); font-family:'Raleway',sans-serif;
+      font-size:.75rem; cursor:pointer; transition:all .15s;
+    }
+    .lang-option:hover { background:rgba(165,123,10,.1); color:#fff; }
+    .lang-option.active { color:var(--gold); }
+    .lang-option:last-child { border-bottom:none; }
+
+    /* Translate overlay */
+    .translate-overlay {
+      position:fixed; inset:0; z-index:9998;
+      background:rgba(10,10,10,.85); backdrop-filter:blur(8px);
+      display:none; align-items:center; justify-content:center;
+      flex-direction:column; gap:1rem;
+    }
+    .translate-overlay.active { display:flex; }
+    .translate-spinner {
+      width:40px; height:40px; border:2px solid rgba(165,123,10,.2);
+      border-top-color:var(--gold); border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .translate-msg {
+      font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(255,255,255,.5);
+    }
     .nav-cta:hover { background:var(--crimson2)!important; }
 
     /* ═══ HERO ═══ */
@@ -146,6 +200,7 @@
     }
     .badge-line { height:1px; width:50px; background:var(--gold); opacity:.5; }
     .badge-text { font-size:.6rem; letter-spacing:.5em; text-transform:uppercase; color:var(--gold2); }
+
 
     /* Title with 3D depth */
     .hero-title {
@@ -560,6 +615,25 @@
       <li><a href="directory.html">Stay &amp; Travel</a></li>
       <li><a href="contact.html" class="nav-cta">Plan Visit</a></li>
     </ul>
+    <div class="lang-picker" id="langPicker">
+      <button class="lang-globe" onclick="toggleLangMenu()" aria-label="Translate">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="currentLangLabel">EN</span>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <div class="lang-menu-header">Translate Page</div>
+        <button class="lang-option active" onclick="translatePage('en','English','EN')">🇬🇧 English</button>
+        <button class="lang-option" onclick="translatePage('fr','French','FR')">🇫🇷 Français</button>
+        <button class="lang-option" onclick="translatePage('es','Spanish','ES')">🇪🇸 Español</button>
+        <button class="lang-option" onclick="translatePage('pt','Portuguese','PT')">🇧🇷 Português</button>
+        <button class="lang-option" onclick="translatePage('de','German','DE')">🇩🇪 Deutsch</button>
+        <button class="lang-option" onclick="translatePage('zh','Chinese','中文')">🇨🇳 中文</button>
+        <button class="lang-option" onclick="translatePage('ar','Arabic','AR')">🇸🇦 العربية</button>
+        <button class="lang-option" onclick="translatePage('hi','Hindi','HI')">🇮🇳 हिन्दी</button>
+        <button class="lang-option" onclick="translatePage('sw','Swahili','SW')">🌍 Kiswahili</button>
+      </div>
+    </div>
+    </ul>
     <div class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
       <span></span><span></span><span></span>
     </div>
@@ -604,6 +678,7 @@
       <span class="badge-text">Western Province · Zambia · Since the First Flood</span>
       <span class="badge-line"></span>
     </div>
+
 
     <h1 class="hero-title" id="heroTitle">KUOMBOKA</h1>
     <div class="hero-rule"></div>
@@ -847,12 +922,14 @@
 
 
 /* ════════════════════════════════════
-   PARALLAX HERO
+   PARALLAX HERO — background layers only
 ════════════════════════════════════ */
-const heroContent = document.getElementById('heroContent');
+const heroLayers = document.querySelectorAll('.hero-layer, .orb');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  if(heroContent) heroContent.style.transform = `translateY(${y*0.3}px)`;
+  heroLayers.forEach(el => {
+    el.style.transform = `translateY(${y*0.2}px)`;
+  });
 }, {passive:true});
 
 /* ════════════════════════════════════
@@ -908,6 +985,126 @@ window.addEventListener('scroll', () => {
     stickyCta.classList.remove('visible');
   }
 }, {passive:true});
+
+/* ════════════════════════════════════
+   LANGUAGE SWITCHER — AI Powered
+════════════════════════════════════ */
+let currentLang = 'en';
+let originalTexts = null;
+
+function toggleLangMenu() {
+  document.getElementById('langMenu').classList.toggle('open');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', e => {
+  const picker = document.getElementById('langPicker');
+  if (picker && !picker.contains(e.target)) {
+    document.getElementById('langMenu').classList.remove('open');
+  }
+});
+
+function getTranslatableTexts() {
+  // Collect all meaningful text nodes from the page
+  const selectors = [
+    '.hero-title', '.hero-sub', '.hero-trans',
+    '.section-h-3d', '.section-body-3d', '.section-label-3d',
+    '.card-title-3d', '.card-body-3d', '.card-link-3d',
+    '.sym-title', '.sym-sub',
+    '.tl-title', '.tl-desc', '.tl-time',
+    '.at-head h3', '.at-body p', '.at-list li',
+    '.royal-q p', '.royal-q cite',
+    '.nl-h', '.nl-sub',
+    '.ft-brand', '.ft-tagline', '.ft-col-h',
+    '.gal-title', '.gal-credit',
+    '.cd-label span',
+    '.hero-badge .badge-text',
+    '.sticky-cta-text'
+  ];
+  const elements = [];
+  selectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      if (el.children.length === 0 && el.textContent.trim()) {
+        elements.push(el);
+      }
+    });
+  });
+  return elements;
+}
+
+async function translatePage(lang, langName, label) {
+  document.getElementById('langMenu').classList.remove('open');
+
+  if (lang === currentLang) return;
+
+  // If going back to English, restore originals
+  if (lang === 'en' && originalTexts) {
+    originalTexts.forEach(({el, text}) => { el.textContent = text; });
+    currentLang = 'en';
+    document.getElementById('currentLangLabel').textContent = 'EN';
+    document.querySelectorAll('.lang-option').forEach(b => b.classList.remove('active'));
+    document.querySelector('.lang-option').classList.add('active');
+    return;
+  }
+
+  // Save originals on first translation
+  const elements = getTranslatableTexts();
+  if (!originalTexts) {
+    originalTexts = elements.map(el => ({ el, text: el.textContent }));
+  }
+
+  // Show overlay
+  const overlay = document.getElementById('translateOverlay');
+  const msg = document.getElementById('translateMsg');
+  overlay.classList.add('active');
+  msg.textContent = 'Translating to ' + langName + '...';
+
+  // Collect texts to translate
+  const texts = elements.map(el => el.textContent.trim()).filter(t => t.length > 0);
+  const textMap = {};
+  elements.forEach((el, i) => { textMap[i] = el.textContent.trim(); });
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4000,
+        messages: [{
+          role: 'user',
+          content: 'Translate the following texts to ' + langName + '. Return ONLY a JSON object where keys are the original texts and values are the translations. Do not translate proper nouns like Kuomboka, Nalikwanda, Litunga, Barotseland, Lozi, Silozi, Maoma, Limulunga, Lealui, Namutikitela, Zambezi. Keep formatting identical. JSON only, no markdown:\n\n' + JSON.stringify(texts)
+        }]
+      })
+    });
+
+    const data = await response.json();
+    const raw = data.content?.[0]?.text || '{}';
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const translations = JSON.parse(clean);
+
+    // Apply translations
+    elements.forEach(el => {
+      const orig = el.textContent.trim();
+      if (translations[orig]) el.textContent = translations[orig];
+    });
+
+    // Handle RTL for Arabic
+    document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+
+    currentLang = lang;
+    document.getElementById('currentLangLabel').textContent = label;
+    document.querySelectorAll('.lang-option').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+  } catch(e) {
+    msg.textContent = 'Translation failed. Please try again.';
+    setTimeout(() => overlay.classList.remove('active'), 2000);
+    return;
+  }
+
+  overlay.classList.remove('active');
+}
 
 /* Mobile Nav */
 function toggleMobile() {
