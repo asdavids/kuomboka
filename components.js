@@ -7,8 +7,8 @@ const NAV_HTML = `
 <nav class="nav">
   <div class="nav-stripe"></div>
   <div class="nav-body">
-    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;flex-shrink:0;min-width:60px;">
-      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" fetchpriority="high" style="height:48px;width:auto;object-fit:contain;display:block;"/>
+    <a href="index.html" class="nav-brand" style="display:flex;align-items:center;flex-shrink:0;min-width:64px;overflow:visible;">
+      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" fetchpriority="high" style="height:48px;width:auto;display:block;flex-shrink:0;"/>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>
@@ -22,8 +22,28 @@ const NAV_HTML = `
       <li><a href="directory.html" data-page="directory">Stay &amp; Travel</a></li>
       <li><a href="contact.html" data-page="contact" class="nav-cta">Plan Visit</a></li>
     </ul>
-    <div class="nav-hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <div style="display:flex;align-items:center;gap:.4rem;flex-shrink:0;">
+      <div class="lang-picker" id="langPicker">
+        <button class="lang-globe" onclick="toggleLangMenu()" aria-label="Translate">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="currentLangLabel">EN</span>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <div class="lang-menu-header">Translate Page</div>
+          <button class="lang-option active" onclick="translatePage('en','English','EN',this)">🇬🇧 English</button>
+          <button class="lang-option" onclick="translatePage('fr','French','FR',this)">🇫🇷 Français</button>
+          <button class="lang-option" onclick="translatePage('es','Spanish','ES',this)">🇪🇸 Español</button>
+          <button class="lang-option" onclick="translatePage('pt','Portuguese','PT',this)">🇧🇷 Português</button>
+          <button class="lang-option" onclick="translatePage('de','German','DE',this)">🇩🇪 Deutsch</button>
+          <button class="lang-option" onclick="translatePage('zh','Chinese','中文',this)">🇨🇳 中文</button>
+          <button class="lang-option" onclick="translatePage('ar','Arabic','AR',this)">🇸🇦 العربية</button>
+          <button class="lang-option" onclick="translatePage('hi','Hindi','HI',this)">🇮🇳 हिन्दी</button>
+          <button class="lang-option" onclick="translatePage('sw','Swahili','SW',this)">🌍 Kiswahili</button>
+        </div>
+      </div>
+      <div class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </nav>
