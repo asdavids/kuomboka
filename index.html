@@ -622,18 +622,17 @@
       </button>
       <div class="lang-menu" id="langMenu">
         <div class="lang-menu-header">Translate Page</div>
-        <button class="lang-option active" onclick="translatePage('en','English','EN')">🇬🇧 English</button>
-        <button class="lang-option" onclick="translatePage('fr','French','FR')">🇫🇷 Français</button>
-        <button class="lang-option" onclick="translatePage('es','Spanish','ES')">🇪🇸 Español</button>
-        <button class="lang-option" onclick="translatePage('pt','Portuguese','PT')">🇧🇷 Português</button>
-        <button class="lang-option" onclick="translatePage('de','German','DE')">🇩🇪 Deutsch</button>
-        <button class="lang-option" onclick="translatePage('zh','Chinese','中文')">🇨🇳 中文</button>
-        <button class="lang-option" onclick="translatePage('ar','Arabic','AR')">🇸🇦 العربية</button>
-        <button class="lang-option" onclick="translatePage('hi','Hindi','HI')">🇮🇳 हिन्दी</button>
-        <button class="lang-option" onclick="translatePage('sw','Swahili','SW')">🌍 Kiswahili</button>
+        <button class="lang-option active" onclick="translatePage('en','English','EN',this)">🇬🇧 English</button>
+        <button class="lang-option" onclick="translatePage('fr','French','FR',this)">🇫🇷 Français</button>
+        <button class="lang-option" onclick="translatePage('es','Spanish','ES',this)">🇪🇸 Español</button>
+        <button class="lang-option" onclick="translatePage('pt','Portuguese','PT',this)">🇧🇷 Português</button>
+        <button class="lang-option" onclick="translatePage('de','German','DE',this)">🇩🇪 Deutsch</button>
+        <button class="lang-option" onclick="translatePage('zh','Chinese','中文',this)">🇨🇳 中文</button>
+        <button class="lang-option" onclick="translatePage('ar','Arabic','AR',this)">🇸🇦 العربية</button>
+        <button class="lang-option" onclick="translatePage('hi','Hindi','HI',this)">🇮🇳 हिन्दी</button>
+        <button class="lang-option" onclick="translatePage('sw','Swahili','SW',this)">🌍 Kiswahili</button>
       </div>
     </div>
-    </ul>
     <div class="nav-hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
       <span></span><span></span><span></span>
     </div>
@@ -1032,7 +1031,7 @@ function getTranslatableTexts() {
   return elements;
 }
 
-async function translatePage(lang, langName, label) {
+async function translatePage(lang, langName, label, btn) {
   document.getElementById('langMenu').classList.remove('open');
 
   if (lang === currentLang) return;
@@ -1091,7 +1090,7 @@ async function translatePage(lang, langName, label) {
     currentLang = lang;
     document.getElementById('currentLangLabel').textContent = label;
     document.querySelectorAll('.lang-option').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    if(btn) btn.classList.add('active');
 
   } catch(e) {
     msg.textContent = 'Translation failed: ' + e.message;
