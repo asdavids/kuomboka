@@ -49,9 +49,9 @@
   <script>
     (function(){
       const slug = new URLSearchParams(window.location.search).get('slug');
-      if (slug) {
+      if (slug && slug.trim().length > 0) {
         window.__articlePromise = fetch(
-          'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-article?slug=' + encodeURIComponent(slug),
+          'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-article?slug=' + encodeURIComponent(slug.trim()),
           { method: 'GET', headers: { 'Content-Type': 'application/json' } }
         );
       }
