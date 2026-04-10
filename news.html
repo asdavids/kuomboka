@@ -144,7 +144,7 @@ function buildFeatured(a) {
     ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>`
     : icon;
   return `
-  <a href="articles/${encodeURIComponent(a.slug)}" class="featured-card">
+  <a href="/articles/${encodeURIComponent(a.slug)}" class="featured-card">
     <div class="featured-img">${imgHtml}</div>
     <div class="featured-body">
       <span class="featured-tag" style="${color}">${cat}</span>
@@ -163,7 +163,7 @@ function buildCard(a) {
   const bg = a.image_url ? '' : `background:${BGARR[Math.floor(Math.random()*BGARR.length)]};`;
   const imgHtml = a.image_url ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;"></span>`;
   return `
-  <a href="articles/${encodeURIComponent(a.slug)}" class="news-card">
+  <a href="/articles/${encodeURIComponent(a.slug)}" class="news-card">
     <div class="nc-img" style="${bg}">${imgHtml}<span class="nc-cat" style="${color}">${cat}</span></div>
     <div class="nc-body">
       <div class="nc-date">${fd(a.created_at)} · ${a.read_time||3} min read</div>
