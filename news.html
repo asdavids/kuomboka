@@ -1,1 +1,261 @@
-Host not in allowlist
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="theme-color" content="#0A0A0A"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Latest news from Barotseland — 2026 Kuomboka ceremony date announcements, Zambezi flood level updates, travel alerts and cultural stories."/>
+  <title>Kuomboka News &amp; Updates | Ceremony Dates &amp; Cultural Stories</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <meta name="msapplication-TileImage" content="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_11_47_AM.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <style>
+    .news-hero{background:var(--black);padding:5rem 2rem 4rem;text-align:center;}
+    .alert-bar{background:var(--crimson);padding:1.2rem 2rem;}
+    .alert-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+    .alert-inner p{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.5;flex:1;}
+    .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;align-items:center;}
+    .filter-btn{padding:.4rem 1.1rem;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(0,0,0,.15);background:none;cursor:pointer;transition:all .2s;font-family:'Raleway',sans-serif;}
+    .filter-btn:hover,.filter-btn.active{background:var(--black);color:var(--white);border-color:var(--black);}
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .news-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;transition:transform .3s,box-shadow .3s;text-decoration:none;color:inherit;display:block;}
+    .news-card:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(0,0,0,.12);}
+    .nc-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
+    .nc-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .nc-cat{position:absolute;top:.8rem;left:.8rem;padding:.2rem .7rem;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;z-index:1;}
+    .nc-body{padding:1.5rem;}
+    .nc-date{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+    .nc-title{font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:var(--black);margin-bottom:.6rem;line-height:1.4;}
+    .nc-excerpt{font-size:.86rem;line-height:1.7;color:var(--charcoal);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .nc-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson);}
+    .featured-card{border:1px solid rgba(0,0,0,.1);overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:2rem;text-decoration:none;color:inherit;transition:box-shadow .3s;}
+    .featured-card:hover{box-shadow:0 16px 50px rgba(0,0,0,.12);}
+    .featured-img{height:360px;background:var(--black);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+    .featured-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+    .featured-body{padding:3rem 2.5rem;background:var(--white);display:flex;flex-direction:column;justify-content:center;}
+    .featured-tag{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:inline-block;padding:.2rem .7rem;}
+    .featured-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:700;color:var(--black);line-height:1.25;margin-bottom:1rem;}
+    .featured-excerpt{font-family:'EB Garamond',serif;font-size:1.1rem;line-height:1.8;color:var(--charcoal);margin-bottom:1.5rem;}
+    .featured-meta{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+    .s-tri{height:8px;background:repeating-linear-gradient(90deg,var(--crimson) 0,var(--crimson) 12px,var(--gold) 12px,var(--gold) 24px,#fff 24px,#fff 36px,var(--gold) 36px,var(--gold) 48px,var(--crimson) 48px,var(--crimson) 60px);}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:'Raleway',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s;}
+    .btn-gold{background:var(--gold);color:var(--black);}
+    .btn-crimson{background:var(--crimson);color:#fff;}
+    #statusMsg{text-align:center;padding:1rem;font-family:'EB Garamond',serif;font-style:italic;color:var(--muted);display:none;}
+    @media(max-width:900px){.news-grid{grid-template-columns:1fr 1fr;}.featured-card{grid-template-columns:1fr;}.featured-img{height:250px;}}
+    @media(max-width:600px){.news-grid{grid-template-columns:1fr;}}
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4TNX0HFS5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F4TNX0HFS5');
+  </script>
+</head>
+<body data-page="news">
+<div id="site-nav"></div>
+<div class="page-wrap">
+
+  <div class="news-hero">
+    <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--crimson2);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span>Latest Updates<span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span></span>
+    <h1 style="font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--white);margin-bottom:1rem;">News &amp; Announcements</h1>
+    <p style="font-family:'EB Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;">Ceremony dates, flood updates, travel alerts and cultural stories from Barotseland.</p>
+  </div>
+
+  <div class="alert-bar">
+    <div class="alert-inner">
+      
+      <p><strong style="color:#fff;">2027 Ceremony:</strong> The 2026 Kuomboka has taken place. The BRE will announce the 2027 ceremony date when Zambezi flood levels are assessed. Subscribe below to be the first to know.</p>
+      <a href="#subscribe" class="btn btn-gold" style="flex-shrink:0;white-space:nowrap;">Get Alerts ✦</a>
+    </div>
+  </div>
+
+  <div class="s-tri"></div>
+
+  <section style="padding:5rem 2rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="filter-bar">
+        <span style="font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-right:.5rem;">Filter:</span>
+        <button class="filter-btn active" onclick="filterArticles('all',this)">All</button>
+        <button class="filter-btn" onclick="filterArticles('Ceremony',this)">Ceremony</button>
+        <button class="filter-btn" onclick="filterArticles('Travel',this)">Travel</button>
+        <button class="filter-btn" onclick="filterArticles('Culture',this)">Culture</button>
+        <button class="filter-btn" onclick="filterArticles('Heritage',this)">Heritage</button>
+      </div>
+      <p id="statusMsg"></p>
+      <div id="featuredSlot"></div>
+      <div id="articlesGrid" class="news-grid"></div>
+    </div>
+  </section>
+
+  <section style="padding:5rem 2rem;background:var(--ivory2);" id="subscribe">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:.7rem;font-size:.58rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:var(--crimson);margin-bottom:1rem;"><span style="width:24px;height:1px;background:var(--crimson);opacity:.5;display:block;"></span>Never Miss an Update</span>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--black);margin-bottom:1rem;">Ceremony Alerts Direct to Your Inbox</h2>
+        <p style="font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--charcoal);line-height:1.8;">Date announcements, flood level updates, travel advisories, and major cultural news from Barotseland.</p>
+      </div>
+      <div style="padding:2.5rem;background:var(--white);border:1px solid rgba(165,123,10,.2);">
+        <p style="font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;">Subscribe for Alerts</p>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Your Name</label><input id="subName" type="text" placeholder="Full name" style="width:100%;padding:.85rem 1rem;background:var(--ivory2);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.9rem;outline:none;"/></div>
+        <div style="margin-bottom:1rem;"><label style="display:block;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">Email Address</label><input id="subEmail" type="email" placeholder="your@email.com" style="width:100%;padding:.85rem 1rem;background:var(--ivory2);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.9rem;outline:none;"/></div>
+        <div style="margin-bottom:1.2rem;"><label style="display:block;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal);margin-bottom:.5rem;">I'm Interested In</label><select id="subInterest" style="width:100%;padding:.85rem 1rem;background:var(--ivory2);border:1px solid rgba(0,0,0,.15);font-family:'Raleway',sans-serif;font-size:.9rem;outline:none;"><option>All Updates</option><option>Ceremony Dates Only</option><option>Travel Alerts</option><option>Cultural Stories</option></select></div>
+        <button id="subBtn" onclick="subscribeNews()" class="btn btn-gold" style="width:100%;justify-content:center;">Subscribe ✦</button>
+        <p style="font-size:.65rem;color:var(--muted);margin-top:.8rem;text-align:center;">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script src="js/supabase.js"></script>
+<script>
+const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
+
+let allArticles = [];
+
+const CC = {
+  'Ceremony':'background:#9B1C2E;color:#fff;',
+  'Travel':'background:#7A5C38;color:#fff;',
+  'Culture':'background:#A57B0A;color:#000;',
+  'Heritage':'background:#A57B0A;color:#000;',
+  'Flood Update':'background:#1E4A8C;color:#fff;',
+  'Music':'background:#7A5C38;color:#fff;'
+};
+
+const BGARR = ['linear-gradient(135deg,#0a1628,#1a3a6e)','linear-gradient(135deg,#1a0806,#4a1a08)','linear-gradient(135deg,#0d1a08,#1e3812)','linear-gradient(135deg,#1a0818,#3a1040)'];
+
+function fd(iso) {
+  try { return new Date(iso).toLocaleDateString('en-GB',{year:'numeric',month:'long'}); }
+  catch(e) { return ''; }
+}
+
+function buildFeatured(a) {
+  const cat = a.category || 'News';
+  const color = CC[cat] || CC['Culture'];
+  const icon = '';
+  const imgHtml = a.image_url
+    ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>`
+    : icon;
+  return `
+  <a href="/articles/${encodeURIComponent(a.slug)}" class="featured-card">
+    <div class="featured-img">${imgHtml}</div>
+    <div class="featured-body">
+      <span class="featured-tag" style="${color}">${cat}</span>
+      <h2 class="featured-title">${a.title}</h2>
+      <p class="featured-excerpt">${a.excerpt || ''}</p>
+      <div class="featured-meta">${fd(a.created_at)} · ${a.read_time||3} min read · ${a.author||'Kuomboka Editorial'}</div>
+      <span class="btn btn-crimson" style="margin-top:1.5rem;">Read Article →</span>
+    </div>
+  </a>`;
+}
+
+function buildCard(a) {
+  const cat = a.category || 'News';
+  const color = CC[cat] || CC['Culture'];
+  const icon = '';
+  const bg = a.image_url ? '' : `background:${BGARR[Math.floor(Math.random()*BGARR.length)]};`;
+  const imgHtml = a.image_url ? `<img loading="lazy" src="${a.image_url}" alt="${a.title}"/>` : `<span style="position:relative;z-index:1;"></span>`;
+  return `
+  <a href="/articles/${encodeURIComponent(a.slug)}" class="news-card">
+    <div class="nc-img" style="${bg}">${imgHtml}<span class="nc-cat" style="${color}">${cat}</span></div>
+    <div class="nc-body">
+      <div class="nc-date">${fd(a.created_at)} · ${a.read_time||3} min read</div>
+      <div class="nc-title">${a.title}</div>
+      <p class="nc-excerpt">${a.excerpt || ''}</p>
+      <span class="nc-more">Read More →</span>
+    </div>
+  </a>`;
+}
+
+function render(articles) {
+  const grid = document.getElementById('articlesGrid');
+  const feat = document.getElementById('featuredSlot');
+  const msg  = document.getElementById('statusMsg');
+  msg.style.display = 'none';
+
+  if (!articles || articles.length === 0) {
+    feat.innerHTML = '';
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 0;">
+      <p style="font-family:'EB Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--muted);">No articles found. Check back soon.</p>
+    </div>`;
+    return;
+  }
+
+  feat.innerHTML = buildFeatured(articles[0]);
+  grid.innerHTML = articles.slice(1).map(a => buildCard(a)).join('');
+}
+
+function showMsg(text) {
+  const msg = document.getElementById('statusMsg');
+  msg.textContent = text;
+  msg.style.display = 'block';
+}
+
+async function loadArticles() {
+  showMsg('Loading articles...');
+  try {
+    // Use Edge Function — bypasses all RLS and CORS issues
+    const res = await fetch(
+      'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-articles',
+      { method: 'GET', headers: { 'Content-Type': 'application/json' } }
+    );
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    if (!Array.isArray(data)) throw new Error('Unexpected response');
+    allArticles = data;
+    render(allArticles);
+  } catch(err) {
+    console.error('Load error:', err);
+    showMsg('Could not load articles: ' + err.message);
+    document.getElementById('featuredSlot').innerHTML = '';
+    document.getElementById('articlesGrid').innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:3rem;border:1px solid rgba(0,0,0,.1);">
+        <p style="font-family:'Cinzel',serif;font-size:.85rem;margin-bottom:.5rem;">Error loading articles</p>
+        <p style="font-size:.82rem;color:var(--muted);">${err.message}</p>
+        <button onclick="loadArticles()" class="btn btn-crimson" style="margin-top:1rem;">Try Again</button>
+      </div>`;
+  }
+}
+
+function filterArticles(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render(cat === 'all' ? allArticles : allArticles.filter(a => a.category === cat));
+}
+
+async function subscribeNews() {
+  const name = document.getElementById('subName').value.trim();
+  const email = document.getElementById('subEmail').value.trim();
+  const interest = document.getElementById('subInterest').value;
+  const btn = document.getElementById('subBtn');
+  if (!email || !email.includes('@')) return;
+  btn.textContent = 'Subscribing...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/subscribers`, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
+      body: JSON.stringify({name, email, interest})
+    });
+    btn.textContent = res.status === 409 ? '✓ Already subscribed!' : '✓ Subscribed!';
+    btn.style.background = res.status === 409 ? '#2a5a7a' : '#2a7a2a';
+    document.getElementById('subName').value = '';
+    document.getElementById('subEmail').value = '';
+  } catch(e) {
+    btn.textContent = 'Try again'; btn.style.background = 'var(--crimson)';
+  }
+  btn.disabled = false;
+  setTimeout(() => { btn.textContent = 'Subscribe ✦'; btn.style.background = ''; }, 4000);
+}
+
+// Start loading immediately
+loadArticles();
+</script>
+</body>
+</html>
