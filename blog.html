@@ -191,7 +191,9 @@ function showError(msg) {
 }
 
 async function loadArticle() {
-  const slug = new URLSearchParams(window.location.search).get('slug');
+  // Read slug from ?slug= param OR from /articles/SLUG path
+  const pathMatch = window.location.pathname.match(/\/articles\/([^\/]+)/);
+  const slug = new URLSearchParams(window.location.search).get('slug') || (pathMatch && pathMatch[1]);
   if (!slug) { showError('No article specified.'); return; }
 
   try {
