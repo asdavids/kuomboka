@@ -48,7 +48,8 @@
   <!-- Pre-fetch article data as early as possible -->
   <script>
     (function(){
-      const slug = new URLSearchParams(window.location.search).get('slug');
+      var _pathMatch = window.location.pathname.match(/\/articles\/([^\/]+)/);
+      var slug = new URLSearchParams(window.location.search).get('slug') || (_pathMatch && _pathMatch[1]);
       if (slug && slug.trim().length > 0) {
         window.__articlePromise = fetch(
           'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-article?slug=' + encodeURIComponent(slug.trim()),
@@ -191,7 +192,6 @@ function showError(msg) {
 }
 
 async function loadArticle() {
-  // Read slug from ?slug= param OR from /articles/SLUG path
   const pathMatch = window.location.pathname.match(/\/articles\/([^\/]+)/);
   const slug = new URLSearchParams(window.location.search).get('slug') || (pathMatch && pathMatch[1]);
   if (!slug) { showError('No article specified.'); return; }
