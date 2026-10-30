@@ -61,7 +61,7 @@ const FOOTER_HTML = `
         <div class="ft-brand">KUOMBOKA</div>
         <p class="ft-tagline">The official digital home of the Kuomboka ceremony and the Lozi people of Barotseland, Western Province, Zambia.</p>
         <div class="ft-socials">
-          <a class="ft-social-link" href="#">Facebook</a>
+          <a class="ft-social-link" href="https://www.facebook.com/profile.php?id=61573359297429" target="_blank" rel="noopener">Facebook</a>
           <a class="ft-social-link" href="#">YouTube</a>
           <a class="ft-social-link" href="#">TikTok</a>
           <a class="ft-social-link" href="#">Instagram</a>
