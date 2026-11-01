@@ -192,7 +192,7 @@
 
 </div>
 <div id="site-footer"></div>
-<script src="js/components.js"></script>
+<script src="js/components.js?v=webp1"></script>
 <script>
 const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
@@ -206,7 +206,7 @@ function buildCard(item) {
   const isFeatured = item.listing_tier === 'featured';
   const isPremium = item.listing_tier === 'premium';
   const badge = isPremium ? '<span class="shop-badge badge-premium">Premium</span>' : isFeatured ? '<span class="shop-badge badge-featured">Featured</span>' : '';
-  const imgHtml = item.image_url ? `<img loading="lazy" src="${item.image_url}" alt="${item.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = item.image_url ? `<img loading="lazy" src="${window.kbImg?kbImg(item.image_url):item.image_url}" alt="${item.title}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
   const tierClass = isPremium ? 'premium' : isFeatured ? 'featured' : '';
   return `
   <div class="shop-card ${tierClass}">

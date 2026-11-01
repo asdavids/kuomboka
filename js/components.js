@@ -1,3 +1,17 @@
+/* WebP image helper: maps Supabase gallery images to local WebP copies and asks Cloudinary for WebP. Safe no-op for any other URL. */
+window.KB_WEBP = {"12CAFD72-9873-4B60-9824-D9D13C795301.PNG":"12CAFD72-9873-4B60-9824-D9D13C795301.webp","ChatGPT Image Apr 3, 2026, 10_48_07 PM.png":"ChatGPT_Image_Apr_3_2026_10_48_07_PM.webp","ChatGPT Image Apr 3, 2026, 10_49_32 PM.png":"ChatGPT_Image_Apr_3_2026_10_49_32_PM.webp","ChatGPT Image Apr 3, 2026, 10_55_22 PM.png":"ChatGPT_Image_Apr_3_2026_10_55_22_PM.webp","ChatGPT Image Apr 5, 2026, 10_27_02 PM.png":"ChatGPT_Image_Apr_5_2026_10_27_02_PM.webp","ChatGPT Image Apr 5, 2026, 10_30_19 PM.png":"ChatGPT_Image_Apr_5_2026_10_30_19_PM.webp","ChatGPT Image Apr 5, 2026, 10_51_05 PM.png":"ChatGPT_Image_Apr_5_2026_10_51_05_PM.webp","ChatGPT Image Apr 5, 2026, 10_52_59 PM.png":"ChatGPT_Image_Apr_5_2026_10_52_59_PM.webp","ChatGPT Image Apr 5, 2026, 10_54_56 PM.png":"ChatGPT_Image_Apr_5_2026_10_54_56_PM.webp","ChatGPT Image Apr 5, 2026, 10_56_01 PM.png":"ChatGPT_Image_Apr_5_2026_10_56_01_PM.webp","ChatGPT Image Apr 5, 2026, 10_57_30 PM.png":"ChatGPT_Image_Apr_5_2026_10_57_30_PM.webp","ChatGPT Image Apr 6, 2026, 07_54_40 AM.jpg":"ChatGPT_Image_Apr_6_2026_07_54_40_AM.webp","ChatGPT_Image_Apr_3__2026__11_50_55_PM.png.png":"ChatGPT_Image_Apr_3__2026__11_50_55_PM.png.webp","ChatGPT_Image_Apr_4__2026__01_09_55_AM.png":"ChatGPT_Image_Apr_4__2026__01_09_55_AM.webp","ChatGPT_Image_Apr_4__2026__01_13_06_AM.png":"ChatGPT_Image_Apr_4__2026__01_13_06_AM.webp","ChatGPT_Image_Apr_4__2026__12_04_19_AM.png":"ChatGPT_Image_Apr_4__2026__12_04_19_AM.webp","ChatGPT_Image_Apr_4__2026__12_11_47_AM.png":"ChatGPT_Image_Apr_4__2026__12_11_47_AM.webp","IMG_0210.JPG":"IMG_0210.webp","IMG_0211.JPG":"IMG_0211.webp","IMG_0212.JPG":"IMG_0212.webp","IMG_0213.JPG":"IMG_0213.webp","IMG_0214.JPG":"IMG_0214.webp","IMG_0215.JPG":"IMG_0215.webp","IMG_0216.JPG":"IMG_0216.webp","IMG_0217.JPG":"IMG_0217.webp","IMG_0218.JPG":"IMG_0218.webp","IMG_0219.JPG":"IMG_0219.webp","IMG_0220.JPG":"IMG_0220.webp","IMG_0221.JPG":"IMG_0221.webp","IMG_0222.JPG":"IMG_0222.webp","imgi_98_659088819_1499564994871625_7244460029827478859_n.jpg":"imgi_98_659088819_1499564994871625_7244460029827478859_n.webp","imgi_99_660193786_1499564998204958_4254521191347126465_n.jpg":"imgi_99_660193786_1499564998204958_4254521191347126465_n.webp"};
+window.kbImg = function (u) {
+  try {
+    if (!u || typeof u !== 'string') return u;
+    var s = u.match(/^https:\/\/gintajtpcijppyqkojga\.supabase\.co\/storage\/v1\/object\/public\/gallery\/([^?#]+)/);
+    if (s) { var n = decodeURIComponent(s[1]); return window.KB_WEBP[n] ? '/img/' + window.KB_WEBP[n] : u; }
+    if (/^https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\//.test(u) && u.indexOf('f_webp') === -1) {
+      return u.replace('/image/upload/', '/image/upload/f_webp,q_80,w_1200/');
+    }
+  } catch (e) {}
+  return u;
+};
+
 /* ═══════════════════════════════════════════════
    KUOMBOKA.COM — Shared Components
    Nav, Footer, Newsletter injected via JS
@@ -8,7 +22,7 @@ const NAV_HTML = `
   <div class="nav-stripe"></div>
   <div class="nav-body">
     <a href="index.html" class="nav-brand" style="display:flex;align-items:center;">
-      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" style="height:50px;width:auto;object-fit:contain;"/>
+      <img src="/img/ChatGPT_Image_Apr_4__2026__12_04_19_AM.webp" alt="Kuomboka" style="height:50px;width:auto;object-fit:contain;"/>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>

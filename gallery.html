@@ -252,7 +252,7 @@
 </div>
 
 <div id="site-footer"></div>
-<script src="js/components.js"></script>
+<script src="js/components.js?v=webp1"></script>
 <script>
 let allPhotos = [];
 let filtered = [];
@@ -278,7 +278,7 @@ function render(photos) {
   const grid = document.getElementById('masonry');
   grid.innerHTML = photos.map((p, i) => `
     <div class="photo-card" onclick="openLightbox(${i})">
-      <img loading="lazy" src="${p.image_url}" alt="${p.title}"/>
+      <img loading="lazy" src="${window.kbImg?kbImg(p.image_url):p.image_url}" alt="${p.title}"/>
       <div class="photo-overlay"></div>
       <div class="photo-info">
         <div class="photo-name">${p.title}</div>
@@ -303,7 +303,7 @@ function openLightbox(i) {
 
 function showLightbox() {
   const p = filtered[lbIndex];
-  document.getElementById('lbImg').src = p.image_url;
+  document.getElementById('lbImg').src = window.kbImg ? kbImg(p.image_url) : p.image_url;
   document.getElementById('lbTitle').textContent = p.title;
   document.getElementById('lbCredit').textContent = p.caption || '';
 }
