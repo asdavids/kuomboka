@@ -8,7 +8,7 @@ const NAV_HTML = `
   <div class="nav-stripe"></div>
   <div class="nav-body">
     <a href="index.html" class="nav-brand" style="display:flex;align-items:center;flex-shrink:0;">
-      <img src="https://gintajtpcijppyqkojga.supabase.co/storage/v1/object/public/gallery/ChatGPT_Image_Apr_4__2026__12_04_19_AM.png" alt="Kuomboka" style="height:50px;width:auto;object-fit:contain;"/>
+      <img src="/img/ChatGPT_Image_Apr_4__2026__12_04_19_AM.webp" alt="Kuomboka" style="height:50px;width:auto;object-fit:contain;"/>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Home</a></li>

@@ -203,7 +203,7 @@
 
 </div>
 <div id="site-footer"></div>
-<script src="js/components.js"></script>
+<script src="js/components.js?v=webp1"></script>
 <script>
 const SB_URL = 'https://gintajtpcijppyqkojga.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpbnRhanRwY2lqcHB5cWtvamdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNDM4MjEsImV4cCI6MjA4ODkxOTgyMX0.rxU8EgKQM3RYrcql7CRnnX9jhmc2D1xNXTYjxcG99TM';
@@ -214,7 +214,7 @@ const CAT_COLORS = {'Lodge':'background:#A57B0A;color:#000;','Guesthouse':'backg
 
 function buildSponsored(b) {
   const icon = CAT_ICONS[b.category] || '🏢';
-  const imgHtml = b.image_url ? `<img loading="lazy" src="${b.image_url}" alt="${b.business_name}"/>` : icon;
+  const imgHtml = b.image_url ? `<img loading="lazy" src="${window.kbImg?kbImg(b.image_url):b.image_url}" alt="${b.business_name}"/>` : icon;
   const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);">📞 Call</a>` : '';
   const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;">🌐 Website</a>` : '';
   return `
@@ -235,7 +235,7 @@ function buildCard(b) {
   const icon = CAT_ICONS[b.category] || '🏢';
   const catColor = CAT_COLORS[b.category] || CAT_COLORS['Other'];
   const isFeatured = b.listing_tier === 'featured';
-  const imgHtml = b.image_url ? `<img loading="lazy" src="${b.image_url}" alt="${b.business_name}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
+  const imgHtml = b.image_url ? `<img loading="lazy" src="${window.kbImg?kbImg(b.image_url):b.image_url}" alt="${b.business_name}"/>` : `<span style="position:relative;z-index:1;">${icon}</span>`;
   const badge = isFeatured ? '<span class="dir-badge badge-featured">Featured</span>' : '';
   const phone = b.phone ? `<a href="tel:${b.phone}" class="dir-btn" style="background:var(--gold);color:var(--black);font-size:.6rem;padding:.35rem .7rem;">📞 Call</a>` : '';
   const web = b.website ? `<a href="${b.website}" target="_blank" class="dir-btn" style="background:var(--crimson);color:#fff;font-size:.6rem;padding:.35rem .7rem;">🌐 Site</a>` : '';

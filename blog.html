@@ -154,7 +154,7 @@
 
 </div>
 <div id="site-footer"></div>
-<script src="js/components.js"></script>
+<script src="js/components.js?v=webp1"></script>
 <script>
 const EDGE = 'https://gintajtpcijppyqkojga.supabase.co/functions/v1/get-article';
 
@@ -225,7 +225,7 @@ async function loadArticle() {
 
     if (data.image_url) {
       const img = document.getElementById('articleImage');
-      img.src = data.image_url;
+      img.src = window.kbImg ? kbImg(data.image_url) : data.image_url;
       img.style.display = 'block';
     }
 
